@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 currMoveVec = iReader.movementValue;
         Vector3 movement = new Vector3(currMoveVec.x, 0, currMoveVec.y);
-        charController.Move(movement);
+        charController.Move(movement * Time.deltaTime);
 
         if (iReader.movementValue == Vector2.zero)
             return;
