@@ -7,8 +7,12 @@ using UnityEditor;
 
 public class WeatherSystemEditor : Editor
 {
-    public override void OnInspectorGUI()
+    /*public override void OnInspectorGUI()
     {
         WeatherSystem weatherSystem = (WeatherSystem)target;
-    }
+        if(GUILayout.Button("Reset"))
+        {
+            
+        }
+    }*/
 }
