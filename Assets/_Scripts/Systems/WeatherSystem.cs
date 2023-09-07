@@ -17,19 +17,19 @@ public class WeatherSystem : MonoBehaviour
     public ParticleSystem lightningParticleSystem;
     void Start()
     {
-        //Set the current RainSort
+        //Set the current Weather based on whats selected in the WeatherList enum in the inspector.
         currentWeatherSort = weatherSorts[(int)currentWeather];
         startWeather(currentWeatherSort);
     }
 
-    public void changeWeatherRandom()
+    public void changeWeatherRandom() //Changes the weather randomly, called from the WeatherController script.
     {
         int randomNumber;
         randomNumber = Random.Range(0, weatherSorts.Count);
         startWeather(weatherSorts[randomNumber]);
     }
     
-    public void startWeather(weatherSort weather)
+    public void startWeather(weatherSort weather) //Need to input weather type to use function, have to use weatherSort[listNumber] to choose. Not the easiest way but it works.
     {
         var rainEmission = rainParticleSystem.emission;
         var lightningEmission = lightningParticleSystem.emission;
@@ -64,7 +64,7 @@ public class WeatherSystem : MonoBehaviour
         }
     }
 
-    public enum WeatherList
+    public enum WeatherList //All the weather options that will show up in inspector. They have to correspond in the same order as the weatherSort list.
     {
         none,
         cloudy,
@@ -75,7 +75,7 @@ public class WeatherSystem : MonoBehaviour
     }
 
     [System.Serializable]
-    public class weatherSort
+    public class weatherSort //Class used to define what is in the weather. Fill all these in the inspector when you add a new one to the weatherSort list.
     {
         public string name;
         public int intensity;
