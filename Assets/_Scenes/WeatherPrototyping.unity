@@ -5514,7 +5514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699410945}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000014901161, y: 0.000000029802322, z: -0.000000007450581,
+  m_LocalRotation: {x: -0.000000014901161, y: 0.000000029802322, z: -0.000000029802322,
     w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -5594,7 +5594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810595374}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.05744885, y: 0.000000029802322, z: -0.000000029802322, w: 0.9983485}
+  m_LocalRotation: {x: -0.05744884, y: 0.000000029802322, z: -0.000000007450581, w: 0.9983485}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10742,7 +10742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe6f6c44f752fa4bb2141021ceb5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeather: 5
+  currentWeather: 1
   weatherSorts:
   - name: None
     intensity: 0
@@ -10819,7 +10819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197db885bd9dd64c8056d51e0945a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weatherShiftTimer: 900
+  weatherShiftTimer: 5
   weather: {fileID: 1266239354}
 --- !u!1 &1457519022
 GameObject:
@@ -15867,7 +15867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2700874170572811546}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21539442, y: 0.56922674, z: -0.15766667, w: 0.7776422}
+  m_LocalRotation: {x: 0.21539444, y: 0.56922674, z: -0.15766668, w: 0.77764225}
   m_LocalPosition: {x: -4.356153, y: 4, z: -1.3812212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
