@@ -18,7 +18,7 @@ public class WeatherController : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-    
+        
         if (timer >= weatherShiftTimer) 
         {
             if (isWeatherRandom)
@@ -29,10 +29,10 @@ public class WeatherController : MonoBehaviour
             else
             {
                 randomNumber = Random.Range(0, 100);
-                Debug.Log("Random number: " + randomNumber);
-                if (randomNumber >= 50)
+                //Debug.Log("Random number: " + randomNumber);
+                if (randomNumber >= 35)
                 {
-                    if (weatherIntensity ! >= weather.weatherSorts.Count)
+                    if (weatherIntensity < weather.weatherSorts.Count -1)
                     {
                         weatherIntensity++;
                         timer = 0f;
@@ -41,7 +41,7 @@ public class WeatherController : MonoBehaviour
                 }
                 else
                 {
-                    if (weatherIntensity ! <= 0)
+                    if (weatherIntensity > 0)
                     {
                         weatherIntensity--;
                         timer = 0f;
