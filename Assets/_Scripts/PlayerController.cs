@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InputReader iReader;
+    
+    /*
     [SerializeField] private CharacterController charController;
     [SerializeField] private float charSpeed = 1.0f;
 
@@ -15,21 +18,26 @@ public class PlayerController : MonoBehaviour
     private float vSpeed = 0.0f; 
     private Transform playerTransform;
     private Transform camTransform;
+    */
     
     
     // Start is called before the first frame update
     void Start()
     {
+    /*
         playerTransform = transform;
         camTransform = Camera.main.transform;
+    */
+
+        iReader.InteractEvent += onInteract;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 currMoveVec = iReader.movementValue;
         /*
+        Vector2 currMoveVec = iReader.movementValue;
 
         if (charController.isGrounded)
             vSpeed = 0;
@@ -45,20 +53,17 @@ public class PlayerController : MonoBehaviour
         playerTransform.rotation = Quaternion.LookRotation(movement);
         
         */
-        Vector3 movement = new Vector3();
+        
+    }
 
-        if(iReader.movementValue != Vector2.zero){
-            Vector3 newDirection = new Vector3(currMoveVec.x, 0, currMoveVec.y);
-            playerTransform.rotation = Quaternion.LookRotation(Vector3.Lerp(newDirection, playerTransform.forward, movementLerpFactor));
-            movement += playerTransform.forward * charSpeed;
-        }
+    void OnDestroy()
+    {
+        iReader.InteractEvent -= onInteract;
+        
+    }
 
-        if (charController.isGrounded)
-            vSpeed = 0;
-        vSpeed -= gravity * Time.deltaTime;
-
-        movement.y += vSpeed;
-
-        charController.Move(movement * Time.deltaTime);
+    private void onInteract(){
+        Debug.Log("Trying to interact");
+        throw new NotImplementedException();
     }
 }
