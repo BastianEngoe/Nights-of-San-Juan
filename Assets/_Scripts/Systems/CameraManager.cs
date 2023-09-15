@@ -10,6 +10,7 @@ public class CameraManager : MonoBehaviour
     public Transform speakerOne, speakerTwo, currentSpeaker, dialougPos;
     public float speakerDistance;
     private Vector3 betweenSpeakers, lerp;
+    private Dialogue dialouge;
     int index = 0;
     public bool currentSpeakerTest;
 
@@ -29,11 +30,16 @@ public class CameraManager : MonoBehaviour
                 menuCamera.enabled = false;
                 cinemaCamera.enabled = false;
 
+                for(int i=0; i < dialouge.nodes[index].speakers.Length; i++)
+                {
+
+                }
+
                 betweenSpeakers = (speakerTwo.position - speakerOne.position);
                 speakerDistance = Vector3.Distance(speakerOne.position, speakerTwo.position);
-                lerp = Vector3.Lerp(speakerOne.position, speakerTwo.position, speakerDistance);
-                dialougPos.position = lerp;
+                
 
+                
 
                 if (currentSpeakerTest)
                 {
