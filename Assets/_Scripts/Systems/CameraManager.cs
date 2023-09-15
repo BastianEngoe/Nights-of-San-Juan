@@ -8,10 +8,10 @@ public class CameraManager : MonoBehaviour
     public Camera mainCamera, dialogCamera, menuCamera, cinemaCamera;
     public CameraState cameraState;
     public Transform speakerOne, speakerTwo, currentSpeaker, dialougPos;
-    public float speakerDistance;
-    private Vector3 betweenSpeakers, lerp;
-    private Dialogue dialouge;
-    int index = 0;
+    public float speakerDistance, directionLength, height, tiltScale;
+    private Vector3 betweenSpeakers, direction, yeehaw, directionYeet;
+    public Dialogue dialouge;
+    int index = 0, numSpeakers;
     public bool currentSpeakerTest;
 
     void Update()
@@ -32,23 +32,22 @@ public class CameraManager : MonoBehaviour
 
                 for(int i=0; i < dialouge.nodes[index].speakers.Length; i++)
                 {
-
+                    betweenSpeakers += dialouge.nodes[index].speakers[i].position;
+                    numSpeakers++;
                 }
 
-                betweenSpeakers = (speakerTwo.position - speakerOne.position);
-                speakerDistance = Vector3.Distance(speakerOne.position, speakerTwo.position);
+                betweenSpeakers /= numSpeakers;
+
+                direction = currentSpeaker.position - betweenSpeakers;
+
+                directionYeet.x = direction.z * -1;
+                directionYeet.z = direction.x;
+
+                yeehaw = direction * directionLength + new Vector3(0,1,0) * height + directionYeet * tiltScale;
+
+                dialougPos.position = yeehaw;
                 
-
-                
-
-                if (currentSpeakerTest)
-                {
-                    currentSpeaker = speakerOne;
-                }
-                else
-                {
-                    currentSpeaker = speakerTwo;
-                }
+                currentSpeaker = dialouge.nodes[index].currentSpeaker;
 
                 dialogCamera.transform.LookAt(currentSpeaker.position);
 
