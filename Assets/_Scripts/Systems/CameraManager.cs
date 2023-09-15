@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -9,7 +10,7 @@ public class CameraManager : MonoBehaviour
     public Transform speakerOne, speakerTwo, currentSpeaker, dialougPos;
     public float speakerDistance;
     private Vector3 betweenSpeakers, lerp;
-    
+    int index = 0;
     public bool currentSpeakerTest;
 
     void Update()
@@ -59,6 +60,10 @@ public class CameraManager : MonoBehaviour
                 cinemaCamera.enabled = true;
                 break;
         }
+    }
+
+    public void nextNode(){
+        index++;
     }
 }
 

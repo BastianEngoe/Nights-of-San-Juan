@@ -155,13 +155,11 @@ MonoBehaviour:
   textComponent: {fileID: 1372118134}
   writingDelay: 0
   dialogue:
-    strings:
-    - Did you know that FFXIV has a free trial?
-    - I dont want to make the rest, so fuck you
-    - lol
-    - lmao fuck Unity
-    speaker1: {fileID: 0}
-    speaker2: {fileID: 0}
+    nodes:
+    - text: Did you know that
+      speakers: []
+    - text: Were no stranger to love
+      speakers: []
     currentSpeaker: {fileID: 0}
     canRespond: 0
 --- !u!4 &249772579
@@ -174,6 +172,53 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 391, y: 102.54168, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &596814631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596814633}
+  - component: {fileID: 596814632}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &596814632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596814631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee631bd3db4a36438574bcd84a98034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  camManager: {fileID: 0}
+  dialogueSystem: {fileID: 0}
+--- !u!4 &596814633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596814631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 386.5, y: 181, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -596,3 +641,4 @@ SceneRoots:
   - {fileID: 4564450467621087937}
   - {fileID: 1178228975}
   - {fileID: 249772579}
+  - {fileID: 596814633}

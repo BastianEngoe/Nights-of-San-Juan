@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private ThirdPersonController playerController;
     [SerializeField] private CameraManager camManager;
+    [SerializeField] private DialogueSystem dialogueSystem;
     private GameObject playerObject;
 
     public static GameManager instance;

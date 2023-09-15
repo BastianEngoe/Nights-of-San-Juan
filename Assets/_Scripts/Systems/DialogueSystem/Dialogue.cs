@@ -9,13 +9,13 @@ public class Dialogue
     
     [Serializable]
     public struct conversationNode {
-        public string text;
+        public string text; 
         public Transform[] speakers;
+        public Transform currentSpeaker;
     }
     
     public conversationNode[] nodes;
 
-    public Transform currentSpeaker;
     public bool canRespond;
     //public Response[] responses; 
     

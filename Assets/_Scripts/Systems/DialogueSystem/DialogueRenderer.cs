@@ -35,6 +35,17 @@ public class DialogueSystem : MonoBehaviour
         }
     }
     
+    public bool nextLine(){
+        if(textComponent.text == dialogue.nodes[index].text){
+                NextLine();
+                return true;
+            }
+            else{
+                StopAllCoroutines();
+                textComponent.text = dialogue.nodes[index].text;
+                return false;
+            }
+    }
 
     /// <summary>
     /// Sets the index to 0 and starts typing the next line
