@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DialogueRenderer : MonoBehaviour
+public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
-    public Dialogue dialogue {get; set;}
+    [SerializeField] private Dialogue dialogue;
 
 
 
@@ -15,7 +15,6 @@ public class DialogueRenderer : MonoBehaviour
 
     void Start()
     {
-        DebugSomeStuff();
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -26,49 +25,54 @@ public class DialogueRenderer : MonoBehaviour
         //for now this is implemented for testing purposes
 
         if (Input.GetMouseButtonDown(0)){
-            if(textComponent.text == dialogue.strings[index]){
+            if(textComponent.text == dialogue.nodes[index].text){
                 NextLine();
             }
             else{
                 StopAllCoroutines();
-                textComponent.text = dialogue.strings[index];
+                textComponent.text = dialogue.nodes[index].text;
             }
         }
     }
-    void DebugSomeStuff(){
+    
 
-        string[] strings = {
-            "Hey! Did you know that Final Fantasy XIV has a free trial?",
-            "It lets you play through the base game A Realm Reborn",
-            "AND the award-winning expansion Heavensward",
-            "AND the award-winning expansion Stormblood",
-            "until lvl 70 with no restrictions on playtime!",
-            "Create an account and enjoy Eorzea TODAY!"
-            };
-        dialogue = new Dialogue(strings);
-    } 
-
+    /// <summary>
+    /// Sets the index to 0 and starts typing the next line
+    /// </summary>
     void StartDialogue(){
         index = 0;
         StartCoroutine(TypeLine());
     }
 
+    /// <summary>
+    /// Types each character of the string in an interval, determined by the Writing Delay property
+    /// </summary>
+    /// <returns></returns>
     IEnumerator TypeLine(){
-        foreach(char c in dialogue.strings[index].ToCharArray()){
+        foreach(char c in dialogue.nodes[index].text.ToCharArray()){
             textComponent.text += c;
             yield return new WaitForSeconds(writingDelay);
         }
     }
 
+    /// <summary>
+    /// Tries to move to the next line, or ends the dialogue
+    /// </summary>
     void NextLine(){
-        if (index < dialogue.strings.Length - 1)
+        if (index < dialogue.nodes.Length - 1)
             {
                 index++;
                 textComponent.text = string.Empty;
                 StartCoroutine(TypeLine());
             }
-            else {
-                Debug.Log("End of dialogue (this would be a good time to dissapear)");
-            }
+            else
+        {
+            EndDialogue();
+        }
+    }
+
+    private void EndDialogue()
+    {
+        Debug.Log("End of dialogue (this would be a good time to dissapear)");
     }
 }

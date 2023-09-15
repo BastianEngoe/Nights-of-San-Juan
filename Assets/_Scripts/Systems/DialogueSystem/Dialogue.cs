@@ -3,20 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Dialogue
 {
-    public string[] strings {get; private set;}
-    public bool canRespond {get; private set;}
     
-    public Transform currentSpeaker { get; }
-    public Response[] responses {get; private set;}
-    public Dialogue(string[] strings) {
-        this.strings = strings;
-        canRespond = false;
-        responses = null;
+    [Serializable]
+    public struct conversationNode {
+        public string text;
+        public Transform[] speakers;
     }
+    
+    public conversationNode[] nodes;
+
+    public Transform currentSpeaker;
+    public bool canRespond;
+    //public Response[] responses; 
+    
+    // public Dialogue(string[] strings) {
+    //     this.strings = strings;
+    //     canRespond = false;
+    //     responses = null;
+    // }
 }
 
+[Serializable]
 public class Response{
     public string responseText {get; private set;}
     public Transform responseSpeaker { get; private set; }
