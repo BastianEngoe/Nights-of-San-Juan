@@ -158,9 +158,16 @@ MonoBehaviour:
     nodes:
     - text: Did you know that
       speakers: []
+      currentSpeaker: {fileID: 0}
     - text: Were no stranger to love
       speakers: []
-    currentSpeaker: {fileID: 0}
+      currentSpeaker: {fileID: 0}
+    - text: Were no stranger to love
+      speakers: []
+      currentSpeaker: {fileID: 0}
+    - text: Were no stranger to love
+      speakers: []
+      currentSpeaker: {fileID: 0}
     canRespond: 0
 --- !u!4 &249772579
 Transform:
@@ -209,6 +216,10 @@ MonoBehaviour:
   playerController: {fileID: 0}
   camManager: {fileID: 0}
   dialogueSystem: {fileID: 0}
+  inputReader: {fileID: 0}
+  testDialogue:
+    nodes: []
+    canRespond: 0
 --- !u!4 &596814633
 Transform:
   m_ObjectHideFlags: 0

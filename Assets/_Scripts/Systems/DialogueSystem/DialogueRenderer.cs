@@ -7,9 +7,9 @@ public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
-    [SerializeField] private Dialogue dialogue;
+    public Dialogue dialogue;
 
-
+    public int GetDialogueLength() {return dialogue.nodes.Length;}
 
     private int index;
 
@@ -70,19 +70,17 @@ public class DialogueSystem : MonoBehaviour
     /// Tries to move to the next line, or ends the dialogue
     /// </summary>
     void NextLine(){
+        //this check should not be neccesary anymore but hey im scared
         if (index < dialogue.nodes.Length - 1)
-            {
-                index++;
-                textComponent.text = string.Empty;
-                StartCoroutine(TypeLine());
-            }
-            else
+        
         {
-            EndDialogue();
+            index++;
+            textComponent.text = string.Empty;
+            StartCoroutine(TypeLine());
         }
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         Debug.Log("End of dialogue (this would be a good time to dissapear)");
     }

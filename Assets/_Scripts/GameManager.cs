@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private ThirdPersonController playerController;
+    //[SerializeField] private ThirdPersonController playerController;
     [SerializeField] private CameraManager camManager;
     [SerializeField] private DialogueSystem dialogueSystem;
+    [SerializeField] private InputReader inputReader;
+    [SerializeField] private Dialogue testDialogue;
     private GameObject playerObject;
 
     public static GameManager instance;
@@ -21,9 +23,16 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        playerController = FindObjectOfType<ThirdPersonController>();
-        playerObject = playerController.gameObject;
+        inputReader.OnNextLineEvent += nextNode;
+        //playerController = FindObjectOfType<ThirdPersonController>();
+        //playerObject = playerController.gameObject;
         camManager = FindObjectOfType<CameraManager>();
+        sendDialogue(testDialogue);
+    }
+
+    void OnDestroy()
+    {
+        inputReader.OnNextLineEvent -= nextNode;
     }
 
     private void Update()
@@ -33,22 +42,40 @@ public class GameManager : MonoBehaviour
     
     public void CanPlayerMove(bool canThey)
     {
-        playerController.canMove = canThey;
+        //playerController.canMove = canThey;
     }
 
     public void CanPlayerJump(bool canThey)
     {
-        playerController.canJump = canThey;
+        //playerController.canJump = canThey;
     }
 
-    public void InCutscene(bool areThey)
+    public void InCutscene(bool areThey, Dialogue dial = null)
     {
-        CanPlayerJump(areThey);
-        CanPlayerMove(areThey);
+        CanPlayerJump(!areThey);
+        CanPlayerMove(!areThey);
         if (areThey)
         {
             camManager.cameraState = CameraState.DialState;
+            
         }
         else camManager.cameraState = CameraState.MoveState;
+    }
+
+    public void nextNode(){
+        if(dialogueSystem.GetDialogueLength() > dialogueSystem.dialogue.nodes.Length - 1)
+        {
+        if(dialogueSystem.nextLine())
+        camManager.nextNode();
+        }
+        else{
+            dialogueSystem.EndDialogue();
+            InCutscene(false);
+        }
+    }
+
+    private void sendDialogue(Dialogue dial){
+        dialogueSystem.dialogue = dial;
+        camManager.dialouge = dial;
     }
 }
