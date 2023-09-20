@@ -43,7 +43,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnNextLine(InputAction.CallbackContext context)
     {
-        if (!context.performed){
+        if (!context.performed && context.action.WasReleasedThisFrame()){
             OnNextLineEvent?.Invoke();
         }
     }

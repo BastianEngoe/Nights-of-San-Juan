@@ -69,6 +69,7 @@ public class CameraManager : MonoBehaviour
 
     public void nextNode(){
         index++;
+        // SetCamPosition();
     }
 }
 

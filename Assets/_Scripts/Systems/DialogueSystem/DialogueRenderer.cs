@@ -24,15 +24,15 @@ public class DialogueSystem : MonoBehaviour
         //this has to be swapped to work with the Input system,
         //for now this is implemented for testing purposes
 
-        if (Input.GetMouseButtonDown(0)){
-            if(textComponent.text == dialogue.nodes[index].text){
-                NextLine();
-            }
-            else{
-                StopAllCoroutines();
-                textComponent.text = dialogue.nodes[index].text;
-            }
-        }
+        // if (Input.GetMouseButtonDown(0)){
+        //     if(textComponent.text == dialogue.nodes[index].text){
+        //         NextLine();
+        //     }
+        //     else{
+        //         StopAllCoroutines();
+        //         textComponent.text = dialogue.nodes[index].text;
+        //     }
+        // }
     }
     
     public bool nextLine(){
