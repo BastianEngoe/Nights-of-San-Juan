@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
             camManager.nextNode();
         }
         else{
+            inputReader.OnNextLineEvent -= nextNode;
             dialogueSystem.EndDialogue();
             InCutscene(false);
         }

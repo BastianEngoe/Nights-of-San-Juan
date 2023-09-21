@@ -5,6 +5,7 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
+    [SerializeField] private GameObject answerBox, answer;
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
     public Dialogue dialogue;
@@ -17,11 +18,6 @@ public class DialogueSystem : MonoBehaviour
     {
         textComponent.text = string.Empty;
         StartDialogue();
-    }
-
-    void Update()
-    {
-        
     }
     
     public bool nextLine(){
@@ -72,6 +68,15 @@ public class DialogueSystem : MonoBehaviour
 
     public void EndDialogue()
     {
+        if (dialogue.canRespond)
+        {
+            answerBox.SetActive(true);
+            for(int i = 0; i < dialogue.responses.Length; i++)
+            {
+                GameObject currAns = Instantiate(answer, answerBox.transform);
+                currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.responses[i].responseText);
+            }
+        }
         Debug.Log("End of dialogue (this would be a good time to dissapear)");
     }
 }

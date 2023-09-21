@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [Serializable]
 public class Dialogue
@@ -17,7 +18,7 @@ public class Dialogue
     public conversationNode[] nodes;
 
     public bool canRespond;
-    //public Response[] responses; 
+    public Response[] responses; 
     
     // public Dialogue(string[] strings) {
     //     this.strings = strings;
@@ -28,8 +29,7 @@ public class Dialogue
 
 [Serializable]
 public class Response{
-    public string responseText {get; private set;}
-    public Transform responseSpeaker { get; private set; }
-    public Action<Dialogue> response {get; private set;}
+    public string responseText;
+    public Action<Dialogue> response;
 
 }
