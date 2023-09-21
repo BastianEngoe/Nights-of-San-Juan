@@ -84,7 +84,7 @@ public class CameraManager : MonoBehaviour
 
     public void nextNode(){
         index++;
-        // SetCamPosition();
+        SetCamPosition();
     }
 }
 
@@ -95,3 +95,4 @@ public enum CameraState
     MenuState,
     CinematicState
 }
+

@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class StateMachine
 {
-   IState state;
+   protected State state;
 
-   public void Tick(){
+   virtual public void Tick(){
         state.Tick();
    }
 
-   private void OnStateEnter(){
+   virtual protected void OnStateEnter(){
         state.OnStateEnter();
    }
 
-   private void OnStateExit(){
+   virtual protected void OnStateExit(){
         state.OnStateExit();
    }
 
-    public void swapState(IState newState){
+    virtual public void swapState(State newState){
         state.OnStateExit();
         state = newState;
         state.OnStateEnter();
