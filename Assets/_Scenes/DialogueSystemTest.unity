@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -153,19 +153,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1372118134}
-  writingDelay: 0
+  writingDelay: 0.05
   dialogue:
     nodes:
-    - text: Did you know that
+    - text: Did you know that were no stragers to love hello
       speakers: []
       currentSpeaker: {fileID: 0}
     - text: Were no stranger to love
       speakers: []
       currentSpeaker: {fileID: 0}
-    - text: Were no stranger to love
+    - text: Hey
       speakers: []
       currentSpeaker: {fileID: 0}
-    - text: Were no stranger to love
+    - text: Hey2
       speakers: []
       currentSpeaker: {fileID: 0}
     canRespond: 0
@@ -213,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee631bd3db4a36438574bcd84a98034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
   camManager: {fileID: 0}
   dialogueSystem: {fileID: 0}
   inputReader: {fileID: 0}
