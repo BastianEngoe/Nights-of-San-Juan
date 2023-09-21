@@ -9,7 +9,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private float writingDelay;
     public Dialogue dialogue;
 
-    public int GetDialogueLength() {return dialogue.nodes.Length;}
+    public int GetCurrentIndex() {return index;}
 
     private int index;
 
@@ -40,6 +40,7 @@ public class DialogueSystem : MonoBehaviour
     /// Sets the index to 0 and starts typing the next line
     /// </summary>
     void StartDialogue(){
+
         index = 0;
         StartCoroutine(TypeLine());
     }

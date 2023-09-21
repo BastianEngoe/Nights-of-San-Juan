@@ -56,16 +56,16 @@ public class GameManager : MonoBehaviour
         CanPlayerMove(!areThey);
         if (areThey)
         {
-            camManager.UpdateCameraState(CameraState.DialState);
+            camManager.UpdateCameraState(CameraState.DialogueState);
             
         }
         else camManager.UpdateCameraState(CameraState.MoveState);
     }
 
     public void nextNode(){
-        if(dialogueSystem.nextLine() && 
-            dialogueSystem.GetDialogueLength() > dialogueSystem.dialogue.nodes.Length - 1)
+        if(dialogueSystem.GetCurrentIndex() < dialogueSystem.dialogue.nodes.Length - 1 )
         {
+            if(dialogueSystem.nextLine())
             camManager.nextNode();
         }
         else{
