@@ -6,6 +6,8 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public Camera mainCamera, dialogCamera, menuCamera, cinemaCamera;
+
+    [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform speakerOne, speakerTwo, currentSpeaker, dialougPos;
     public float speakerDistance, directionLength, height, tiltScale;
     private Vector3 betweenSpeakers, direction, newPosition, directionYeet;
@@ -19,6 +21,12 @@ public class CameraManager : MonoBehaviour
     }
 
     public void UpdateCameraState(CameraState cameraState)
+    {
+        this.cameraState = cameraState;
+        ChangeCamera();
+    }
+
+    private void ChangeCamera()
     {
         switch (cameraState)
         {
