@@ -56,17 +56,17 @@ public class GameManager : MonoBehaviour
         CanPlayerMove(!areThey);
         if (areThey)
         {
-            camManager.cameraState = CameraState.DialState;
+            camManager.UpdateCameraState(CameraState.DialState);
             
         }
-        else camManager.cameraState = CameraState.MoveState;
+        else camManager.UpdateCameraState(CameraState.MoveState);
     }
 
     public void nextNode(){
-        if(dialogueSystem.GetDialogueLength() > dialogueSystem.dialogue.nodes.Length - 1)
+        if(dialogueSystem.nextLine() && 
+            dialogueSystem.GetDialogueLength() > dialogueSystem.dialogue.nodes.Length - 1)
         {
-        if(dialogueSystem.nextLine())
-        camManager.nextNode();
+            camManager.nextNode();
         }
         else{
             dialogueSystem.EndDialogue();
@@ -76,6 +76,6 @@ public class GameManager : MonoBehaviour
 
     private void sendDialogue(Dialogue dial){
         dialogueSystem.dialogue = dial;
-        camManager.dialouge = dial;
+        camManager.dialogue = dial;
     }
 }

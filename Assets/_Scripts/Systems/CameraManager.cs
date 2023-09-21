@@ -10,9 +10,9 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform speakerOne, speakerTwo, currentSpeaker, dialougPos;
     public float speakerDistance, directionLength, height, tiltScale;
-    private Vector3 betweenSpeakers, direction, newPosition, directionYeet;
-    public Dialogue dialouge;
-    int index = 0, numSpeakers;
+    private Vector3 betweenSpeakers, direction, directionYeet;
+    public Dialogue dialogue;
+    int index = 0;
     public bool currentSpeakerTest;
 
     void Update()
@@ -60,9 +60,10 @@ public class CameraManager : MonoBehaviour
 
     private void SetCamPosition()
     {
-        for (int i = 0; i < dialouge.nodes[index].speakers.Length; i++)
+        int numSpeakers=0;
+        for (int i = 0; i < dialogue.nodes[index].speakers.Length; i++)
         {
-            betweenSpeakers += dialouge.nodes[index].speakers[i].position;
+            betweenSpeakers += dialogue.nodes[index].speakers[i].position;
             numSpeakers++;
             //Debug.Log(numSpeakers);
         }
@@ -74,11 +75,9 @@ public class CameraManager : MonoBehaviour
         directionYeet.x = direction.z * -1;
         directionYeet.z = direction.x;
 
-        newPosition = direction * directionLength + new Vector3(0, 1, 0) * height + directionYeet * tiltScale;
+        dialougPos.position = direction * directionLength + new Vector3(0, 1, 0) * height + directionYeet * tiltScale;
 
-        dialougPos.position = newPosition;
-
-        currentSpeaker = dialouge.nodes[index].currentSpeaker;
+        currentSpeaker = dialogue.nodes[index].currentSpeaker;
 
         dialogCamera.transform.LookAt(currentSpeaker.position);
     }
