@@ -68,6 +68,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void EndDialogue()
     {
+        //If can respond activate check box and assign parameters to each answer
         if (dialogue.canRespond)
         {
             answerBox.SetActive(true);
@@ -75,8 +76,14 @@ public class DialogueSystem : MonoBehaviour
             {
                 GameObject currAns = Instantiate(answer, answerBox.transform);
                 currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.responses[i].responseText);
+                dialogue.responses[i].response.Invoke(getNextDialogue());
             }
         }
         Debug.Log("End of dialogue (this would be a good time to dissapear)");
+    }
+
+    private Dialogue getNextDialogue()
+    {
+        return dialogue;
     }
 }

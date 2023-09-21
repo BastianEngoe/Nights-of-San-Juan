@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DialogueSystem dialogueSystem;
     [SerializeField] private InputReader inputReader;
     [SerializeField] private Dialogue testDialogue;
+    private Dialogue currDialogue;
+
     private GameObject playerObject;
 
     public static GameManager instance;
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void sendDialogue(Dialogue dial){
+        currDialogue = dial;
         dialogueSystem.dialogue = dial;
         camManager.dialogue = dial;
     }
