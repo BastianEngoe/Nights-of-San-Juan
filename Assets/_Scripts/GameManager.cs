@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void nextNode(){
-        if(dialogueSystem.GetCurrentIndex() < dialogueSystem.dialogue.nodes.Length - 1 )
+        if(dialogueSystem.GetCurrentIndex() < dialogueSystem.dialogue.lines.Length - 1 )
         {
             if(dialogueSystem.nextLine())
             camManager.nextNode();

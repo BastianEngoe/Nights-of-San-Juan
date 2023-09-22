@@ -1,0 +1,35 @@
+{
+  "Dialogue": [
+    {
+      "id": 0,
+      "lines": [
+        {
+          "speakerIndex": 0,
+          "text": "Conv0: Do you remember"
+        },
+        {
+          "speakerIndex": 1,
+          "text": "the 21st night of september?"
+        },
+        {
+          "speakerIndex": 0,
+          "text": "no"
+        }
+      ],
+      "responses": [
+        {
+          "nextConvIndex": 0,
+          "responseText": "answ1"
+        },
+        {
+          "nextConvIndex": 0,
+          "responseText": "answ2"
+        },
+        {
+          "nextConvIndex": 0,
+          "responseText": "answ3"
+        }
+      ]
+    }
+  ]
+}

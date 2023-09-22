@@ -5,10 +5,13 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
+    [SerializeField] TextAsset eventTextData; //This variable should be removed and sent to the dialogue system
+                                              //through events
     [SerializeField] private GameObject answerBox, answer;
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
     public Dialogue dialogue;
+    private DialoguesData dialogueTest = new DialoguesData();
 
     public int GetCurrentIndex() {return index;}
 
@@ -16,18 +19,19 @@ public class DialogueSystem : MonoBehaviour
 
     void Start()
     {
+        ProcessJSON();
         textComponent.text = string.Empty;
         StartDialogue();
     }
     
     public bool nextLine(){
-        if(textComponent.text == dialogue.nodes[index].text){
+        if(textComponent.text == dialogue.lines[index].text){
                 NextLine();
                 return true;
         }
         else{
                 StopAllCoroutines();
-                textComponent.text = dialogue.nodes[index].text;
+                textComponent.text = dialogue.lines[index].text;
                 return false;
         }
     }
@@ -46,7 +50,7 @@ public class DialogueSystem : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator TypeLine(){
-        foreach(char c in dialogue.nodes[index].text.ToCharArray()){
+        foreach(char c in dialogue.lines[index].text.ToCharArray()){
             textComponent.text += c;
             yield return new WaitForSeconds(writingDelay);
         }
@@ -57,7 +61,7 @@ public class DialogueSystem : MonoBehaviour
     /// </summary>
     void NextLine(){
         //this check should not be neccesary anymore but hey im scared
-        if (index < dialogue.nodes.Length - 1)
+        if (index < dialogue.lines.Length - 1)
         
         {
             index++;
@@ -76,14 +80,26 @@ public class DialogueSystem : MonoBehaviour
             {
                 GameObject currAns = Instantiate(answer, answerBox.transform);
                 currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.responses[i].responseText);
-                dialogue.responses[i].response.Invoke(getNextDialogue());
+                //dialogue.responses[i].response.Invoke(getNextDialogue());
             }
         }
         Debug.Log("End of dialogue (this would be a good time to dissapear)");
+    }
+
+    private void ProcessJSON()
+    {
+        dialogue=JsonUtility.FromJson<Dialogue>(eventTextData.text);
+        dialogueTest=JsonUtility.FromJson<DialoguesData>(eventTextData.text);
     }
 
     private Dialogue getNextDialogue()
     {
         return dialogue;
     }
+}
+
+[System.Serializable]
+public class DialoguesData
+{
+    public Dialogue[] dialoguesTest;
 }
