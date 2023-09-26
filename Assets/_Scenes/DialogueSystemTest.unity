@@ -152,23 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a23b09ec570c524abb05b7aa333147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialoguesTextData: {fileID: 4900000, guid: f4992d01a381c674e86a2957a0aca1ca, type: 3}
+  answerBox: {fileID: 0}
+  answer: {fileID: 0}
   textComponent: {fileID: 1372118134}
   writingDelay: 0.05
   dialogue:
-    nodes:
-    - text: Did you know that were no stragers to love hello
-      speakers: []
-      currentSpeaker: {fileID: 0}
-    - text: Were no stranger to love
-      speakers: []
-      currentSpeaker: {fileID: 0}
-    - text: Hey
-      speakers: []
-      currentSpeaker: {fileID: 0}
-    - text: Hey2
-      speakers: []
-      currentSpeaker: {fileID: 0}
-    canRespond: 0
+    conversations: []
 --- !u!4 &249772579
 Transform:
   m_ObjectHideFlags: 0
@@ -217,8 +207,9 @@ MonoBehaviour:
   dialogueSystem: {fileID: 0}
   inputReader: {fileID: 0}
   testDialogue:
-    nodes: []
-    canRespond: 0
+    id: 0
+    lines: []
+    responses: []
 --- !u!4 &596814633
 Transform:
   m_ObjectHideFlags: 0

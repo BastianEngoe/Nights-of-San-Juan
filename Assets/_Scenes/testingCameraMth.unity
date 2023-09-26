@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a23b09ec570c524abb05b7aa333147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventTextData: {fileID: 4900000, guid: 95a7db367469dde4f8894c7d290fe873, type: 3}
+  dialoguesTextData: {fileID: 4900000, guid: f4992d01a381c674e86a2957a0aca1ca, type: 3}
   answerBox: {fileID: 864434298}
   answer: {fileID: 1088071196479719137, guid: 84d6a0afbcc47ef4995b9d872ea183aa, type: 3}
   textComponent: {fileID: 964327230}
@@ -455,14 +455,9 @@ MonoBehaviour:
   dialogue:
     id: 0
     lines: []
-    responses:
-    - nextConvIndex: 0
-      responseText: 1
-    - nextConvIndex: 0
-      responseText: 2
-    - nextConvIndex: 0
-      responseText: 3
-    canRespond: 1
+    responses: []
+  dialogueTest:
+    conversations: []
 --- !u!4 &492980560
 Transform:
   m_ObjectHideFlags: 0
@@ -767,7 +762,6 @@ MonoBehaviour:
     id: 0
     lines: []
     responses: []
-    canRespond: 0
 --- !u!23 &865657641
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1036,7 +1030,6 @@ MonoBehaviour:
       responseText: 2
     - nextConvIndex: 0
       responseText: 3
-    canRespond: 1
 --- !u!4 &1922838233
 Transform:
   m_ObjectHideFlags: 0

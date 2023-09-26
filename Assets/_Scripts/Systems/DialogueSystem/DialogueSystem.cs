@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using Newtonsoft.Json;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField] TextAsset eventTextData; //This variable should be removed and sent to the dialogue system
-                                              //through events
+    [SerializeField] TextAsset dialoguesTextData; //This variable should be removed and sent to the dialogue system
+                                                  //through events
     [SerializeField] private GameObject answerBox, answer;
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
-    public Dialogue dialogue;
-    private DialoguesData dialogueTest = new DialoguesData();
+    public DialoguesData dialogue;
 
-    public int GetCurrentIndex() {return index;}
+    public int GetLineCurrentIndex() {return lineIndex;}
+    public int GetConvCurrentIndex() {return convIndex;}
 
-    private int index;
+    private int convIndex;
+    private int lineIndex;
 
     void Start()
     {
@@ -25,13 +28,13 @@ public class DialogueSystem : MonoBehaviour
     }
     
     public bool nextLine(){
-        if(textComponent.text == dialogue.lines[index].text){
+        if(textComponent.text == dialogue.conversations[convIndex].lines[lineIndex].text){
                 NextLine();
                 return true;
         }
         else{
                 StopAllCoroutines();
-                textComponent.text = dialogue.lines[index].text;
+                textComponent.text = dialogue.conversations[convIndex].lines[lineIndex].text;
                 return false;
         }
     }
@@ -41,7 +44,7 @@ public class DialogueSystem : MonoBehaviour
     /// </summary>
     void StartDialogue(){
 
-        index = 0;
+        lineIndex = 0;
         StartCoroutine(TypeLine());
     }
 
@@ -50,7 +53,7 @@ public class DialogueSystem : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator TypeLine(){
-        foreach(char c in dialogue.lines[index].text.ToCharArray()){
+        foreach(char c in dialogue.conversations[convIndex].lines[lineIndex].text.ToCharArray()){
             textComponent.text += c;
             yield return new WaitForSeconds(writingDelay);
         }
@@ -60,46 +63,35 @@ public class DialogueSystem : MonoBehaviour
     /// Tries to move to the next line, or ends the dialogue
     /// </summary>
     void NextLine(){
-        //this check should not be neccesary anymore but hey im scared
-        if (index < dialogue.lines.Length - 1)
-        
-        {
-            index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
+        lineIndex++;
+        textComponent.text = string.Empty;
+        StartCoroutine(TypeLine());
     }
 
     public void EndDialogue()
     {
         //If can respond activate check box and assign parameters to each answer
-        if (dialogue.canRespond)
-        {
-            answerBox.SetActive(true);
-            for(int i = 0; i < dialogue.responses.Length; i++)
-            {
-                GameObject currAns = Instantiate(answer, answerBox.transform);
-                currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.responses[i].responseText);
-                //dialogue.responses[i].response.Invoke(getNextDialogue());
-            }
-        }
-        Debug.Log("End of dialogue (this would be a good time to dissapear)");
+        //if (dialogue.canRespond)
+        //{
+        //    answerBox.SetActive(true);
+        //    for(int i = 0; i < dialogue.responses.Length; i++)
+        //    {
+        //        GameObject currAns = Instantiate(answer, answerBox.transform);
+        //        currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.responses[i].responseText);
+        //        //dialogue.responses[i].response.Invoke(getNextDialogue());
+        //    }
+        //}
+        //Debug.Log("End of dialogue (this would be a good time to dissapear)");
     }
 
     private void ProcessJSON()
     {
-        dialogue=JsonUtility.FromJson<Dialogue>(eventTextData.text);
-        dialogueTest=JsonUtility.FromJson<DialoguesData>(eventTextData.text);
+        dialogue=JsonUtility.FromJson<DialoguesData>(dialoguesTextData.text);
     }
 
     private Dialogue getNextDialogue()
     {
-        return dialogue;
+        return dialogue.conversations[convIndex];
     }
 }
 
-[System.Serializable]
-public class DialoguesData
-{
-    public Dialogue[] dialoguesTest;
-}

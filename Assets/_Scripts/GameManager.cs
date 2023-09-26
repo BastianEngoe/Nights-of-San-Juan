@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         //playerController = FindObjectOfType<ThirdPersonController>();
         //playerObject = playerController.gameObject;
         camManager = FindObjectOfType<CameraManager>();
-        sendDialogue(testDialogue);
+        //sendDialogue(testDialogue);
     }
 
     void OnDestroy()
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void nextNode(){
-        if(dialogueSystem.GetCurrentIndex() < dialogueSystem.dialogue.lines.Length - 1 )
+        if(dialogueSystem.GetLineCurrentIndex() < dialogueSystem.dialogue.conversations[dialogueSystem.GetConvCurrentIndex()].lines.Length - 1 )
         {
             if(dialogueSystem.nextLine())
             camManager.nextNode();
@@ -77,9 +77,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void sendDialogue(Dialogue dial){
-        currDialogue = dial;
-        dialogueSystem.dialogue = dial;
-        camManager.dialogue = dial;
-    }
+    //private void sendDialogue(Dialogue dial){
+    //    currDialogue = dial;
+    //    dialogueSystem.dialogue = dial;
+    //    camManager.dialogue = dial;
+    //}
 }

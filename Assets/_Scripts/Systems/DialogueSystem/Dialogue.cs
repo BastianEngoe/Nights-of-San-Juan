@@ -12,21 +12,26 @@ public class Dialogue
     public Line[] lines;
     public Response[] responses;
 
-    //[NonSerialized]
-    public bool canRespond;
+    //public bool canRespond;
 
 }
 
 [System.Serializable]
-public class Response
+public struct Response
 {
     public int nextConvIndex;
     public string responseText;
 }
 
 [System.Serializable]
-public class Line
+public struct Line
 {
     public int speakerIndex;
     public string text;
+}
+
+[System.Serializable]
+public class DialoguesData
+{
+    public Dialogue[] conversations;
 }
