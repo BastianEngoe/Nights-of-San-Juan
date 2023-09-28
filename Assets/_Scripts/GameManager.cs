@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         if(dialogueSystem.GetLineCurrentIndex() < dialogueSystem.dialogue.conversations[dialogueSystem.GetConvCurrentIndex()].lines.Length - 1 )
         {
             if(dialogueSystem.nextLine())
-            camManager.nextNode();
+                camManager.nextNode();
         }
         else{
             inputReader.OnNextLineEvent -= nextNode;

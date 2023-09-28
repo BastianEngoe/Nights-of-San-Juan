@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class CameraManager : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class CameraManager : MonoBehaviour
     public Transform[] speakers;
     public float speakerDistance, directionLength, height, tiltScale;
     private Vector3 betweenSpeakers, direction, directionOffset;
-    public Dialogue dialogue;
+    [SerializeField] private DialogueSystem dialogueSystem;
+    private Dialogue currDialogue;
     private int index = 0;
 
     void Update()
@@ -66,7 +68,10 @@ public class CameraManager : MonoBehaviour
     }
 
     public void nextNode(){
-        if(dialogue.lines.Length>index) index++;
+        currDialogue = dialogueSystem.getDialogue();
+        if (currDialogue.lines.Length > index) index++;
+        else index = 0;
+        currentSpeaker=speakers[currDialogue.lines[index].speakerIndex];
         SetCamDialoguePos();
     }
 }

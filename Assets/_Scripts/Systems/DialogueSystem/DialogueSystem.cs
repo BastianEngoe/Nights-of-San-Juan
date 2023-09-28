@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using System;
 using Newtonsoft.Json;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -42,7 +44,7 @@ public class DialogueSystem : MonoBehaviour
     /// <summary>
     /// Sets the index to 0 and starts typing the next line
     /// </summary>
-    void StartDialogue(){
+    public void StartDialogue(){
 
         lineIndex = 0;
         StartCoroutine(TypeLine());
@@ -70,18 +72,25 @@ public class DialogueSystem : MonoBehaviour
 
     public void EndDialogue()
     {
+        int numAnswers = dialogue.conversations[convIndex].responses.Length;
         //If can respond activate check box and assign parameters to each answer
-        //if (dialogue.canRespond)
-        //{
-        //    answerBox.SetActive(true);
-        //    for(int i = 0; i < dialogue.responses.Length; i++)
-        //    {
-        //        GameObject currAns = Instantiate(answer, answerBox.transform);
-        //        currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.responses[i].responseText);
-        //        //dialogue.responses[i].response.Invoke(getNextDialogue());
-        //    }
-        //}
-        //Debug.Log("End of dialogue (this would be a good time to dissapear)");
+        if (numAnswers>0)
+        {
+            answerBox.SetActive(true);
+            for (int i = 0; i < numAnswers; i++)
+            {
+                GameObject currAns = Instantiate(answer, answerBox.transform);
+                currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.conversations[convIndex].responses[i].responseText);
+                currAns.GetComponent<Button>().onClick.AddListener(() => { answerClick(dialogue.conversations[convIndex].responses[i].nextConvIndex); });
+            }
+        }
+        Debug.Log("End of dialogue (this would be a good time to dissapear)");
+    }
+
+    private void answerClick(int nextDialogue)
+    {
+        convIndex = nextDialogue;
+        Debug.Log(nextDialogue);
     }
 
     private void ProcessJSON()
@@ -89,9 +98,14 @@ public class DialogueSystem : MonoBehaviour
         dialogue=JsonUtility.FromJson<DialoguesData>(dialoguesTextData.text);
     }
 
-    private Dialogue getNextDialogue()
+    public Dialogue getDialogue()
     {
         return dialogue.conversations[convIndex];
+    }
+
+    public void click()
+    {
+        Debug.Log("clicked");
     }
 }
 
