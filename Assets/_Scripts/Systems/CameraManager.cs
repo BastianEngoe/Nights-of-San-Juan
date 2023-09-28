@@ -4,6 +4,14 @@ using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
+public enum CameraState
+{
+    MoveState,
+    DialogueState,
+    MenuState,
+    CinematicState
+}
+
 public class CameraManager : MonoBehaviour
 {
     public Camera mainCamera;
@@ -15,12 +23,12 @@ public class CameraManager : MonoBehaviour
     private Vector3 betweenSpeakers, direction, directionOffset;
     [SerializeField] private DialogueSystem dialogueSystem;
     private Dialogue currDialogue;
-    private int index = 0;
 
-    void Update()
+    private void Start()
     {
-        
+        SetCamDialoguePos();
     }
+
 
     public void UpdateCameraState(CameraState cameraState)
     {
@@ -68,19 +76,15 @@ public class CameraManager : MonoBehaviour
     }
 
     public void nextNode(){
+        int index = dialogueSystem.GetLineCurrentIndex();
         currDialogue = dialogueSystem.getDialogue();
-        if (currDialogue.lines.Length > index) index++;
-        else index = 0;
-        currentSpeaker=speakers[currDialogue.lines[index].speakerIndex];
+
+        if (currDialogue.lines[index].speakerIndex<speakers.Length) 
+            currentSpeaker=speakers[currDialogue.lines[index].speakerIndex];
+
         SetCamDialoguePos();
     }
 }
 
-public enum CameraState
-{
-    MoveState,
-    DialogueState,
-    MenuState,
-    CinematicState
-}
+
 

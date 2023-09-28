@@ -1,7 +1,6 @@
 {
   "conversations": [
     {
-
       "id": "0",
       "lines": [
         {
@@ -20,15 +19,107 @@
       "responses": [
         {
           "responseText": "answ1",
-          "nextConvIndex": "0"
+          "nextConvIndex": "1"
         },
         {
           "responseText": "answ2",
-          "nextConvIndex": "0"
+          "nextConvIndex": "2"
         },
         {
           "responseText": "answ3",
-          "nextConvIndex": "0"
+          "nextConvIndex": "3"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Conv1: Do you remember"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "the 21st night of september?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "no"
+        }
+      ],
+      "responses": [
+        {
+          "responseText": "answ1",
+          "nextConvIndex": "1"
+        },
+        {
+          "responseText": "answ2",
+          "nextConvIndex": "2"
+        },
+        {
+          "responseText": "answ3",
+          "nextConvIndex": "3"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Conv2: Do you remember"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "the 21st night of september?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "no"
+        }
+      ],
+      "responses": [
+        {
+          "responseText": "answ1",
+          "nextConvIndex": "1"
+        },
+        {
+          "responseText": "answ2",
+          "nextConvIndex": "2"
+        },
+        {
+          "responseText": "answ3",
+          "nextConvIndex": "3"
+        }
+      ]
+    },{
+      "id": "3",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Conv3: Do you remember"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "the 21st night of september?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "no"
+        }
+      ],
+      "responses": [
+        {
+          "responseText": "answ1",
+          "nextConvIndex": "1"
+        },
+        {
+          "responseText": "answ2",
+          "nextConvIndex": "2"
+        },
+        {
+          "responseText": "answ3",
+          "nextConvIndex": "3"
         }
       ]
     }

@@ -15,7 +15,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
     public DialoguesData dialogue;
-
+    [SerializeField] private GameManager gameManager;
     public int GetLineCurrentIndex() {return lineIndex;}
     public int GetConvCurrentIndex() {return convIndex;}
 
@@ -73,24 +73,36 @@ public class DialogueSystem : MonoBehaviour
     public void EndDialogue()
     {
         int numAnswers = dialogue.conversations[convIndex].responses.Length;
-        //If can respond activate check box and assign parameters to each answer
+        //If there are answers move to next dialogue 
         if (numAnswers>0)
         {
             answerBox.SetActive(true);
             for (int i = 0; i < numAnswers; i++)
             {
+                //This variable seems useless but is necessary for lambda expressions memory
+                //DONT REMOVE
+                int temp = i;
                 GameObject currAns = Instantiate(answer, answerBox.transform);
-                currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.conversations[convIndex].responses[i].responseText);
-                currAns.GetComponent<Button>().onClick.AddListener(() => { answerClick(dialogue.conversations[convIndex].responses[i].nextConvIndex); });
+                currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.conversations[convIndex].responses[temp].responseText);
+                currAns.GetComponent<Button>().onClick.AddListener(() => { answerClick(dialogue.conversations[convIndex].responses[temp].nextConvIndex); });
             }
         }
+        else
         Debug.Log("End of dialogue (this would be a good time to dissapear)");
     }
 
     private void answerClick(int nextDialogue)
     {
+        //Set next dialogue and reset text box
         convIndex = nextDialogue;
-        Debug.Log(nextDialogue);
+        textComponent.text = string.Empty;
+        gameManager.addDialogueInput();
+        //Destroy all answers
+        foreach (Transform child in answerBox.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        StartDialogue();
     }
 
     private void ProcessJSON()
@@ -101,11 +113,6 @@ public class DialogueSystem : MonoBehaviour
     public Dialogue getDialogue()
     {
         return dialogue.conversations[convIndex];
-    }
-
-    public void click()
-    {
-        Debug.Log("clicked");
     }
 }
 

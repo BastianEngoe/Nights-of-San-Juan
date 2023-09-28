@@ -25,21 +25,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        inputReader.OnNextLineEvent += nextNode;
+        addDialogueInput();
         //playerController = FindObjectOfType<ThirdPersonController>();
         //playerObject = playerController.gameObject;
         camManager = FindObjectOfType<CameraManager>();
-        //sendDialogue(testDialogue);
     }
 
     void OnDestroy()
     {
-        inputReader.OnNextLineEvent -= nextNode;
-    }
-
-    private void Update()
-    {
-
+        removeDialogueInput();
     }
     
     public void CanPlayerMove(bool canThey)
@@ -71,10 +65,19 @@ public class GameManager : MonoBehaviour
                 camManager.nextNode();
         }
         else{
-            inputReader.OnNextLineEvent -= nextNode;
+            removeDialogueInput();
             dialogueSystem.EndDialogue();
             InCutscene(false);
         }
+    }
+
+    public void addDialogueInput()
+    {
+        inputReader.OnNextLineEvent += nextNode;
+    }
+    public void removeDialogueInput()
+    {
+        inputReader.OnNextLineEvent -= nextNode;
     }
 
     //private void sendDialogue(Dialogue dial){
