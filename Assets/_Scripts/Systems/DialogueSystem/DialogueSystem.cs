@@ -5,6 +5,7 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using System.Security.Cryptography.X509Certificates;
 
 public class DialogueSystem : MonoBehaviour
 {
