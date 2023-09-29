@@ -10,7 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 public class DialogueSystem : MonoBehaviour
 {
     TextAsset dialoguesTextData; 
-    [SerializeField] private GameObject answerBox, answer;
+    [SerializeField] private GameObject answerBox, answer, dialogueCanvas;
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
     public DialoguesData dialogue;
@@ -29,6 +29,7 @@ public class DialogueSystem : MonoBehaviour
     {
         ProcessJSON();
         textComponent.text = string.Empty;
+        dialogueCanvas.SetActive(true);
         StartDialogue();
     }
 
@@ -78,7 +79,7 @@ public class DialogueSystem : MonoBehaviour
     {
         int numAnswers = dialogue.conversations[convIndex].responses.Length;
         //If there are answers move to next dialogue 
-        if (numAnswers>0)
+        if (numAnswers > 0)
         {
             answerBox.SetActive(true);
             for (int i = 0; i < numAnswers; i++)
@@ -92,7 +93,11 @@ public class DialogueSystem : MonoBehaviour
             }
         }
         else
-        Debug.Log("End of dialogue (this would be a good time to dissapear)");
+        {
+            gameManager.setCameraState(CameraState.MoveState);
+            dialogueCanvas.SetActive(false);
+            Debug.Log("End of dialogue (this would be a good time to dissapear)");
+        }
     }
 
     private void answerClick(int nextDialogue)

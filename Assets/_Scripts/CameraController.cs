@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     private Transform camTransform;
     private Transform targetTransform;
 
-    private CameraState state = CameraState.DialogueState;
+    private CameraState state = CameraState.MoveState;
     private Vector3 currPos;
 
     // Start is called before the first frame update
@@ -56,5 +56,7 @@ public class CameraController : MonoBehaviour
     {
         transform.position = newPos;
     }
+
+    public void setState(CameraState newState) { state = newState; }
 
 }

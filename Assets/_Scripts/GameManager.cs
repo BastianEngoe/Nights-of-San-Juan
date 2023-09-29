@@ -45,12 +45,12 @@ public class GameManager : MonoBehaviour
     public void InCutscene(bool areThey, Dialogue dial = null)
     {
         CanPlayerJump(!areThey);
-        if (areThey)
-        {
-            camManager.UpdateCameraState(CameraState.DialogueState);
+        //if (areThey)
+        //{
+        //    camManager.UpdateCameraState(CameraState.DialogueState);
             
-        }
-        else camManager.UpdateCameraState(CameraState.MoveState);
+        //}
+        //else camManager.UpdateCameraState(CameraState.MoveState);
     }
 
     public void nextNode(){
@@ -91,5 +91,10 @@ public class GameManager : MonoBehaviour
             camManager.UpdateCameraState(CameraState.DialogueState);
             dialogueSystem.StartConversation();
         }      
+    }
+
+    public void setCameraState(CameraState newState)
+    {
+        camManager.UpdateCameraState(newState);
     }
 }

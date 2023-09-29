@@ -34,6 +34,7 @@ public class CameraManager : MonoBehaviour
     public void UpdateCameraState(CameraState cameraState)
     {
         this.cameraState = cameraState;
+        cameraController.setState(cameraState);
         ChangeCamera();
     }
 
