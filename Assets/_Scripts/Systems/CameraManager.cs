@@ -28,7 +28,6 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        SetCamDialoguePos();
     }
 
 
@@ -70,7 +69,6 @@ public class CameraManager : MonoBehaviour
         directionOffset.x = direction.z * -1;
         directionOffset.z = direction.x;
 
-        dialoguePos.position = direction * directionLength + new Vector3(0, 1, 0) * height + directionOffset * tiltScale;
 
         cameraController.setCamPosition(betweenSpeakers);
         cameraController.setTargetPosition(currentSpeaker.position);
@@ -93,7 +91,13 @@ public class CameraManager : MonoBehaviour
 
     public void setSpeakers(GameObject[] newSpeakers)
     {
-        
+        Transform[] speakersContainer = new Transform[newSpeakers.Length];
+        for (int i = 0;i < newSpeakers.Length;i++)
+        {
+            speakersContainer[i] = newSpeakers[i].GetComponent<Transform>();
+        }
+        currentSpeaker = speakersContainer[0];
+        speakers = speakersContainer;
     }
 }
 

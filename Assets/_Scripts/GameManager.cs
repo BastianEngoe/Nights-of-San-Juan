@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject playerObject;
 
-    private InteractionComponent interactionComponent;
+    [SerializeField] private InteractionComponent interactionComponent;
 
     public static GameManager instance;
 
@@ -87,9 +87,9 @@ public class GameManager : MonoBehaviour
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             addDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
-            dialogueSystem.StartConversation();
-            camManager.UpdateCameraState(CameraState.DialogueState);
             camManager.setSpeakers(interactableData.actors);
+            camManager.UpdateCameraState(CameraState.DialogueState);
+            dialogueSystem.StartConversation();
         }      
     }
 }
