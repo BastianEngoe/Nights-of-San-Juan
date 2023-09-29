@@ -30,11 +30,6 @@ public class GameManager : MonoBehaviour
         //playerObject = playerController.gameObject;
         camManager = FindObjectOfType<CameraManager>();
     }
-
-    void OnDestroy()
-    {
-        removeDialogueInput();
-    }
     
     public void CanPlayerMove(bool canThey)
     {

@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 240064780}
   - component: {fileID: 240064783}
   - component: {fileID: 240064784}
+  - component: {fileID: 240064785}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -486,6 +487,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &240064785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240064779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05953678d2067ff4f831b68ae8448f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 81962879}
+  heightOffset: 2
+  cameraDistance: 5
+  lerpFactor: 0.99
 --- !u!1 &492980558
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +536,7 @@ MonoBehaviour:
   answerBox: {fileID: 864434298}
   answer: {fileID: 1088071196479719137, guid: 84d6a0afbcc47ef4995b9d872ea183aa, type: 3}
   textComponent: {fileID: 964327230}
-  writingDelay: 0.4
+  writingDelay: 0.05
   dialogue:
     conversations: []
   gameManager: {fileID: 1922838232}
@@ -812,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208e393e12085d841ba89164803dccdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 240064781}
+  cameraController: {fileID: 240064785}
   cameraState: 1
   currentSpeaker: {fileID: 81962880}
   dialoguePos: {fileID: 1627031620}

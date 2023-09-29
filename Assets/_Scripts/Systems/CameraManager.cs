@@ -14,15 +14,17 @@ public enum CameraState
 
 public class CameraManager : MonoBehaviour
 {
-    public Camera mainCamera;
+    public CameraController cameraController;
 
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform currentSpeaker, dialoguePos;
     public Transform[] speakers;
     public float speakerDistance, directionLength, height, tiltScale;
-    private Vector3 betweenSpeakers, direction, directionOffset;
+    private Vector3 direction, directionOffset;
     [SerializeField] private DialogueSystem dialogueSystem;
     private Dialogue currDialogue;
+    private bool convEnter=true;
+
 
     private void Start()
     {
@@ -54,11 +56,11 @@ public class CameraManager : MonoBehaviour
 
     private void SetCamDialoguePos()
     {
-        int numSpeakers=0;
-        for (int i = 0; i < speakers.Length; i++)
+        Vector3 betweenSpeakers= Vector3.zero;
+        int numSpeakers=speakers.Length;
+        for (int i = 0; i < numSpeakers; i++)
         {
             betweenSpeakers += speakers[i].position;
-            numSpeakers++;
         }
 
         betweenSpeakers /= numSpeakers;
@@ -70,17 +72,21 @@ public class CameraManager : MonoBehaviour
 
         dialoguePos.position = direction * directionLength + new Vector3(0, 1, 0) * height + directionOffset * tiltScale;
 
-        mainCamera.transform.position = dialoguePos.position;
+        cameraController.setCamPosition(betweenSpeakers);
+        cameraController.setTargetPosition(currentSpeaker.position);
 
-        mainCamera.transform.LookAt(currentSpeaker.position);
+
+        //mainCamera.transform.position = dialoguePos.position;
+
+        //mainCamera.transform.LookAt(currentSpeaker.position);
     }
 
     public void nextNode(){
         int index = dialogueSystem.GetLineCurrentIndex();
         currDialogue = dialogueSystem.getDialogue();
 
-        if (currDialogue.lines[index].speakerIndex<speakers.Length) 
-            currentSpeaker=speakers[currDialogue.lines[index].speakerIndex];
+        if (currDialogue.lines[index].speakerIndex < speakers.Length)
+            currentSpeaker = speakers[currDialogue.lines[index].speakerIndex];
 
         SetCamDialoguePos();
     }
