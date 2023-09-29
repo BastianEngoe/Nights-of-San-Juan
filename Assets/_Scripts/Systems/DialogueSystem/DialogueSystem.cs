@@ -5,12 +5,12 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using System.Security.Cryptography.X509Certificates;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField] TextAsset dialoguesTextData; //This variable should be removed and sent to the dialogue system
-                                                  //through events
-    [SerializeField] private GameObject answerBox, answer;
+    TextAsset dialoguesTextData; 
+    [SerializeField] private GameObject answerBox, answer, dialogueCanvas;
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
     public DialoguesData dialogue;
@@ -23,11 +23,17 @@ public class DialogueSystem : MonoBehaviour
 
     void Start()
     {
+    }
+
+    public void StartConversation()
+    {
         ProcessJSON();
         textComponent.text = string.Empty;
+        dialogueCanvas.SetActive(true);
         StartDialogue();
     }
-    
+
+
     public bool nextLine(){
         if(textComponent.text == dialogue.conversations[convIndex].lines[lineIndex].text){
                 NextLine();
@@ -73,7 +79,7 @@ public class DialogueSystem : MonoBehaviour
     {
         int numAnswers = dialogue.conversations[convIndex].responses.Length;
         //If there are answers move to next dialogue 
-        if (numAnswers>0)
+        if (numAnswers > 0)
         {
             answerBox.SetActive(true);
             for (int i = 0; i < numAnswers; i++)
@@ -87,7 +93,15 @@ public class DialogueSystem : MonoBehaviour
             }
         }
         else
-        Debug.Log("End of dialogue (this would be a good time to dissapear)");
+        {
+            convIndex = 0;
+            lineIndex = 0;
+            gameManager.setCameraState(CameraState.MoveState);
+            dialogueCanvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Debug.Log("End of dialogue (this would be a good time to dissapear)");
+        }
     }
 
     private void answerClick(int nextDialogue)
@@ -109,6 +123,10 @@ public class DialogueSystem : MonoBehaviour
         dialogue=JsonUtility.FromJson<DialoguesData>(dialoguesTextData.text);
     }
 
+    public void setDialogue(TextAsset newDialogue)
+    {
+        dialoguesTextData = newDialogue;
+    }
     public Dialogue getDialogue()
     {
         return dialogue.conversations[convIndex];

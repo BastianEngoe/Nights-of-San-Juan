@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -16,9 +17,11 @@ public class CameraManager : MonoBehaviour
 {
     public CameraController cameraController;
 
+    public CinemachineBrain cinemaBrain;
+
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform currentSpeaker, dialoguePos;
-    public Transform[] speakers;
+    public Transform[] speakers; //Move to Events
     public float speakerDistance, directionLength, height, tiltScale;
     private Vector3 direction, directionOffset;
     [SerializeField] private DialogueSystem dialogueSystem;
@@ -28,13 +31,13 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        SetCamDialoguePos();
     }
 
 
     public void UpdateCameraState(CameraState cameraState)
     {
         this.cameraState = cameraState;
+        cameraController.setState(cameraState);
         ChangeCamera();
     }
 
@@ -43,8 +46,12 @@ public class CameraManager : MonoBehaviour
         switch (cameraState)
         {
             case CameraState.MoveState:
+                cinemaBrain.enabled = true;
+                cameraController.enabled = false;
                 break;
             case CameraState.DialogueState:
+                cinemaBrain.enabled = false;
+                cameraController.enabled = true;
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
@@ -70,7 +77,6 @@ public class CameraManager : MonoBehaviour
         directionOffset.x = direction.z * -1;
         directionOffset.z = direction.x;
 
-        dialoguePos.position = direction * directionLength + new Vector3(0, 1, 0) * height + directionOffset * tiltScale;
 
         cameraController.setCamPosition(betweenSpeakers);
         cameraController.setTargetPosition(currentSpeaker.position);
@@ -89,6 +95,17 @@ public class CameraManager : MonoBehaviour
             currentSpeaker = speakers[currDialogue.lines[index].speakerIndex];
 
         SetCamDialoguePos();
+    }
+
+    public void setSpeakers(GameObject[] newSpeakers)
+    {
+        Transform[] speakersContainer = new Transform[newSpeakers.Length];
+        for (int i = 0;i < newSpeakers.Length;i++)
+        {
+            speakersContainer[i] = newSpeakers[i].GetComponent<Transform>();
+        }
+        currentSpeaker = speakersContainer[0];
+        speakers = speakersContainer;
     }
 }
 

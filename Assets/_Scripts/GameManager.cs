@@ -11,9 +11,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DialogueSystem dialogueSystem;
     [SerializeField] private InputReader inputReader;
     [SerializeField] private Dialogue testDialogue;
-    private Dialogue currDialogue;
 
     private GameObject playerObject;
+
+    [SerializeField] private InteractionComponent interactionComponent;
 
     public static GameManager instance;
 
@@ -25,10 +26,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        addDialogueInput();
+        //addDialogueInput();
         //playerController = FindObjectOfType<ThirdPersonController>();
         //playerObject = playerController.gameObject;
-        camManager = FindObjectOfType<CameraManager>();
+        inputReader.InteractEvent += onInteract;
     }
     
     public void CanPlayerMove(bool canThey)
@@ -44,13 +45,12 @@ public class GameManager : MonoBehaviour
     public void InCutscene(bool areThey, Dialogue dial = null)
     {
         CanPlayerJump(!areThey);
-        CanPlayerMove(!areThey);
-        if (areThey)
-        {
-            camManager.UpdateCameraState(CameraState.DialogueState);
+        //if (areThey)
+        //{
+        //    camManager.UpdateCameraState(CameraState.DialogueState);
             
-        }
-        else camManager.UpdateCameraState(CameraState.MoveState);
+        //}
+        //else camManager.UpdateCameraState(CameraState.MoveState);
     }
 
     public void nextNode(){
@@ -69,10 +69,13 @@ public class GameManager : MonoBehaviour
     public void addDialogueInput()
     {
         inputReader.OnNextLineEvent += nextNode;
+        inputReader.InteractEvent -= onInteract;
+
     }
     public void removeDialogueInput()
     {
         inputReader.OnNextLineEvent -= nextNode;
+        inputReader.InteractEvent += onInteract;
     }
 
     //private void sendDialogue(Dialogue dial){
@@ -80,4 +83,24 @@ public class GameManager : MonoBehaviour
     //    dialogueSystem.dialogue = dial;
     //    camManager.dialogue = dial;
     //}
+
+    private void onInteract()
+    {
+        if (interactionComponent.currentTarget != null) {
+            InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
+            addDialogueInput();
+            dialogueSystem.setDialogue(interactableData.JSONConversation);
+            camManager.setSpeakers(interactableData.actors);
+            camManager.UpdateCameraState(CameraState.DialogueState);
+            dialogueSystem.StartConversation();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+
+        }
+    }
+
+    public void setCameraState(CameraState newState)
+    {
+        camManager.UpdateCameraState(newState);
+    }
 }
