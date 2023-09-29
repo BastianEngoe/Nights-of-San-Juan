@@ -11,23 +11,49 @@ public class CameraController : MonoBehaviour
     
     [SerializeField, Range(.0f, .99f)] private float lerpFactor = .2f;
     private Transform camTransform;
-    private Transform playerTransform;
+    private Transform targetTransform;
+
+    private CameraState state = CameraState.DialogueState;
+    private Vector3 currPos;
 
     // Start is called before the first frame update
     void Start()
     {
         camTransform = transform;
-        playerTransform = player.transform;
+        targetTransform = player.transform;
+        currPos = targetTransform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 offset = playerTransform.position
-         - Vector3.Lerp(camTransform.forward, playerTransform.forward, lerpFactor)
-         * cameraDistance;
-        offset.y = playerTransform.position.y + heightOffset;
-        camTransform.position = offset;
-        camTransform.LookAt(playerTransform);
+        switch (state)
+        {
+            case CameraState.DialogueState:
+                Quaternion targetRotation = Quaternion.LookRotation(currPos - transform.position);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lerpFactor);
+                break;
+            case CameraState.CinematicState: 
+                break;
+            case CameraState.MenuState:
+                break;
+            case CameraState.MoveState:
+                Vector3 offsetMov = targetTransform.position
+                 - Vector3.Lerp(camTransform.forward, targetTransform.forward, lerpFactor)
+                 * cameraDistance;
+                offsetMov.y = targetTransform.position.y + heightOffset;
+                camTransform.position = offsetMov;
+                camTransform.LookAt(targetTransform);
+                break;
+        }
+    }
+
+    public void setTargetPosition(Vector3 newPos)
+    {
+        currPos = newPos;
+    }
+    public void setCamPosition(Vector3 newPos)
+    {
+        transform.position = newPos;
     }
 }
