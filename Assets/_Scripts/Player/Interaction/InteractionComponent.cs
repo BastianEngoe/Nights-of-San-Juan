@@ -22,13 +22,17 @@ public class InteractionComponent : MonoBehaviour
             Debug.Log(currentTransformsInRange.Count);
         }
 
-        if(currentTransformsInRange.Count > 0)
+        if (currentTransformsInRange.Count > 0)
         {
             currentTarget = FindNearestInteractable();
             targetSprite.SetActive(true);
             targetSprite.transform.position = currentTarget.position;
         }
-        else targetSprite.SetActive(false);
+        else
+        {
+            targetSprite.SetActive(false); 
+            currentTarget = null;
+        }
     }
 
     private Transform FindNearestInteractable()
@@ -49,8 +53,7 @@ public class InteractionComponent : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
-        if(other.gameObject.GetComponent<Interactable>()){
+        if(other.gameObject.GetComponent<InteractableData>()){
             currentTransformsInRange.Add(other.transform);
         }
     }

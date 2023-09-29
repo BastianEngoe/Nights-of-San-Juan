@@ -18,7 +18,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform currentSpeaker, dialoguePos;
-    public Transform[] speakers;
+    public Transform[] speakers; //Move to Events
     public float speakerDistance, directionLength, height, tiltScale;
     private Vector3 direction, directionOffset;
     [SerializeField] private DialogueSystem dialogueSystem;
@@ -89,6 +89,11 @@ public class CameraManager : MonoBehaviour
             currentSpeaker = speakers[currDialogue.lines[index].speakerIndex];
 
         SetCamDialoguePos();
+    }
+
+    public void setSpeakers(GameObject[] newSpeakers)
+    {
+        
     }
 }
 

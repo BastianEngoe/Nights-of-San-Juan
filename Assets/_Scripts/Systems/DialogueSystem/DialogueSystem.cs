@@ -9,8 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField] TextAsset dialoguesTextData; //This variable should be removed and sent to the dialogue system
-                                                  //through events
+    TextAsset dialoguesTextData; 
     [SerializeField] private GameObject answerBox, answer;
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
@@ -24,11 +23,16 @@ public class DialogueSystem : MonoBehaviour
 
     void Start()
     {
+    }
+
+    public void StartConversation()
+    {
         ProcessJSON();
         textComponent.text = string.Empty;
         StartDialogue();
     }
-    
+
+
     public bool nextLine(){
         if(textComponent.text == dialogue.conversations[convIndex].lines[lineIndex].text){
                 NextLine();
@@ -110,6 +114,10 @@ public class DialogueSystem : MonoBehaviour
         dialogue=JsonUtility.FromJson<DialoguesData>(dialoguesTextData.text);
     }
 
+    public void setDialogue(TextAsset newDialogue)
+    {
+        dialoguesTextData = newDialogue;
+    }
     public Dialogue getDialogue()
     {
         return dialogue.conversations[convIndex];
