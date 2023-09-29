@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
     [SerializeField] private GameObject player;
     [SerializeField] private float heightOffset = 2.0f;
     [SerializeField] private float cameraDistance = 5.0f;
     
-    [SerializeField, Range(.0f, .99f)] private float lerpFactor = .2f;
+    private float lerpFactor = 2f;
     private Transform camTransform;
     private Transform targetTransform;
 
@@ -32,18 +32,18 @@ public class CameraController : MonoBehaviour
             case CameraState.DialogueState:
                 Quaternion targetRotation = Quaternion.LookRotation(currPos - transform.position);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lerpFactor);
+                
+                Vector3 camPos = (player.transform.position + targetTransform.position) / 2;
+                camPos.y += heightOffset;
+
+                transform.position = Vector3.Lerp(transform.position, camPos, lerpFactor * Time.deltaTime);
+                transform.LookAt(targetTransform);
                 break;
             case CameraState.CinematicState: 
                 break;
             case CameraState.MenuState:
                 break;
             case CameraState.MoveState:
-                Vector3 offsetMov = targetTransform.position
-                 - Vector3.Lerp(camTransform.forward, targetTransform.forward, lerpFactor)
-                 * cameraDistance;
-                offsetMov.y = targetTransform.position.y + heightOffset;
-                camTransform.position = offsetMov;
-                camTransform.LookAt(targetTransform);
                 break;
         }
     }

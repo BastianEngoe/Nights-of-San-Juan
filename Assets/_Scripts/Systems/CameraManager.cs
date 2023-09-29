@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -15,6 +16,8 @@ public enum CameraState
 public class CameraManager : MonoBehaviour
 {
     public CameraController cameraController;
+
+    public CinemachineBrain cinemaBrain;
 
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform currentSpeaker, dialoguePos;
@@ -43,8 +46,12 @@ public class CameraManager : MonoBehaviour
         switch (cameraState)
         {
             case CameraState.MoveState:
+                cinemaBrain.enabled = true;
+                cameraController.enabled = false;
                 break;
             case CameraState.DialogueState:
+                cinemaBrain.enabled = false;
+                cameraController.enabled = true;
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
