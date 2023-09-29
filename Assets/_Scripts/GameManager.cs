@@ -69,10 +69,13 @@ public class GameManager : MonoBehaviour
     public void addDialogueInput()
     {
         inputReader.OnNextLineEvent += nextNode;
+        inputReader.InteractEvent -= onInteract;
+
     }
     public void removeDialogueInput()
     {
         inputReader.OnNextLineEvent -= nextNode;
+        inputReader.InteractEvent += onInteract;
     }
 
     //private void sendDialogue(Dialogue dial){
@@ -90,7 +93,10 @@ public class GameManager : MonoBehaviour
             camManager.setSpeakers(interactableData.actors);
             camManager.UpdateCameraState(CameraState.DialogueState);
             dialogueSystem.StartConversation();
-        }      
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+
+        }
     }
 
     public void setCameraState(CameraState newState)

@@ -94,8 +94,12 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
+            convIndex = 0;
+            lineIndex = 0;
             gameManager.setCameraState(CameraState.MoveState);
             dialogueCanvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             Debug.Log("End of dialogue (this would be a good time to dissapear)");
         }
     }

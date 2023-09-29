@@ -30,9 +30,9 @@ public class CameraController : MonoBehaviour
         switch (state)
         {
             case CameraState.DialogueState:
-                // Quaternion targetRotation = Quaternion.LookRotation(currPos - transform.position);
-                // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lerpFactor);
-                
+                Quaternion targetRotation = Quaternion.LookRotation(currPos - transform.position);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lerpFactor);
+
                 // Vector3 camPos = (player.transform.position + targetTransform.position) / 2;
                 // camPos.y += heightOffset;
 
