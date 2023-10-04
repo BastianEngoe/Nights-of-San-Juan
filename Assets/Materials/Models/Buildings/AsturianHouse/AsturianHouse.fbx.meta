@@ -8,32 +8,32 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door
-    second: {fileID: 2100000, guid: ae8aa2ede60e64f47be9a28c6ca05ed1, type: 2}
+    second: {fileID: 2100000, guid: 524e0192f5caceb4a839af6cf26062d9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Pillars
-    second: {fileID: 2100000, guid: ae5622497f677654494253d4d0025d48, type: 2}
+    second: {fileID: 2100000, guid: 02435e795ca7ed847a2d6804d24b1baf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Roof
-    second: {fileID: 2100000, guid: e5803a987e2c961488ac493975c5de23, type: 2}
+    second: {fileID: 2100000, guid: 0e95b7527d9b86548b74898119b21b1a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: RoofSupport.001
-    second: {fileID: 2100000, guid: 49609258b3c2ae44da3a4db3df01a775, type: 2}
+    second: {fileID: 2100000, guid: f7346213a2b89b5438a0243f82d9eb40, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Stairs
-    second: {fileID: 2100000, guid: 4f21e89d3f172d34b84e9df6b437031f, type: 2}
+    second: {fileID: 2100000, guid: c12defdba3bd3c24a927a8ce0a4b1df3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Walls
-    second: {fileID: 2100000, guid: 9f593af3abbb8a94c97b350961217b26, type: 2}
+    second: {fileID: 2100000, guid: e331608eb4cc508408da11c1a90f0604, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

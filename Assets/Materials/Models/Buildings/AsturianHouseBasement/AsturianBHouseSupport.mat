@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AsturianHouseSupport
+  m_Name: AsturianBHouseSupport
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,11 +42,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 08b4578cb378a814887e11fe48496985, type: 3}
+        m_Texture: {fileID: 2800000, guid: d284a73332a583d4eac11219c27c8461, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 2aee58e13fc16984281fe916ea273f39, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9baab3d44a841dd4c87a0cc07f689eca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -66,11 +66,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 08b4578cb378a814887e11fe48496985, type: 3}
+        m_Texture: {fileID: 2800000, guid: d284a73332a583d4eac11219c27c8461, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: ff58778a2cb46ab44b34f67012193055, type: 3}
+        m_Texture: {fileID: 2800000, guid: f9767ad1f46dd5d4dbca9d580d7685e6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -78,7 +78,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 3ffab66dee8ed914084bb9c9be246674, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5f0a928fed5c0184497aac4d72478e56, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
