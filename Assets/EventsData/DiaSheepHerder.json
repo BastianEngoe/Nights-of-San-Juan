@@ -1,0 +1,141 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Greetings! Could you tell me a little bit about Luarca?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Sheperd: There is not much left to talk about..."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: ..."
+        }
+      ],
+      "responses": [
+        {
+          "responseText": "What happened here?",
+          "nextConvIndex": "1"
+        },
+        {
+          "responseText": "Why won't the others talk to me?",
+          "nextConvIndex": "2"
+        },
+        {
+          "responseText": "Thank you, farewell!",
+          "nextConvIndex": "4"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: What happened here?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Sheperd: Well in my case my sheep are all gone, probably all eaten by now."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Eaten by what?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Sheperd: There is a dangerous predator in Pontigón forest, it's been harassing us for a while. We can't quite identify what this predator actually is..."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: ..."
+        }
+      ],
+      "responses": [
+        {
+          "responseText": "Pontigón forest?",
+          "nextConvIndex": "3"
+        },
+        {
+          "responseText": "Why won't the others talk to me?",
+          "nextConvIndex": "2"
+        },
+        {
+          "responseText": "Thank you, farewell!",
+          "nextConvIndex": "4"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Why won't the others talk to me?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Sheperd: We have almost lost everything, but not our pride. We have faith in ourselves."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: ..."
+        }
+      ],
+      "responses": [
+        {
+          "responseText": "What happened here?",
+          "nextConvIndex": "1"
+        },
+        {
+          "responseText": "Thank you, farewell!",
+          "nextConvIndex": "4"
+        }
+      ]
+    },{
+      "id": "3",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Pontigón forest?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Sheperd: Its a dense forest quite a bit south of here, but I would not go there if I were you."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: ..."
+        }
+      ],
+      "responses": [
+        {
+          "responseText": "Why won't the others talk to me?",
+          "nextConvIndex": "2"
+        },
+        {
+          "responseText": "Thank you, farewell!",
+          "nextConvIndex": "4"
+        }
+      ]
+    },{
+      "id": "4",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Thank you, farewell!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Sheperd: Be careful out there, the wilds of Luarca can be dangerous."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

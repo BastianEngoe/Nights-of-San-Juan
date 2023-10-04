@@ -4,29 +4,29 @@
       "id": "0",
       "lines": [
         {
+          "speakerIndex": "1",
+          "text": "Beatriz: Greetings! Could you tell me a little bit about Luarca?"
+        },
+        {
           "speakerIndex": "0",
-          "text": "Conv0: Do you remember"
+          "text": "Villager: I don't speak to outsiders, leave us alone!"
         },
         {
           "speakerIndex": "1",
-          "text": "the 21st night of september?"
-        },
-        {
-          "speakerIndex": "0",
-          "text": "no"
+          "text": "Beatriz: ..."
         }
       ],
       "responses": [
         {
-          "responseText": "answ1",
+          "responseText": "You can't be serious...",
           "nextConvIndex": "1"
         },
         {
-          "responseText": "answ2",
+          "responseText": "Why not?",
           "nextConvIndex": "2"
         },
         {
-          "responseText": "FinishConv",
+          "responseText": "Okay... sorry to bother you.",
           "nextConvIndex": "4"
         }
       ]
@@ -35,29 +35,29 @@
       "id": "1",
       "lines": [
         {
+          "speakerIndex": "1",
+          "text": "Beatriz: You can't be serious..."
+        },
+        {
           "speakerIndex": "0",
-          "text": "Conv1: Do you remember"
+          "text": "Villager: Quite so, now scram!"
         },
         {
           "speakerIndex": "1",
-          "text": "the 21st night of september?"
-        },
-        {
-          "speakerIndex": "0",
-          "text": "no"
+          "text": "Beatriz: ..."
         }
       ],
       "responses": [
         {
-          "responseText": "answ1",
+          "responseText": "You can't be serious...",
           "nextConvIndex": "1"
         },
         {
-          "responseText": "answ2",
+          "responseText": "Why not?",
           "nextConvIndex": "2"
         },
         {
-          "responseText": "FinishConv",
+          "responseText": "Okay... sorry to bother you.",
           "nextConvIndex": "4"
         }
       ]
@@ -66,29 +66,29 @@
       "id": "2",
       "lines": [
         {
+          "speakerIndex": "1",
+          "text": "Beatriz: Why not?"
+        },
+        {
           "speakerIndex": "0",
-          "text": "Conv2: Do you remember"
+          "text": "Villager: None of your business, that's why."
         },
         {
           "speakerIndex": "1",
-          "text": "the 21st night of september?"
-        },
-        {
-          "speakerIndex": "0",
-          "text": "no"
+          "text": "Beatriz: ..."
         }
       ],
       "responses": [
         {
-          "responseText": "answ1",
+          "responseText": "You can't be serious...",
           "nextConvIndex": "1"
         },
         {
-          "responseText": "answ2",
+          "responseText": "Why not?",
           "nextConvIndex": "2"
         },
         {
-          "responseText": "answ3",
+          "responseText": "Okay... sorry to bother you.",
           "nextConvIndex": "4"
         }
       ]
@@ -126,16 +126,12 @@
       "id": "4",
       "lines": [
         {
-          "speakerIndex": "0",
-          "text": "Gooodbye!!"
-        },
-        {
           "speakerIndex": "1",
-          "text": "Yes"
+          "text": "Beatriz: Okay... sorry to bother you."
         },
         {
           "speakerIndex": "0",
-          "text": "bye"
+          "text": "Villager: Hmmf..."
         }
       ],
       "responses": [
