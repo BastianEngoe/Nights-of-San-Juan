@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CameraManager camManager;
     [SerializeField] private DialogueSystem dialogueSystem;
     [SerializeField] private InputReader inputReader;
-    [SerializeField] private Dialogue testDialogue;
+
+    [SerializeField] private TextAsset journalData;
+    private JournalQuestsData journalQuestsData;
 
     private GameObject playerObject;
 
@@ -21,14 +23,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        ProccesJournal();
         DontDestroyOnLoad(this);
     }
 
     void Start()
     {
-        //addDialogueInput();
-        //playerController = FindObjectOfType<ThirdPersonController>();
-        //playerObject = playerController.gameObject;
         inputReader.InteractEvent += onInteract;
     }
     
@@ -45,12 +45,6 @@ public class GameManager : MonoBehaviour
     public void InCutscene(bool areThey, Dialogue dial = null)
     {
         CanPlayerJump(!areThey);
-        //if (areThey)
-        //{
-        //    camManager.UpdateCameraState(CameraState.DialogueState);
-            
-        //}
-        //else camManager.UpdateCameraState(CameraState.MoveState);
     }
 
     public void nextNode(){
@@ -78,12 +72,6 @@ public class GameManager : MonoBehaviour
         inputReader.InteractEvent += onInteract;
     }
 
-    //private void sendDialogue(Dialogue dial){
-    //    currDialogue = dial;
-    //    dialogueSystem.dialogue = dial;
-    //    camManager.dialogue = dial;
-    //}
-
     private void onInteract()
     {
         if (interactionComponent.currentTarget != null) {
@@ -102,5 +90,10 @@ public class GameManager : MonoBehaviour
     public void setCameraState(CameraState newState)
     {
         camManager.UpdateCameraState(newState);
+    }
+
+    private void ProccesJournal()
+    {
+        journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
     }
 }
