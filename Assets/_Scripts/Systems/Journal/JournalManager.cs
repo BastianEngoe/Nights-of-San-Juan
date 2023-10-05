@@ -2,17 +2,12 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Jobs.LowLevel.Unsafe;
-using System;
-using UnityEditor;
-using UnityEngine.TextCore.Text;
-using Unity.VisualScripting;
 
 public class JournalManager : MonoBehaviour
 {
     [SerializeField] private GameObject journalObject;
-    [SerializeField] private UnityEngine.TextAsset journalJSON;
-    [SerializeField] private JournalQuestsData journalData;
+    [SerializeField] private TextAsset journalData;
+    private JournalQuestsData journalQuestsData;
     private bool isActive;
 
     public bool IsActive{
@@ -24,13 +19,12 @@ public class JournalManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //journalQuestsData = new JournalSaveData();
         ProccesJournal();
     }
 
     private void OnApplicationQuit()
     {
-        UpdateJournal();
+        //UpdateJournal();
     }
 
     public void ShowJournal()
@@ -47,21 +41,13 @@ public class JournalManager : MonoBehaviour
 
     private void ProccesJournal()
     {
-        //try
-        //{
-        //    journalData = journalQuestsData.loadJSON();
-        //}
-        //catch
-        //{
-            journalData = JsonUtility.FromJson<JournalQuestsData>(journalJSON.text);
-        //}
-
+        journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
     }
     private void UpdateJournal() //Still has to be tested
     {
-    //    journalQuestsData.saveJSON();
-        File.WriteAllText(AssetDatabase.GetAssetPath(journalJSON), JsonUtility.ToJson(journalData).Prettify());
-    //    EditorUtility.SetDirty(journalJSON);
+        string saveFilePath = Application.persistentDataPath + "Assets/JSONs/QuestsData/QuestsData.json";
+        string saveJournalData = JsonUtility.ToJson(journalQuestsData);
+        File.WriteAllText(saveFilePath, saveJournalData);
     }
 
     public void TurnLeftPage() {Debug.Log("<---");}
