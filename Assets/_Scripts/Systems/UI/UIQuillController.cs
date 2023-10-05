@@ -5,32 +5,46 @@ using UnityEngine;
 
 public class UIQuillController : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
+    [SerializeField] private Animator mainAnim, firstAnim;
+    public bool firstTime;
     
     public void DisableAnimator()
     {
-        anim.enabled = false;
+        mainAnim.enabled = false;
     }
     
     public void QuillAppear()
     {
-        anim.enabled = true;
-        anim.Play("QuillAppear");
+        mainAnim.enabled = true;
+        mainAnim.Play("QuillAppear");
+    }
+
+    private void Start()
+    {
+        if (firstTime)
+        {
+            firstAnim.gameObject.SetActive(true);
+        }  
     }
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            if (anim.enabled)
+            if (mainAnim.enabled)
             {
-                anim.SetTrigger("read");
+                mainAnim.SetTrigger("read");
+                if (firstTime && firstAnim.enabled)
+                {
+                    firstAnim.SetTrigger("done");
+                    firstTime = false;
+                }
             }
         }
 
         if (Input.GetKeyUp(KeyCode.F))
         {
-            if (!anim.enabled)
+            if (!mainAnim.enabled)
             {
                 QuillAppear();
             }
