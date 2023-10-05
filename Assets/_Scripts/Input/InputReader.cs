@@ -8,7 +8,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 movementValue { get; private set; }
     private Controls controls;
-    public event Action InteractEvent; 
+    public event Action InteractEvent;
+    public event Action OnToggleJournal;
     public event Action OnNextLineEvent; 
 
     public void OnInteract(InputAction.CallbackContext context)

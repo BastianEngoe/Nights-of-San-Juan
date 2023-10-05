@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DialogueSystem dialogueSystem;
     [SerializeField] private InputReader inputReader;
 
-    [SerializeField] private TextAsset journalData;
-    private JournalQuestsData journalQuestsData;
+    [SerializeField] private JournalManager journalManager;
 
     private GameObject playerObject;
 
@@ -23,7 +22,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        ProccesJournal();
         DontDestroyOnLoad(this);
     }
 
@@ -87,13 +85,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void ToggleJournal()
+    {
+
+    }
+
     public void setCameraState(CameraState newState)
     {
         camManager.UpdateCameraState(newState);
-    }
-
-    private void ProccesJournal()
-    {
-        journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
     }
 }

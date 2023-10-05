@@ -53,6 +53,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleJournal"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1c043b3-3c4f-4603-9c2a-5b3274596345"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -176,6 +185,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Next Line"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38c18661-7059-45bc-a7fd-4ecb74bf13d3"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KB+Mouse"",
+                    ""action"": ""ToggleJournal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b83f1fef-01e4-4c70-8655-f389af1ec26f"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ToggleJournal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -198,6 +229,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_NextLine = m_Player.FindAction("Next Line", throwIfNotFound: true);
+        m_Player_ToggleJournal = m_Player.FindAction("ToggleJournal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,6 +294,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_NextLine;
+    private readonly InputAction m_Player_ToggleJournal;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -269,6 +302,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @NextLine => m_Wrapper.m_Player_NextLine;
+        public InputAction @ToggleJournal => m_Wrapper.m_Player_ToggleJournal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -287,6 +321,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @NextLine.started += instance.OnNextLine;
             @NextLine.performed += instance.OnNextLine;
             @NextLine.canceled += instance.OnNextLine;
+            @ToggleJournal.started += instance.OnToggleJournal;
+            @ToggleJournal.performed += instance.OnToggleJournal;
+            @ToggleJournal.canceled += instance.OnToggleJournal;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -300,6 +337,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @NextLine.started -= instance.OnNextLine;
             @NextLine.performed -= instance.OnNextLine;
             @NextLine.canceled -= instance.OnNextLine;
+            @ToggleJournal.started -= instance.OnToggleJournal;
+            @ToggleJournal.performed -= instance.OnToggleJournal;
+            @ToggleJournal.canceled -= instance.OnToggleJournal;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -340,5 +380,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnNextLine(InputAction.CallbackContext context);
+        void OnToggleJournal(InputAction.CallbackContext context);
     }
 }

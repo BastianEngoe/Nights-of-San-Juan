@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleJournal",
+                    "type": "Button",
+                    "id": "f1c043b3-3c4f-4603-9c2a-5b3274596345",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -152,6 +161,28 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Next Line",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38c18661-7059-45bc-a7fd-4ecb74bf13d3",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KB+Mouse",
+                    "action": "ToggleJournal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b83f1fef-01e4-4c70-8655-f389af1ec26f",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "ToggleJournal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
