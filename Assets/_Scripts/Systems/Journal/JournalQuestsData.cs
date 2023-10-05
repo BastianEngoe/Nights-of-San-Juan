@@ -18,7 +18,6 @@ public class Quest
 public class Entry
 {
     public bool unlocked;
-    public bool editable;
     public string text;
     public string image;
 }

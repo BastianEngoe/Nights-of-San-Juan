@@ -2,12 +2,15 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEditor;
+using UnityEngine.TextCore.Text;
 
 public class JournalManager : MonoBehaviour
 {
     [SerializeField] private GameObject journalObject;
-    [SerializeField] private TextAsset journalData;
-    private JournalQuestsData journalQuestsData;
+    [SerializeField] private UnityEngine.TextAsset journalData;
+    [SerializeField] private JournalQuestsData journalQuestsData;
     private bool isActive;
 
     public bool IsActive{
@@ -24,7 +27,7 @@ public class JournalManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        //UpdateJournal();
+        UpdateJournal();
     }
 
     public void ShowJournal()
@@ -45,9 +48,8 @@ public class JournalManager : MonoBehaviour
     }
     private void UpdateJournal() //Still has to be tested
     {
-        string saveFilePath = Application.persistentDataPath + "Assets/JSONs/QuestsData/QuestsData.json";
-        string saveJournalData = JsonUtility.ToJson(journalQuestsData);
-        File.WriteAllText(saveFilePath, saveJournalData);
+        File.WriteAllText(AssetDatabase.GetAssetPath(journalData), JsonUtility.ToJson(journalQuestsData));
+        EditorUtility.SetDirty(journalData);
     }
 
     public void TurnLeftPage() {Debug.Log("<---");}
