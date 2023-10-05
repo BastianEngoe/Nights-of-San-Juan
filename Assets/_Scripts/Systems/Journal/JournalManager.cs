@@ -10,6 +10,12 @@ public class JournalManager : MonoBehaviour
     private JournalQuestsData journalQuestsData;
     private bool isActive;
 
+    public bool IsActive{
+        get{
+            return isActive;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,5 +49,8 @@ public class JournalManager : MonoBehaviour
         string saveJournalData = JsonUtility.ToJson(journalQuestsData);
         File.WriteAllText(saveFilePath, saveJournalData);
     }
+
+    public void TurnLeftPage() {Debug.Log("<---");}
+    public void TurnRightPage() {Debug.Log("--->");}
 
 }

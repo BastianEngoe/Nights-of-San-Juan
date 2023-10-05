@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private JournalManager journalManager;
 
-    private GameObject playerObject;
+    [SerializeField] private GameObject playerObject;
 
     [SerializeField] private InteractionComponent interactionComponent;
 
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         inputReader.InteractEvent += onInteract;
+        inputReader.OnToggleJournal += ToggleJournal;
     }
     
     public void CanPlayerMove(bool canThey)
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
         if (interactionComponent.currentTarget != null) {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             addDialogueInput();
+            //SetPlayerMovement(false); //We don't detect when the dialogue starts, so we need to do sth with this
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             camManager.setSpeakers(interactableData.actors);
             camManager.UpdateCameraState(CameraState.DialogueState);
@@ -84,10 +86,39 @@ public class GameManager : MonoBehaviour
 
         }
     }
-
+    ///<summary>
+    ///Controls when does the journal show up, and locks the player movement
+    ///</summary>
     private void ToggleJournal()
     {
+        if(!journalManager.IsActive)
+        {
+            //toggle the actual journal
+            journalManager.ShowJournal();
+            //lock the player
+            SetPlayerMovement(false);
+            //toggle the controls for the journal
+            inputReader.OnPageLeftEvent += journalManager.TurnLeftPage;
+            inputReader.OnPageRightEvent += journalManager.TurnRightPage;
+        }
+        else 
+        {
+            //toggle the actual journal
+            journalManager.QuitJournal();
+            //lock the player
+            SetPlayerMovement(true);
+            //toggle the controls for the journal
+            inputReader.OnPageLeftEvent -= journalManager.TurnLeftPage;
+            inputReader.OnPageRightEvent -= journalManager.TurnRightPage;
+        }
+        Debug.Log("Journal active: " + journalManager.IsActive);
+    }
 
+    private void SetPlayerMovement(bool toWhat)
+    {
+        var thirdPersonController = playerObject.GetComponent<ThirdPersonController>();
+        thirdPersonController.canMove = toWhat;
+        //thirdPersonController.canJump = toWhat;
     }
 
     public void setCameraState(CameraState newState)

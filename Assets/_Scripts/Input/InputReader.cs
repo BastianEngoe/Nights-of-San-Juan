@@ -11,6 +11,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action InteractEvent;
     public event Action OnToggleJournal;
     public event Action OnNextLineEvent; 
+    public event Action OnPageLeftEvent; 
+    public event Action OnPageRightEvent; 
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -51,6 +53,22 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     void Controls.IPlayerActions.OnToggleJournal(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        if (!context.performed && context.action.WasReleasedThisFrame()){
+            OnToggleJournal?.Invoke();
+        }
+    }
+
+    public void OnPageLeft(InputAction.CallbackContext context)
+    {
+        if (!context.performed && context.action.WasReleasedThisFrame()){
+            OnPageLeftEvent?.Invoke();
+        }
+    }
+
+    public void OnPageRight(InputAction.CallbackContext context)
+    {
+        if (!context.performed && context.action.WasReleasedThisFrame()){
+            OnPageRightEvent?.Invoke();
+        }
     }
 }

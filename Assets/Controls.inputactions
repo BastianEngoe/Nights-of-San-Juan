@@ -40,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Page Left",
+                    "type": "Button",
+                    "id": "6e97f474-928c-49e0-a4f2-3d4482bdbc58",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Page Right",
+                    "type": "Button",
+                    "id": "769689e0-2c4f-4ea2-9663-f67c354e58d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -183,6 +201,50 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "ToggleJournal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84670ebb-462d-46c9-b152-4dbe4cb9bf14",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KB+Mouse",
+                    "action": "Page Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8773a499-8027-40e0-b7b3-9af7354c6621",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Page Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34bc5006-7e8a-4fcc-82c3-227dcce66308",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KB+Mouse",
+                    "action": "Page Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f3317b4-543d-48cf-952b-f32d4acf1f96",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Page Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
