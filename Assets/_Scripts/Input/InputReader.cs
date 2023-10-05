@@ -48,4 +48,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
             OnNextLineEvent?.Invoke();
         }
     }
+
+    void Controls.IPlayerActions.OnToggleJournal(InputAction.CallbackContext context)
+    {
+        throw new NotImplementedException();
+    }
 }
