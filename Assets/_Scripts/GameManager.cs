@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
     {
         if(!journalManager.IsActive)
         {
+            camManager.UpdateCameraState(CameraState.MenuState);
             //toggle the actual journal
             journalManager.ShowJournal();
             //lock the player
@@ -103,6 +104,7 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
+            camManager.UpdateCameraState(CameraState.MoveState);
             //toggle the actual journal
             journalManager.QuitJournal();
             //lock the player

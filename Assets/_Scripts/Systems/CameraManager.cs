@@ -4,6 +4,8 @@ using Cinemachine;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public enum CameraState
 {
@@ -55,6 +57,7 @@ public class CameraManager : MonoBehaviour
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
+                cinemaBrain.enabled = false;
                 break;
             case CameraState.CinematicState:
                 break;
