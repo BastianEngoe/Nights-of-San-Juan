@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0779748, g: 0.09178494, b: 0.11758991, a: 1}
+  m_IndirectSpecularColor: {r: 0.077974714, g: 0.09178477, b: 0.117589824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5267,7 +5267,70 @@ MonoBehaviour:
   textPrefab: {fileID: 6277934306468289931, guid: b74446616a59c6c4f9d092a379ff3ab5,
     type: 3}
   journalQuestsData:
-    quests: []
+    quests:
+    - name: Quest1
+      unlocked: 1
+      entries:
+      - unlocked: 1
+        text: this is the text for entry 0 Quest1
+        image: Sprites/amogus.png
+      - unlocked: 1
+        text: this is the text for entry 1 written by a user
+        image: 
+    - name: Quest2
+      unlocked: 1
+      entries:
+      - unlocked: 1
+        text: this is the text for entry 0 Quest2
+        image: 
+      - unlocked: 1
+        text: this is the text for entry 1 written by a user
+        image: 
+    - name: Quest3
+      unlocked: 1
+      entries:
+      - unlocked: 1
+        text: this is the text for entry 0 Quest3
+        image: 
+      - unlocked: 1
+        text: this is the text for entry 1 written by a user
+        image: 
+    - name: Quest4
+      unlocked: 1
+      entries:
+      - unlocked: 1
+        text: this is the text for entry 0 Quest4
+        image: 
+      - unlocked: 1
+        text: this is the text for entry 1 written by a user
+        image: 
+    - name: Quest4
+      unlocked: 1
+      entries:
+      - unlocked: 1
+        text: this is the text for entry 0 Quest4
+        image: 
+      - unlocked: 1
+        text: this is the text for entry 1 written by a user
+        image: 
+    - name: Quest4
+      unlocked: 1
+      entries:
+      - unlocked: 1
+        text: this is the text for entry 0 Quest4
+        image: 
+      - unlocked: 1
+        text: this is the text for entry 1 written by a user
+        image: 
+    - name: Quest54
+      unlocked: 1
+      entries:
+      - unlocked: 1
+        text: this is the text for entry 0 Quest4
+        image: 
+      - unlocked: 1
+        text: this is the text for entry 1 written by a user
+        image: 
 --- !u!4 &1489196422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8430818949572133419, guid: a9ef375ba1c862b42abbb028def0129f,
