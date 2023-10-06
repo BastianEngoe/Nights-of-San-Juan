@@ -54,6 +54,12 @@ public class JournalManager : MonoBehaviour
 
     private void ProccesJournal()
     {
+        string jsonPath = Application.persistentDataPath + "/CombatStats.json";
+
+        if (!File.Exists(jsonPath))
+        {
+            File.WriteAllText(jsonPath, Resources.Load<UnityEngine.TextAsset>(journalData.text));
+        }
         journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
     }
     private void UpdateJournal() //Still has to be tested
@@ -109,7 +115,7 @@ public class JournalManager : MonoBehaviour
             {
                 AddTextSlot(page, entry.text);
             }
-            else if (entry.image != "")
+            if (entry.image != "")
             {
                 AddImageSlot(page, entry.image, 1f);
             }
