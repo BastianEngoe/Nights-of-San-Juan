@@ -187,5 +187,33 @@ public class JournalManager : MonoBehaviour
     }
 
 
+    void UnlockEntry(string questName, int entryIndex){
+        int questIndex = SearchForQuest(questName);
+        if (questIndex == -1){
+            Debug.Log("Error: quest name not found");
+            return;
+        }
+        if(journalQuestsData.quests[questIndex].entries.Length < entryIndex){
+            Debug.Log("Error, entry index not found");
+            return;
+        }
+        journalQuestsData.quests[questIndex].entries[entryIndex].unlocked = true;
+    }
 
+    private int SearchForQuest(string questName)
+    {
+        int index = -1;
+        bool found = false;
+        int i = 0;
+
+        while(!found && i < journalQuestsData.quests.Length){
+            if(journalQuestsData.quests[i].name == questName){
+                found = true;
+                index = i;
+            }
+            i++;
+        }
+
+        return index;
+    }
 }

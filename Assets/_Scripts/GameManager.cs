@@ -9,13 +9,15 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private ThirdPersonController playerController;
     [SerializeField] private CameraManager camManager;
     [SerializeField] private DialogueSystem dialogueSystem;
-    [SerializeField] private InputReader inputReader;
+    //[SerializeField] private InputReader inputReader;
 
-    [SerializeField] private JournalManager journalManager;
+    [SerializeField] public JournalManager journalManager;
 
     [SerializeField] private GameObject playerObject;
 
     [SerializeField] private InteractionComponent interactionComponent;
+
+    [SerializeField] private InputManager inputManager;
 
     public static GameManager instance;
 
@@ -27,8 +29,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        inputReader.InteractEvent += onInteract;
-        inputReader.OnToggleJournal += ToggleJournal;
     }
     
     public void CanPlayerMove(bool canThey)
@@ -53,29 +53,17 @@ public class GameManager : MonoBehaviour
                 camManager.nextNode();
         }
         else{
-            removeDialogueInput();
+            inputManager.removeDialogueInput();
             dialogueSystem.EndDialogue();
             InCutscene(false);
         }
     }
 
-    public void addDialogueInput()
-    {
-        inputReader.OnNextLineEvent += nextNode;
-        inputReader.InteractEvent -= onInteract;
-
-    }
-    public void removeDialogueInput()
-    {
-        inputReader.OnNextLineEvent -= nextNode;
-        inputReader.InteractEvent += onInteract;
-    }
-
-    private void onInteract()
+    public void onInteract()
     {
         if (interactionComponent.currentTarget != null) {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
-            addDialogueInput();
+            inputManager.addDialogueInput();
             //SetPlayerMovement(false); //We don't detect when the dialogue starts, so we need to do sth with this
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             camManager.setSpeakers(interactableData.actors);
@@ -89,7 +77,7 @@ public class GameManager : MonoBehaviour
     ///<summary>
     ///Controls when does the journal show up, and locks the player movement
     ///</summary>
-    private void ToggleJournal()
+    public void ToggleJournal()
     {
         if(!journalManager.IsActive)
         {
@@ -99,8 +87,7 @@ public class GameManager : MonoBehaviour
             //lock the player
             SetPlayerMovement(false);
             //toggle the controls for the journal
-            inputReader.OnPageLeftEvent += journalManager.TurnLeftPage;
-            inputReader.OnPageRightEvent += journalManager.TurnRightPage;
+            inputManager.SetJournalControls(true);
         }
         else 
         {
@@ -110,8 +97,7 @@ public class GameManager : MonoBehaviour
             //lock the player
             SetPlayerMovement(true);
             //toggle the controls for the journal
-            inputReader.OnPageLeftEvent -= journalManager.TurnLeftPage;
-            inputReader.OnPageRightEvent -= journalManager.TurnRightPage;
+            inputManager.SetJournalControls(false);
         }
         Debug.Log("Journal active: " + journalManager.IsActive);
     }
