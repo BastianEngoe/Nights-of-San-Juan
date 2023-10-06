@@ -126,10 +126,12 @@ public class JournalManager : MonoBehaviour
                 continue;
             if (entry.text != "")
             {
+                Debug.Log("Trying to print a text");
                 AddTextSlot(page, entry.text);
             }
             if (entry.image != "")
             {
+                Debug.Log("Trying to print an image");
                 AddImageSlot(page, entry.image, 1f);
             }
             else Debug.Log("Hey, the entry you tried to print didn't work, at" + entry);
@@ -157,9 +159,18 @@ public class JournalManager : MonoBehaviour
     ///</para>
     ///</summary>
     private void AddImageSlot(GameObject page, string filepath, float scale){
+
+
         GameObject newImageSlot = Instantiate(imagePrefab, page.transform);
-        newImageSlot.GetComponent<Image>().sprite = Resources.Load(filepath) as Sprite;
+
+        var imgObject = newImageSlot.GetComponent<Image>();
+        imgObject.sprite = Resources.Load<Sprite>(filepath);
+        
+
+
         newImageSlot.transform.localScale *= scale;
+        
+    
     }
 
     private void AddTextSlot(GameObject page, string text){
