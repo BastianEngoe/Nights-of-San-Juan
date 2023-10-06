@@ -7,7 +7,9 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.TextCore.Text;
+using Unity.VisualScripting;
 
+[ExecuteInEditMode]
 public class JournalManager : MonoBehaviour
 {
     [SerializeField] private GameObject leftPage;
@@ -19,7 +21,7 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private JournalQuestsData journalQuestsData;
     private bool isActive;
-
+    private string saveFile;
     private int currentDisplayedQuest = 0;
 
     public bool IsActive{
@@ -27,7 +29,12 @@ public class JournalManager : MonoBehaviour
             return isActive;
         }
     }
+    private void Awake()
+    {
+        saveFile = Application.persistentDataPath + "/QuestsData.json";
+        Debug.Log(saveFile);
 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -54,18 +61,24 @@ public class JournalManager : MonoBehaviour
 
     private void ProccesJournal()
     {
-        string jsonPath = Application.persistentDataPath + "/CombatStats.json";
 
-        if (!File.Exists(jsonPath))
+        if (!File.Exists(saveFile))
         {
-            File.WriteAllText(jsonPath, Resources.Load<UnityEngine.TextAsset>(journalData.text));
+            journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
+            File.WriteAllText(saveFile, journalData.text);
         }
-        journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
+        else
+        {
+            journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(File.ReadAllText(saveFile));
+        }
     }
     private void UpdateJournal() //Still has to be tested
     {
-        File.WriteAllText(AssetDatabase.GetAssetPath(journalData), JsonUtility.ToJson(journalQuestsData));
+        string jsonString = JsonUtility.ToJson(journalQuestsData);
+        File.WriteAllText(saveFile, jsonString);
+        File.WriteAllText(AssetDatabase.GetAssetPath(journalData), jsonString);
         EditorUtility.SetDirty(journalData);
+
     }
 
     public void TurnLeftPage() {
