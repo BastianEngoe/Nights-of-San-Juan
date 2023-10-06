@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.henrikhustoft.multi-scene-management-tools": {
+      "version": "https://github.com/HenrysHouses/MultiSceneTools.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "cb77261f9c969bd2e6999caa29740cbbb6c7b470"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
