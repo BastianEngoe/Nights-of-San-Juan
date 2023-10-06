@@ -1,1 +1,76 @@
-{"quests":[{"name":"Quest1","unlocked":true,"entries":[{"unlocked":true,"text":"this is the text for entry 0","image":""},{"unlocked":true,"text":"this is the text for entry 1 written by a user","image":""}]}]}
+{
+  "quests": [
+    {
+      "name": "Quest1",
+      "unlocked": 1,
+      "entries": [
+        {
+          "unlocked": 1,
+          "editable": 0,
+          "text": "this is the text for entry 0 Quest1",
+          "image": ""
+        },
+        {
+          "unlocked": 1,
+          "editable": 1,
+          "text": "this is the text for entry 1 written by a user",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Quest2",
+      "unlocked": 1,
+      "entries": [
+        {
+          "unlocked": 1,
+          "editable": 0,
+          "text": "this is the text for entry 0 Quest2",
+          "image": ""
+        },
+        {
+          "unlocked": 1,
+          "editable": 1,
+          "text": "this is the text for entry 1 written by a user",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Quest3",
+      "unlocked": 1,
+      "entries": [
+        {
+          "unlocked": 1,
+          "editable": 0,
+          "text": "this is the text for entry 0 Quest3",
+          "image": ""
+        },
+        {
+          "unlocked": 1,
+          "editable": 1,
+          "text": "this is the text for entry 1 written by a user",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Quest4",
+      "unlocked": 1,
+      "entries": [
+        {
+          "unlocked": 1,
+          "editable": 0,
+          "text": "this is the text for entry 0 Quest4",
+          "image": ""
+        },
+        {
+          "unlocked": 1,
+          "editable": 1,
+          "text": "this is the text for entry 1 written by a user",
+          "image": ""
+        }
+      ]
+    }
+  ]
+}

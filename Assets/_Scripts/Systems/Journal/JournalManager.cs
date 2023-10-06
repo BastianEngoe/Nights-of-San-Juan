@@ -2,16 +2,25 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEditor;
+using UnityEngine.UI;
+using TMPro;
+using System;
 using UnityEngine.TextCore.Text;
 
 public class JournalManager : MonoBehaviour
 {
+    [SerializeField] private GameObject leftPage;
+    [SerializeField] private GameObject rightPage;
     [SerializeField] private GameObject journalObject;
     [SerializeField] private UnityEngine.TextAsset journalData;
+
+    [SerializeField] private GameObject imagePrefab;
+    [SerializeField] private GameObject textPrefab;
     [SerializeField] private JournalQuestsData journalQuestsData;
     private bool isActive;
+
+    private int currentDisplayedQuest = 0;
 
     public bool IsActive{
         get{
@@ -34,6 +43,7 @@ public class JournalManager : MonoBehaviour
     {
         journalObject.SetActive(true);
         isActive = true;
+        UpdatePages();
     }
 
     public void QuitJournal()
@@ -52,7 +62,95 @@ public class JournalManager : MonoBehaviour
         EditorUtility.SetDirty(journalData);
     }
 
-    public void TurnLeftPage() {Debug.Log("<---");}
-    public void TurnRightPage() {Debug.Log("--->");}
+    public void TurnLeftPage() {
+        if(currentDisplayedQuest > 0){
+            currentDisplayedQuest -= 2;
+            UpdatePages();
+            Debug.Log("<---");
+        } 
+        else {
+            Debug.Log("You are on the first page");
+        }
+    }
+
+    public void TurnRightPage() {
+        if(currentDisplayedQuest < journalQuestsData.quests.Length-1){
+            currentDisplayedQuest += 2;
+            UpdatePages();
+            Debug.Log("<---");
+        } 
+        else {
+            Debug.Log("You are on the last page");
+        }      
+        Debug.Log("--->");
+    }
+    private void UpdatePages()
+    {
+        foreach (Transform child in leftPage.transform)
+            Destroy(child);
+        
+        foreach (Transform child in rightPage.transform)
+            Destroy(child);
+        
+        //Update left page with currentDisplayedQuest
+        PopulatePage(journalQuestsData.quests[currentDisplayedQuest], leftPage);
+        //Update right page
+        if(currentDisplayedQuest + 1 < journalQuestsData.quests.Length)
+            PopulatePage(journalQuestsData.quests[currentDisplayedQuest + 1], leftPage);
+    }
+
+    private void PopulatePage(Quest quest, GameObject page)
+    {
+        foreach (Entry entry in quest.entries)
+        {
+            if (!entry.unlocked)
+                continue;
+            if (entry.text != "")
+            {
+                AddTextSlot(page, entry.text);
+            }
+            else if (entry.image != "")
+            {
+                AddImageSlot(page, entry.image, 1f);
+            }
+            else Debug.Log("Hey, the entry you tried to print didn't work, at" + entry);
+        }
+    }
+
+
+
+    ///<summary>
+    ///<para>
+    ///Adds an Image slot to the "page" Page.
+    ///The filepath provided must be from a sprite in the Resources folder.
+    ///</para>
+    ///<para>
+    ///If your sprite is located in
+    ///</para>
+    ///<para>
+    ///Assets/Resources/Sprites/yourSprite.png
+    ///</para>
+    ///<para>
+    ///the filepath value should look like
+    ///</para>
+    ///<para>
+    ///"Sprites/yourSprite.png"
+    ///</para>
+    ///</summary>
+    private void AddImageSlot(GameObject page, string filepath, float scale){
+        GameObject newImageSlot = Instantiate(imagePrefab);
+        newImageSlot.GetComponent<Image>().sprite = Resources.Load(filepath) as Sprite;
+        newImageSlot.transform.localScale *= scale;
+        newImageSlot.transform.parent = page.transform;
+    }
+
+    private void AddTextSlot(GameObject page, string text){
+        GameObject newTextSlot = Instantiate(imagePrefab);
+        newTextSlot.GetComponent<TMP_Text>().text = text;
+        newTextSlot.transform.parent = page.transform;
+    }
+
+
+
 
 }
