@@ -19,6 +19,7 @@ public class JournalManager : MonoBehaviour
 
     [SerializeField] private GameObject imagePrefab;
     [SerializeField] private GameObject textPrefab;
+    [SerializeField] private GameObject titlePrefab;
     [SerializeField] private JournalQuestsData journalQuestsData;
     private bool isActive;
     private string saveFile;
@@ -120,6 +121,7 @@ public class JournalManager : MonoBehaviour
 
     private void PopulatePage(Quest quest, GameObject page)
     {
+        AddTitleSlot(page, quest.name);
         foreach (Entry entry in quest.entries)
         {
             if (!entry.unlocked)
@@ -173,11 +175,16 @@ public class JournalManager : MonoBehaviour
     
     }
 
+
+
     private void AddTextSlot(GameObject page, string text){
         GameObject newTextSlot = Instantiate(textPrefab, page.transform);
         newTextSlot.GetComponent<TMP_Text>().text = text;
     }
-
+    private void AddTitleSlot(GameObject page, string text){
+        GameObject newTextSlot = Instantiate(titlePrefab, page.transform);
+        newTextSlot.GetComponent<TMP_Text>().text = text;
+    }
 
 
 
