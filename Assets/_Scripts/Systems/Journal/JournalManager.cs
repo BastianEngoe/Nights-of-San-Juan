@@ -9,7 +9,7 @@ using System;
 using UnityEngine.TextCore.Text;
 using Unity.VisualScripting;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class JournalManager : MonoBehaviour
 {
     [SerializeField] private GameObject leftPage;
@@ -163,12 +163,12 @@ public class JournalManager : MonoBehaviour
 
         GameObject newImageSlot = Instantiate(imagePrefab, page.transform);
 
-        var imgObject = newImageSlot.GetComponent<Image>();
+        Image imgObject = newImageSlot.GetComponent<Image>();
         imgObject.sprite = Resources.Load<Sprite>(filepath);
         
 
 
-        newImageSlot.transform.localScale *= scale;
+        //newImageSlot.transform.localScale *= scale;
         
     
     }
