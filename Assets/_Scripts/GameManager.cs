@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private InteractionComponent interactionComponent;
 
-    [SerializeField] private InputManager inputManager;
+    [SerializeField] public InputManager inputManager;
 
     public static GameManager instance;
 

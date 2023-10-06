@@ -109,7 +109,7 @@ public class DialogueSystem : MonoBehaviour
         //Set next dialogue and reset text box
         convIndex = nextDialogue;
         textComponent.text = string.Empty;
-        gameManager.addDialogueInput();
+        gameManager.inputManager.addDialogueInput();
         //Destroy all answers
         foreach (Transform child in answerBox.transform)
         {
