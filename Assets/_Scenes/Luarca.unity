@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.077974714, g: 0.09178477, b: 0.117589824, a: 1}
+  m_IndirectSpecularColor: {r: 0.0779748, g: 0.09178494, b: 0.11758991, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2091,9 +2091,9 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -2539,9 +2539,9 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -5258,8 +5258,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42668453565b4204ca66d6d3dfddc1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftPage: {fileID: 708743420}
+  rightPage: {fileID: 625547149}
   journalObject: {fileID: 1476854988}
   journalData: {fileID: 4900000, guid: b2aae11005e7e3a44952d8482c6d7f82, type: 3}
+  imagePrefab: {fileID: 8412021781208830012, guid: 19341872e31077f48bcda2479152bb8f,
+    type: 3}
+  textPrefab: {fileID: 6277934306468289931, guid: b74446616a59c6c4f9d092a379ff3ab5,
+    type: 3}
+  journalQuestsData:
+    quests: []
 --- !u!4 &1489196422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8430818949572133419, guid: a9ef375ba1c862b42abbb028def0129f,

@@ -87,16 +87,16 @@ public class JournalManager : MonoBehaviour
     private void UpdatePages()
     {
         foreach (Transform child in leftPage.transform)
-            Destroy(child);
+            Destroy(child.gameObject);
         
         foreach (Transform child in rightPage.transform)
-            Destroy(child);
+            Destroy(child.gameObject);
         
         //Update left page with currentDisplayedQuest
         PopulatePage(journalQuestsData.quests[currentDisplayedQuest], leftPage);
         //Update right page
         if(currentDisplayedQuest + 1 < journalQuestsData.quests.Length)
-            PopulatePage(journalQuestsData.quests[currentDisplayedQuest + 1], leftPage);
+            PopulatePage(journalQuestsData.quests[currentDisplayedQuest + 1], rightPage);
     }
 
     private void PopulatePage(Quest quest, GameObject page)
@@ -138,16 +138,14 @@ public class JournalManager : MonoBehaviour
     ///</para>
     ///</summary>
     private void AddImageSlot(GameObject page, string filepath, float scale){
-        GameObject newImageSlot = Instantiate(imagePrefab);
+        GameObject newImageSlot = Instantiate(imagePrefab, page.transform);
         newImageSlot.GetComponent<Image>().sprite = Resources.Load(filepath) as Sprite;
         newImageSlot.transform.localScale *= scale;
-        newImageSlot.transform.parent = page.transform;
     }
 
     private void AddTextSlot(GameObject page, string text){
-        GameObject newTextSlot = Instantiate(imagePrefab);
+        GameObject newTextSlot = Instantiate(textPrefab, page.transform);
         newTextSlot.GetComponent<TMP_Text>().text = text;
-        newTextSlot.transform.parent = page.transform;
     }
 
 
