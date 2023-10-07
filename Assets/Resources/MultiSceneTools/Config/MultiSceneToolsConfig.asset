@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: MultiSceneToolsConfig
   m_EditorClassIdentifier: 
   startWizardOnUpdate: 1
-  _Collections: []
+  _Collections:
+  - {fileID: 11400000, guid: 3c35cf3b9fea60d47a45b5784f7370a6, type: 2}
+  - {fileID: 11400000, guid: 6c71a42de95fb594c90a562c4c3c2462, type: 2}
+  - {fileID: 11400000, guid: aa88bb642ab007143935000e95fadb96, type: 2}
   <LogOnSceneChange>k__BackingField: 0
   <AllowCrossSceneReferences>k__BackingField: 0
   UseBootScene: 1
-  _BootScenePath: Assets/_Scenes/BootScene.unity
+  _BootScenePath: Assets/_Scenes/Build/BootScene.unity
   BootScene:
     m_Handle: 0
   _SceneCollectionPath: Assets/_ScriptableObjects/MultiSceneTools/Collections
-  versionNumber: 0.3.1
+  versionNumber: 0.3.2
