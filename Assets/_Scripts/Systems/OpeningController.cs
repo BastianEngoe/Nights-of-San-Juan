@@ -43,5 +43,6 @@ public class OpeningController : MonoBehaviour
 
     public void onSceneStart(){
         cutsceneStarted = true;
+        
     }
 }

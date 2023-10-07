@@ -635,6 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 178891924}
+  openingController: {fileID: 311955211}
 --- !u!114 &188992000 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 945684872713596869, guid: 919640cfc8f915a40ba8a70ab4c27dc9,

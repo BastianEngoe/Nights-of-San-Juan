@@ -6,6 +6,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private InputReader inputReader;
+    [SerializeField] private OpeningController openingController;
     
 
     bool onJournal = false;
@@ -18,6 +19,7 @@ public class InputManager : MonoBehaviour
     {
         inputReader.OnToggleJournal += ToggleJournal;
         inputReader.InteractEvent += onInteract;
+        inputReader.OnCutsceneStartEvent += startIntroScene;
     }
 
     void OnDestroy()
@@ -59,6 +61,11 @@ public class InputManager : MonoBehaviour
             inputReader.OnPageLeftEvent -= GameManager.instance.journalManager.TurnLeftPage;
             inputReader.OnPageRightEvent -= GameManager.instance.journalManager.TurnRightPage;
         }
+    }
+
+    public void startIntroScene(){
+        openingController.onSceneStart();
+        inputReader.OnCutsceneStartEvent -= startIntroScene;
     }
 
 }
