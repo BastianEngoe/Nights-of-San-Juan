@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Luarca
   SceneNames:
-  - BootScene
   - Luarca
   Scenes:
-  - {fileID: 102900000, guid: 307d66d26da0a9849aeb9ba7f893b436, type: 3}
   - {fileID: 102900000, guid: 684a783ddb6cf1041a30980e8086472f, type: 3}
