@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b357e401516b74c916c7f8bdf349d6, type: 3}
   m_Name: MultiSceneToolsConfig
   m_EditorClassIdentifier: 
-  startWizardOnUpdate: 1
+  startWizardOnUpdate: 0
   _Collections:
   - {fileID: 11400000, guid: 3c35cf3b9fea60d47a45b5784f7370a6, type: 2}
   - {fileID: 11400000, guid: 6c71a42de95fb594c90a562c4c3c2462, type: 2}
