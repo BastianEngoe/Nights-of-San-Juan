@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Luarca
   m_EditorClassIdentifier: 
   Title: Luarca
+  ActiveSceneIndex: -1
   SceneNames:
   - Luarca
   Scenes:
-  - {fileID: 102900000, guid: 684a783ddb6cf1041a30980e8086472f, type: 3}
+  - TargetScene: {fileID: 102900000, guid: 684a783ddb6cf1041a30980e8086472f, type: 3}
+    IsActive: 0
