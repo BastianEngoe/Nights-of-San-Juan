@@ -6,6 +6,7 @@ public class JournalCameraControl : MonoBehaviour
 {
     [SerializeField] private Transform camPivotTransform;
     [SerializeField] private Transform journalTransform;
+    [SerializeField] private GameObject journal;
     [SerializeField] private float adjustSpeed;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class JournalCameraControl : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, camPivotTransform.position, Time.deltaTime * adjustSpeed);
+        transform.LookAt(journal.transform.position);
         //transform.LookAt(journalTransform);
     }
 }
