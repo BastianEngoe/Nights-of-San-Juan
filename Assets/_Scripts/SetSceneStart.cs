@@ -8,6 +8,6 @@ public class SetSceneStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Luarca"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
     }
 }
