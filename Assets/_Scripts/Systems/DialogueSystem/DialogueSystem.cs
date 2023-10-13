@@ -27,7 +27,6 @@ public class DialogueSystem : MonoBehaviour
 
     public void StartConversation()
     {
-        ProcessJSON();
         textComponent.text = string.Empty;
         dialogueCanvas.SetActive(true);
         StartDialogue();
@@ -126,6 +125,9 @@ public class DialogueSystem : MonoBehaviour
     public void setDialogue(TextAsset newDialogue)
     {
         dialoguesTextData = newDialogue;
+        ProcessJSON();
+
+
     }
     public Dialogue getDialogue()
     {

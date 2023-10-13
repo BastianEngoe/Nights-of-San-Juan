@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -49,11 +50,11 @@ public class CameraManager : MonoBehaviour
         {
             case CameraState.MoveState:
                 cinemaBrain.enabled = true;
-                //cameraController.enabled = false;
                 break;
             case CameraState.DialogueState:
                 cinemaBrain.enabled = false;
-                //cameraController.enabled = true;
+                //int index = dialogueSystem.GetLineCurrentIndex();
+                //currentSpeaker = speakers[currDialogue.lines[index].speakerIndex];
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
@@ -80,14 +81,9 @@ public class CameraManager : MonoBehaviour
         directionOffset.x = direction.z * -1;
         directionOffset.z = direction.x;
 
-
         cameraController.setCamPosition(betweenSpeakers);
         cameraController.setTargetPosition(currentSpeaker.position);
 
-
-        //mainCamera.transform.position = dialoguePos.position;
-
-        //mainCamera.transform.LookAt(currentSpeaker.position);
     }
 
     public void nextNode(){
@@ -102,12 +98,14 @@ public class CameraManager : MonoBehaviour
 
     public void setSpeakers(GameObject[] newSpeakers)
     {
+        currDialogue = dialogueSystem.getDialogue();
+
         Transform[] speakersContainer = new Transform[newSpeakers.Length];
         for (int i = 0;i < newSpeakers.Length;i++)
         {
             speakersContainer[i] = newSpeakers[i].GetComponent<Transform>();
         }
-        currentSpeaker = speakersContainer[0];
+        currentSpeaker = speakersContainer[currDialogue.lines[dialogueSystem.GetLineCurrentIndex()].speakerIndex];
         speakers = speakersContainer;
     }
 }

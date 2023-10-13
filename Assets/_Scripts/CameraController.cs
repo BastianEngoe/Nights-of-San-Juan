@@ -10,7 +10,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float cameraDistance = 5.0f;
     
     private float lerpFactor = 2f;
-    private Transform camTransform;
     private Transform targetTransform;
 
     private CameraState state = CameraState.MoveState;
@@ -19,7 +18,6 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camTransform = transform;
         targetTransform = player.transform;
         currPos = targetTransform.position;
     }
@@ -30,6 +28,7 @@ public class CameraController : MonoBehaviour
         switch (state)
         {
             case CameraState.DialogueState:
+                Debug.Log(currPos);
                 Quaternion targetRotation = Quaternion.LookRotation(currPos - transform.position);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lerpFactor);
 
@@ -59,6 +58,8 @@ public class CameraController : MonoBehaviour
 
     }
 
-    public void setState(CameraState newState) { state = newState; }
+    public void setState(CameraState newState) {
+        currPos = targetTransform.position;
+        state = newState; }
 
 }

@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
         if (interactionComponent.currentTarget != null&&!onConversation) {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             inputManager.addDialogueInput();
-            //SetPlayerMovement(false); //We don't detect when the dialogue starts, so we need to do sth with this
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             camManager.setSpeakers(interactableData.actors);
             camManager.UpdateCameraState(CameraState.DialogueState);
@@ -107,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     private void SetPlayerMovement(bool toWhat)
     {
-        var thirdPersonController = playerObject.GetComponent<ThirdPersonController>();
+        ThirdPersonController thirdPersonController = playerObject.GetComponent<ThirdPersonController>();
         thirdPersonController.canMove = toWhat;
         //thirdPersonController.canJump = toWhat;
     }
