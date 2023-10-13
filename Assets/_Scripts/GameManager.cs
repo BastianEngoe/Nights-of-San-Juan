@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    private bool onConversation = false;
+
     private void Awake()
     {
         instance = this;
@@ -49,19 +51,20 @@ public class GameManager : MonoBehaviour
     public void nextNode(){
         if(dialogueSystem.GetLineCurrentIndex() < dialogueSystem.dialogue.conversations[dialogueSystem.GetConvCurrentIndex()].lines.Length - 1 )
         {
-            if(dialogueSystem.nextLine())
+            if(dialogueSystem.ProccessLine())
                 camManager.nextNode();
         }
         else{
             inputManager.removeDialogueInput();
             dialogueSystem.EndDialogue();
             InCutscene(false);
+            onConversation = false;
         }
     }
 
     public void onInteract()
     {
-        if (interactionComponent.currentTarget != null) {
+        if (interactionComponent.currentTarget != null&&!onConversation) {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             inputManager.addDialogueInput();
             //SetPlayerMovement(false); //We don't detect when the dialogue starts, so we need to do sth with this
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour
             dialogueSystem.StartConversation();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
-
+            onConversation = true;
         }
     }
     ///<summary>
@@ -109,7 +112,7 @@ public class GameManager : MonoBehaviour
         //thirdPersonController.canJump = toWhat;
     }
 
-    public void setCameraState(CameraState newState)
+    public void SetCameraState(CameraState newState)
     {
         camManager.UpdateCameraState(newState);
     }

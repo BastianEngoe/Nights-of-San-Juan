@@ -49,15 +49,15 @@ public class CameraManager : MonoBehaviour
         {
             case CameraState.MoveState:
                 cinemaBrain.enabled = true;
-                cameraController.enabled = false;
+                //cameraController.enabled = false;
                 break;
             case CameraState.DialogueState:
                 cinemaBrain.enabled = false;
-                cameraController.enabled = true;
+                //cameraController.enabled = true;
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
-                cinemaBrain.enabled = false;
+                //cinemaBrain.enabled = false;
                 break;
             case CameraState.CinematicState:
                 break;

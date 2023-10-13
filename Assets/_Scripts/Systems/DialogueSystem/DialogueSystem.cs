@@ -34,7 +34,7 @@ public class DialogueSystem : MonoBehaviour
     }
 
 
-    public bool nextLine(){
+    public bool ProccessLine(){
         if(textComponent.text == dialogue.conversations[convIndex].lines[lineIndex].text){
                 NextLine();
                 return true;
@@ -89,14 +89,14 @@ public class DialogueSystem : MonoBehaviour
                 int temp = i;
                 GameObject currAns = Instantiate(answer, answerBox.transform);
                 currAns.GetComponentInChildren<TextMeshProUGUI>().SetText(dialogue.conversations[convIndex].responses[temp].responseText);
-                currAns.GetComponent<Button>().onClick.AddListener(() => { answerClick(dialogue.conversations[convIndex].responses[temp].nextConvIndex); });
+                currAns.GetComponent<Button>().onClick.AddListener(() => { AnswerClick(dialogue.conversations[convIndex].responses[temp].nextConvIndex); });
             }
         }
         else
         {
             convIndex = 0;
             lineIndex = 0;
-            gameManager.setCameraState(CameraState.MoveState);
+            gameManager.SetCameraState(CameraState.MoveState);
             dialogueCanvas.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -104,7 +104,7 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    private void answerClick(int nextDialogue)
+    private void AnswerClick(int nextDialogue)
     {
         //Set next dialogue and reset text box
         convIndex = nextDialogue;
