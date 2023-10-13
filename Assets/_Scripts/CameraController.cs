@@ -59,7 +59,9 @@ public class CameraController : MonoBehaviour
     }
 
     public void setState(CameraState newState) {
-        currPos = targetTransform.position;
-        state = newState; }
+        if(newState != CameraState.JournalState)
+            currPos = targetTransform.position;
+        state = newState;
+        }
 
 }

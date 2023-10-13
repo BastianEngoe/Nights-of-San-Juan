@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     {
         if(!journalManager.IsActive)
         {
-            camManager.UpdateCameraState(CameraState.MenuState);
+            camManager.UpdateCameraState(CameraState.JournalState);
             //toggle the actual journal
             journalManager.ShowJournal();
             //lock the player

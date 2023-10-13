@@ -13,7 +13,9 @@ public enum CameraState
     MoveState,
     DialogueState,
     MenuState,
-    CinematicState
+    CinematicState,
+
+    JournalState
 }
 
 public class CameraManager : MonoBehaviour
@@ -21,6 +23,8 @@ public class CameraManager : MonoBehaviour
     public CameraController cameraController;
 
     public CinemachineBrain cinemaBrain;
+
+    public JournalCameraControl journalCameraControl;
 
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform currentSpeaker, dialoguePos;
@@ -50,6 +54,8 @@ public class CameraManager : MonoBehaviour
         {
             case CameraState.MoveState:
                 cinemaBrain.enabled = true;
+                journalCameraControl.enabled = false;
+                //cameraController.enabled = false;
                 break;
             case CameraState.DialogueState:
                 cinemaBrain.enabled = false;
@@ -62,6 +68,11 @@ public class CameraManager : MonoBehaviour
                 break;
             case CameraState.CinematicState:
                 break;
+            case CameraState.JournalState:
+                cinemaBrain.enabled = false;
+                journalCameraControl.enabled = true;
+                break;
+            
         }
     }
 
