@@ -9,13 +9,13 @@ public class OpeningController : MonoBehaviour
 {
     public CanvasGroup TitleCanvas;
     [SerializeField] private float cAlpha = 1, t;
-    private bool startFade;
+    private bool startFade, cutsceneStarted;
     public PlayableDirector cutController;
     public Animator beaAnim;
     
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (cutsceneStarted)
         {
             startFade = true;
 
@@ -39,5 +39,10 @@ public class OpeningController : MonoBehaviour
     void BeaLook()
     {
         beaAnim.SetBool("Look", true);
+    }
+
+    public void onSceneStart(){
+        cutsceneStarted = true;
+        
     }
 }

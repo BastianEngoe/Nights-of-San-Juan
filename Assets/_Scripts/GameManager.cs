@@ -9,14 +9,19 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private ThirdPersonController playerController;
     [SerializeField] private CameraManager camManager;
     [SerializeField] private DialogueSystem dialogueSystem;
-    [SerializeField] private InputReader inputReader;
-    [SerializeField] private Dialogue testDialogue;
+    //[SerializeField] private InputReader inputReader;
 
-    private GameObject playerObject;
+    [SerializeField] public JournalManager journalManager;
+
+    [SerializeField] private GameObject playerObject;
 
     [SerializeField] private InteractionComponent interactionComponent;
 
+    [SerializeField] public InputManager inputManager;
+
     public static GameManager instance;
+
+    private bool onConversation = false;
 
     private void Awake()
     {
@@ -26,10 +31,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //addDialogueInput();
-        //playerController = FindObjectOfType<ThirdPersonController>();
-        //playerObject = playerController.gameObject;
-        inputReader.InteractEvent += onInteract;
     }
     
     public void CanPlayerMove(bool canThey)
@@ -45,61 +46,72 @@ public class GameManager : MonoBehaviour
     public void InCutscene(bool areThey, Dialogue dial = null)
     {
         CanPlayerJump(!areThey);
-        //if (areThey)
-        //{
-        //    camManager.UpdateCameraState(CameraState.DialogueState);
-            
-        //}
-        //else camManager.UpdateCameraState(CameraState.MoveState);
     }
 
     public void nextNode(){
         if(dialogueSystem.GetLineCurrentIndex() < dialogueSystem.dialogue.conversations[dialogueSystem.GetConvCurrentIndex()].lines.Length - 1 )
         {
-            if(dialogueSystem.nextLine())
+            if(dialogueSystem.ProccessLine())
                 camManager.nextNode();
         }
         else{
-            removeDialogueInput();
+            inputManager.removeDialogueInput();
             dialogueSystem.EndDialogue();
             InCutscene(false);
+            onConversation = false;
         }
     }
 
-    public void addDialogueInput()
+    public void onInteract()
     {
-        inputReader.OnNextLineEvent += nextNode;
-        inputReader.InteractEvent -= onInteract;
-
-    }
-    public void removeDialogueInput()
-    {
-        inputReader.OnNextLineEvent -= nextNode;
-        inputReader.InteractEvent += onInteract;
-    }
-
-    //private void sendDialogue(Dialogue dial){
-    //    currDialogue = dial;
-    //    dialogueSystem.dialogue = dial;
-    //    camManager.dialogue = dial;
-    //}
-
-    private void onInteract()
-    {
-        if (interactionComponent.currentTarget != null) {
+        if (interactionComponent.currentTarget != null&&!onConversation) {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
-            addDialogueInput();
+            inputManager.addDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             camManager.setSpeakers(interactableData.actors);
             camManager.UpdateCameraState(CameraState.DialogueState);
             dialogueSystem.StartConversation();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
-
+            onConversation = true;
         }
     }
+    ///<summary>
+    ///Controls when does the journal show up, and locks the player movement
+    ///</summary>
+    public void ToggleJournal()
+    {
+        if(!journalManager.IsActive)
+        {
+            camManager.UpdateCameraState(CameraState.JournalState);
+            //toggle the actual journal
+            journalManager.ShowJournal();
+            //lock the player
+            SetPlayerMovement(false);
+            //toggle the controls for the journal
+            inputManager.SetJournalControls(true);
+        }
+        else 
+        {
+            camManager.UpdateCameraState(CameraState.MoveState);
+            //toggle the actual journal
+            journalManager.QuitJournal();
+            //lock the player
+            SetPlayerMovement(true);
+            //toggle the controls for the journal
+            inputManager.SetJournalControls(false);
+        }
+        Debug.Log("Journal active: " + journalManager.IsActive);
+    }
 
-    public void setCameraState(CameraState newState)
+    private void SetPlayerMovement(bool toWhat)
+    {
+        ThirdPersonController thirdPersonController = playerObject.GetComponent<ThirdPersonController>();
+        thirdPersonController.canMove = toWhat;
+        //thirdPersonController.canJump = toWhat;
+    }
+
+    public void SetCameraState(CameraState newState)
     {
         camManager.UpdateCameraState(newState);
     }

@@ -8,8 +8,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 movementValue { get; private set; }
     private Controls controls;
-    public event Action InteractEvent; 
+    public event Action InteractEvent;
+    public event Action OnToggleJournal;
     public event Action OnNextLineEvent; 
+    public event Action OnPageLeftEvent; 
+    public event Action OnPageRightEvent; 
+    public event Action OnCutsceneStartEvent; 
+
+
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -45,6 +51,34 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         if (!context.performed && context.action.WasReleasedThisFrame()){
             OnNextLineEvent?.Invoke();
+        }
+    }
+
+    void Controls.IPlayerActions.OnToggleJournal(InputAction.CallbackContext context)
+    {
+        if (!context.performed && context.action.WasReleasedThisFrame()){
+            OnToggleJournal?.Invoke();
+        }
+    }
+
+    public void OnPageLeft(InputAction.CallbackContext context)
+    {
+        if (!context.performed && context.action.WasReleasedThisFrame()){
+            OnPageLeftEvent?.Invoke();
+        }
+    }
+
+    public void OnPageRight(InputAction.CallbackContext context)
+    {
+        if (!context.performed && context.action.WasReleasedThisFrame()){
+            OnPageRightEvent?.Invoke();
+        }
+    }
+
+    public void OnStartCutscene(InputAction.CallbackContext context)
+    {
+        if (!context.performed && context.action.WasReleasedThisFrame()){
+            OnCutsceneStartEvent?.Invoke();
         }
     }
 }

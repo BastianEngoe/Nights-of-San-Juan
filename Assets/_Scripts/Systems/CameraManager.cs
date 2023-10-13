@@ -1,16 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public enum CameraState
 {
     MoveState,
     DialogueState,
     MenuState,
-    CinematicState
+    CinematicState,
+
+    JournalState
 }
 
 public class CameraManager : MonoBehaviour
@@ -18,6 +23,8 @@ public class CameraManager : MonoBehaviour
     public CameraController cameraController;
 
     public CinemachineBrain cinemaBrain;
+
+    public JournalCameraControl journalCameraControl;
 
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform currentSpeaker, dialoguePos;
@@ -47,17 +54,25 @@ public class CameraManager : MonoBehaviour
         {
             case CameraState.MoveState:
                 cinemaBrain.enabled = true;
-                cameraController.enabled = false;
+                journalCameraControl.enabled = false;
+                //cameraController.enabled = false;
                 break;
             case CameraState.DialogueState:
                 cinemaBrain.enabled = false;
-                cameraController.enabled = true;
+                //int index = dialogueSystem.GetLineCurrentIndex();
+                //currentSpeaker = speakers[currDialogue.lines[index].speakerIndex];
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
+                //cinemaBrain.enabled = false;
                 break;
             case CameraState.CinematicState:
                 break;
+            case CameraState.JournalState:
+                cinemaBrain.enabled = false;
+                journalCameraControl.enabled = true;
+                break;
+            
         }
     }
 
@@ -77,14 +92,9 @@ public class CameraManager : MonoBehaviour
         directionOffset.x = direction.z * -1;
         directionOffset.z = direction.x;
 
-
         cameraController.setCamPosition(betweenSpeakers);
         cameraController.setTargetPosition(currentSpeaker.position);
 
-
-        //mainCamera.transform.position = dialoguePos.position;
-
-        //mainCamera.transform.LookAt(currentSpeaker.position);
     }
 
     public void nextNode(){
@@ -99,12 +109,14 @@ public class CameraManager : MonoBehaviour
 
     public void setSpeakers(GameObject[] newSpeakers)
     {
+        currDialogue = dialogueSystem.getDialogue();
+
         Transform[] speakersContainer = new Transform[newSpeakers.Length];
         for (int i = 0;i < newSpeakers.Length;i++)
         {
             speakersContainer[i] = newSpeakers[i].GetComponent<Transform>();
         }
-        currentSpeaker = speakersContainer[0];
+        currentSpeaker = speakersContainer[currDialogue.lines[dialogueSystem.GetLineCurrentIndex()].speakerIndex];
         speakers = speakersContainer;
     }
 }
