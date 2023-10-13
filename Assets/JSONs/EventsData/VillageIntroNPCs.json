@@ -1,0 +1,63 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "2",
+          "text": "Beatriz: Excuse me. Hi, my name is Beatriz, I just arrived from Sevilla."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Villager 1: ..."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Villager 2: ..."
+        },
+        {
+          "speakerIndex": "2",
+          "text": "Beatriz: Is the town usually this quiet?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Villager 1: You shouldn't be here."
+        },
+        {
+          "speakerIndex": "2",
+          "text": "Beatriz: Why is that?"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Villager 2: Shhhh, they are watching. The spirits are close."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Villager 1: You should leave before they find you. Like they have already haunt my home."
+        },
+        {
+          "speakerIndex": "2",
+          "text": "Beatriz: I’m a scholar sent by the king of Castilla to investigate what is happening here and this is not my first time encountering spirits and monsters."
+        },
+        {
+          "speakerIndex": "2",
+          "text": "Beatriz: If you are willing to help me understand what happened here, I can help you rid the spirits from your homes."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Villager 1: Understanding won’t save you from the fire."
+        },
+        {
+          "speakerIndex": "2",
+          "text": "Beatriz: Fire? Is this the spirit’s doing too?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Villager 1: This is your final warning, you must leave the village, now."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
