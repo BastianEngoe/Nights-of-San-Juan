@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public InputManager inputManager;
 
+    [SerializeField] private GameObject playerCameraTargetPosition;
+
     public static GameManager instance;
 
     private bool onConversation = false;
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SceneManager.sceneLoaded += AddPlayerToDialogues;
     }
     
     public void CanPlayerMove(bool canThey)
@@ -114,5 +118,18 @@ public class GameManager : MonoBehaviour
     public void SetCameraState(CameraState newState)
     {
         camManager.UpdateCameraState(newState);
+    }
+
+    private void AddPlayerToDialogues(Scene scene, LoadSceneMode mode)
+    {
+        GameObject[] npcs= GameObject.FindGameObjectsWithTag("Interactable");
+
+        foreach (GameObject npc in npcs) {
+        InteractableData data = npc.GetComponent<InteractableData>();
+            if (data != null)
+            {
+                data.addOject(playerCameraTargetPosition);
+            }
+        }
     }
 }

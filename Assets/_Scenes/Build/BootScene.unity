@@ -159,6 +159,7 @@ MonoBehaviour:
   playerObject: {fileID: 751845902}
   interactionComponent: {fileID: 1238221792}
   inputManager: {fileID: 1474062319}
+  playerCameraTargetPosition: {fileID: 1280760830}
 --- !u!114 &71324447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +457,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff6c078b3c63234380791780b8d2699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1280760830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 469084805409289706, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1230609984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1474062316
 GameObject:
   m_ObjectHideFlags: 0
