@@ -225,7 +225,15 @@ public class JournalManager : MonoBehaviour
     {
         int questIndex= SearchForQuest(questName);
         journalQuestsData.quests[questIndex].unlocked = true;
-        if(journalQuestsData.quests[questIndex].entries.Length>0) journalQuestsData.quests[questIndex].entries[0].unlocked = true;
+        if (journalQuestsData.quests[questIndex].entries.Length > 0)
+        {
+            int i = 0;
+            while (i < journalQuestsData.quests[questIndex].entries.Length)
+            {
+                journalQuestsData.quests[questIndex].entries[i].unlocked = true;
+                i++;
+            }
+        }
     }
 
     private int SearchForQuest(string questName)
