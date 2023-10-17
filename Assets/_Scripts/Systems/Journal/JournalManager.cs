@@ -21,6 +21,7 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private GameObject titlePrefab;
     [SerializeField] private JournalQuestsData journalQuestsData;
+    [SerializeField] private Animator animator;
     private bool isActive;
     private string saveFile;
     private int currentDisplayedQuest = 0;
@@ -34,7 +35,7 @@ public class JournalManager : MonoBehaviour
     {
         saveFile = Application.persistentDataPath + "/QuestsData.json";
         Debug.Log(saveFile);
-
+        animator = journalObject.GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -52,9 +53,29 @@ public class JournalManager : MonoBehaviour
         journalObject.SetActive(true);
         isActive = true;
         UpdatePages();
+        Invoke("EnablePages", 1f);
+    }
+
+    public void EnablePages()
+    {
+        leftPage.SetActive(true);
+        rightPage.SetActive(true);
+    }
+
+    public void DisablePages()
+    {
+        leftPage.SetActive(false);
+        rightPage.SetActive(false);
     }
 
     public void QuitJournal()
+    {
+        animator.SetTrigger("closeJournal");
+        DisablePages();
+        Invoke("DisableJournal", 1f);
+    }
+
+    public void DisableJournal()
     {
         journalObject.SetActive(false);
         isActive = false;
