@@ -63,7 +63,9 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public void startIntroScene(){
+    public void startIntroScene()
+    {
+        openingController = FindObjectOfType<OpeningController>();
         openingController.onSceneStart();
         inputReader.OnCutsceneStartEvent -= startIntroScene;
     }
