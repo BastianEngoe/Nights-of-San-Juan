@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     private UnityEvent nextInter= new UnityEvent();
 
-
+    private bool newJournalEntryAdded = false;
     private bool onConversation = false;
 
     private void Awake()
@@ -70,8 +70,9 @@ public class GameManager : MonoBehaviour
             InCutscene(false);
             onConversation = false;
             nextInter.Invoke();
-            quillController.QuillAppear();
+            if(newJournalEntryAdded) quillController.QuillAppear();
             nextInter.RemoveAllListeners();
+            newJournalEntryAdded = false;
         }
     }
 
@@ -79,7 +80,9 @@ public class GameManager : MonoBehaviour
     {
         if (interactionComponent.currentTarget != null&&!onConversation) {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
-            if (interactableData.triggerEventWhenFinished) nextInter.AddListener(interactableData.TriggerNextEvent);
+            if (interactableData.triggerEventWhenFinished) {
+                newJournalEntryAdded = true;
+                nextInter.AddListener(interactableData.TriggerNextEvent); }
             inputManager.addDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             camManager.setSpeakers(interactableData.actors);
