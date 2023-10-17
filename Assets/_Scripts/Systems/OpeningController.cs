@@ -15,12 +15,6 @@ public class OpeningController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            startFade = true;
-
-            Invoke("StartCutscene", 2.5f);
-        }
 
         if (startFade)
         {
@@ -39,5 +33,10 @@ public class OpeningController : MonoBehaviour
     void BeaLook()
     {
         beaAnim.SetBool("Look", true);
+    }
+
+    public void onSceneStart(){
+        startFade = true;
+        Invoke("StartCutscene", 2.5f);
     }
 }
