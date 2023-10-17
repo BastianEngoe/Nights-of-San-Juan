@@ -13,6 +13,11 @@ public class OpeningController : MonoBehaviour
     public PlayableDirector cutController;
     public Animator beaAnim;
 
+    private void Start()
+    {
+        StartCutscene();
+    }
+
     void Update()
     {
 
@@ -28,15 +33,16 @@ public class OpeningController : MonoBehaviour
     {
         cutController.Play();
         beaAnim.enabled = true;
-        Invoke("BeaLook", 4f);
+        Invoke("BeaLook", 22f);
     }
     void BeaLook()
     {
         beaAnim.SetBool("Look", true);
     }
 
+    /*
     public void onSceneStart(){
         startFade = true;
         Invoke("StartCutscene", 2.5f);
-    }
+    }*/
 }

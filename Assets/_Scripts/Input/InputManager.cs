@@ -66,7 +66,7 @@ public class InputManager : MonoBehaviour
     public void startIntroScene()
     {
         openingController = FindObjectOfType<OpeningController>();
-        openingController.onSceneStart();
+        //openingController.onSceneStart();
         inputReader.OnCutsceneStartEvent -= startIntroScene;
     }
 
