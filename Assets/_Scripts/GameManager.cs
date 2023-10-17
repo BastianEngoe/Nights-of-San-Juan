@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
     {
         ThirdPersonController thirdPersonController = playerObject.GetComponent<ThirdPersonController>();
         thirdPersonController.canMove = toWhat;
-        thirdPersonController.canJump = toWhat;
+        //thirdPersonController.canJump = toWhat;
     }
 
     public void SetCameraState(CameraState newState)
