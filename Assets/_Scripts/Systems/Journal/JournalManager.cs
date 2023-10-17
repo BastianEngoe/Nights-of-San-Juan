@@ -234,6 +234,8 @@ public class JournalManager : MonoBehaviour
                 i++;
             }
         }
+
+        currentDisplayedQuest = questIndex - (questIndex % 2);
     }
 
     private int SearchForQuest(string questName)
