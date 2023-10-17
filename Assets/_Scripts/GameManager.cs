@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject playerCameraTargetPosition;
 
+    [SerializeField] private UIQuillController quillController;
+
     public static GameManager instance;
 
     private UnityEvent nextInter= new UnityEvent();
@@ -68,6 +70,8 @@ public class GameManager : MonoBehaviour
             InCutscene(false);
             onConversation = false;
             nextInter.Invoke();
+            quillController.QuillAppear();
+            nextInter.RemoveAllListeners();
         }
     }
 

@@ -160,6 +160,7 @@ MonoBehaviour:
   interactionComponent: {fileID: 1238221792}
   inputManager: {fileID: 1474062319}
   playerCameraTargetPosition: {fileID: 1280760830}
+  quillController: {fileID: 1074095698}
 --- !u!114 &71324447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +406,118 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1230609984}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1074095696
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1885237627}
+    m_Modifications:
+    - target: {fileID: 2853860211429831779, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442716467867078494, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6432880445471195468, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_text
+      value: Whenever this quill icon appear in the corner, your journal has updated!
+        Press "<color=red>J</color>" to view your findings.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687347292584269202, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_Name
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -403.86053
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -96.430016
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 88.68295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804422352520942232, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130580124252217258, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e6369b20ac5a514499cf6c047131e89, type: 3}
+--- !u!4 &1074095697 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074095696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1074095698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2834514093642750617, guid: 8e6369b20ac5a514499cf6c047131e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074095696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d11f8262d71654ab7132c4e5ce8918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1230609984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1949,6 +2062,7 @@ Transform:
   - {fileID: 402120848}
   - {fileID: 2042324609}
   - {fileID: 1474062317}
+  - {fileID: 1074095697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1885237628

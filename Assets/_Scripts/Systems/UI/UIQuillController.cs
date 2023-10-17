@@ -15,21 +15,17 @@ public class UIQuillController : MonoBehaviour
     
     public void QuillAppear()
     {
-        mainAnim.enabled = true;
-        mainAnim.Play("QuillAppear");
-    }
-
-    private void Start()
-    {
         if (firstTime)
         {
             firstAnim.gameObject.SetActive(true);
         }  
+        mainAnim.enabled = true;
+        mainAnim.Play("QuillAppear");
     }
-
+    
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.J))
         {
             if (mainAnim.enabled)
             {
@@ -39,14 +35,6 @@ public class UIQuillController : MonoBehaviour
                     firstAnim.SetTrigger("done");
                     firstTime = false;
                 }
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            if (!mainAnim.enabled)
-            {
-                QuillAppear();
             }
         }
     }
