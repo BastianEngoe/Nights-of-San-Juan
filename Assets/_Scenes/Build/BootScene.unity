@@ -160,6 +160,7 @@ MonoBehaviour:
   interactionComponent: {fileID: 1238221792}
   inputManager: {fileID: 1474062319}
   playerCameraTargetPosition: {fileID: 1280760830}
+  quillController: {fileID: 1074095698}
 --- !u!114 &71324447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,6 +506,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1074095696}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1074095698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2834514093642750617, guid: 8e6369b20ac5a514499cf6c047131e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074095696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d11f8262d71654ab7132c4e5ce8918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1230609984
 PrefabInstance:
   m_ObjectHideFlags: 0
