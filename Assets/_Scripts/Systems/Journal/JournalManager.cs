@@ -62,30 +62,30 @@ public class JournalManager : MonoBehaviour
 
     private void ProccesJournal()
     {
-
+        //If there is not a save file
         if (!File.Exists(saveFile))
         {
             journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
             File.WriteAllText(saveFile, journalData.text);
         }
+        //If there is a save file but is not the same as the text asset (Edited by designers) Text asset takes priority
         else if(saveFile!=journalData.text)
         {
-            File.WriteAllText( saveFile,journalData.text);
+            File.WriteAllText(saveFile,journalData.text);
             journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
-
         }
+        //If both match
         else
         {
             journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(File.ReadAllText(saveFile));
         }
     }
-    private void UpdateJournal() //Still has to be tested
+    private void UpdateJournal()
     {
         string jsonString = JsonUtility.ToJson(journalQuestsData);
         File.WriteAllText(saveFile, jsonString);
         File.WriteAllText(AssetDatabase.GetAssetPath(journalData), jsonString);
         EditorUtility.SetDirty(journalData);
-
     }
 
     public void TurnLeftPage() {
@@ -165,22 +165,14 @@ public class JournalManager : MonoBehaviour
     ///the filepath value should look like
     ///</para>
     ///<para>
-    ///"Sprites/yourSprite.png"
+    ///"Sprites/yourSprite"
     ///</para>
     ///</summary>
     private void AddImageSlot(GameObject page, string filepath, float scale){
-
-
         GameObject newImageSlot = Instantiate(imagePrefab, page.transform);
 
         Image imgObject = newImageSlot.GetComponent<Image>();
         imgObject.sprite = Resources.Load<Sprite>(filepath);
-        
-
-
-        //newImageSlot.transform.localScale *= scale;
-        
-    
     }
 
 
@@ -206,6 +198,13 @@ public class JournalManager : MonoBehaviour
             return;
         }
         journalQuestsData.quests[questIndex].entries[entryIndex].unlocked = true;
+    }
+
+    public void UnlockQuest(string questName)
+    {
+        int questIndex= SearchForQuest(questName);
+        journalQuestsData.quests[questIndex].unlocked = true;
+        if(journalQuestsData.quests[questIndex].entries.Length>0) journalQuestsData.quests[questIndex].entries[0].unlocked = true;
     }
 
     private int SearchForQuest(string questName)

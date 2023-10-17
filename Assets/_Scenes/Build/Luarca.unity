@@ -1945,6 +1945,9 @@ MonoBehaviour:
   actors:
   - {fileID: 467420269}
   - {fileID: 1959929800}
+  events: []
+  triggerEventWhenFinished: 0
+  journalManager: {fileID: 0}
 --- !u!1 &511493852
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,6 +2690,12 @@ MonoBehaviour:
   JSONConversation: {fileID: 4900000, guid: dab8718b4ad4ecd4b85b9d6d7da13b71, type: 3}
   actors:
   - {fileID: 625932200}
+  events:
+  - nextActors: []
+    nextConversation: {fileID: 0}
+    journalEntryToUnlock: The Devil in the Woods
+  triggerEventWhenFinished: 1
+  journalManager: {fileID: 0}
 --- !u!1 &636808205
 GameObject:
   m_ObjectHideFlags: 0

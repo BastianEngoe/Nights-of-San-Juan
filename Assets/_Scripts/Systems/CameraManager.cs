@@ -33,12 +33,6 @@ public class CameraManager : MonoBehaviour
     private Vector3 direction, directionOffset;
     [SerializeField] private DialogueSystem dialogueSystem;
     private Dialogue currDialogue;
-    private bool convEnter=true;
-
-
-    private void Start()
-    {
-    }
 
 
     public void UpdateCameraState(CameraState cameraState)

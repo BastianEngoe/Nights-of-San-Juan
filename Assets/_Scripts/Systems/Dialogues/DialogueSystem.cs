@@ -6,6 +6,7 @@ using System;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 using System.Security.Cryptography.X509Certificates;
+using UnityEngine.Events;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -21,9 +22,6 @@ public class DialogueSystem : MonoBehaviour
     private int convIndex;
     private int lineIndex;
 
-    void Start()
-    {
-    }
 
     public void StartConversation()
     {
@@ -126,8 +124,6 @@ public class DialogueSystem : MonoBehaviour
     {
         dialoguesTextData = newDialogue;
         ProcessJSON();
-
-
     }
     public Dialogue getDialogue()
     {

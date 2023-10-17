@@ -7,7 +7,6 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Vector3 offset;
-    [SerializeField] private float cameraDistance = 5.0f;
     
     private float lerpFactor = 2f;
     private Transform targetTransform;
@@ -28,15 +27,8 @@ public class CameraController : MonoBehaviour
         switch (state)
         {
             case CameraState.DialogueState:
-                Debug.Log(currPos);
                 Quaternion targetRotation = Quaternion.LookRotation(currPos - transform.position);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lerpFactor);
-
-                // Vector3 camPos = (player.transform.position + targetTransform.position) / 2;
-                // camPos.y += heightOffset;
-
-                // transform.position = Vector3.Lerp(transform.position, camPos, lerpFactor * Time.deltaTime);
-                // transform.LookAt(targetTransform);
                 break;
             case CameraState.CinematicState: 
                 break;
@@ -62,6 +54,6 @@ public class CameraController : MonoBehaviour
         if(newState == CameraState.DialogueState)
             currPos = targetTransform.position;
         state = newState;
-        }
+    }
 
 }
