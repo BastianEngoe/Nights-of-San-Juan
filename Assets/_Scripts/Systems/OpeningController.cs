@@ -36,6 +36,7 @@ public class OpeningController : MonoBehaviour
     }
 
     public void onSceneStart(){
+        GameManager.instance.CanPlayerMove(false);
         startFade = true;
         Invoke("StartCutscene", 2.5f);
     }

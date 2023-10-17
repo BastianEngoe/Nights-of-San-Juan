@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
             inputManager.addDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             camManager.setSpeakers(interactableData.actors);
+            camManager.setOffset(interactableData.cameraOffset);
             camManager.UpdateCameraState(CameraState.DialogueState);
             dialogueSystem.StartConversation();
             Cursor.visible = true;
@@ -118,7 +119,7 @@ public class GameManager : MonoBehaviour
     {
         ThirdPersonController thirdPersonController = playerObject.GetComponent<ThirdPersonController>();
         thirdPersonController.canMove = toWhat;
-        //thirdPersonController.canJump = toWhat;
+        thirdPersonController.canJump = toWhat;
     }
 
     public void SetCameraState(CameraState newState)

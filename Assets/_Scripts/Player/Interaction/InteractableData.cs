@@ -8,6 +8,8 @@ public class InteractableData : MonoBehaviour
     public TextAsset JSONConversation;
     public List<GameObject> actors;
     public List<Event> events;
+
+    public Vector3 cameraOffset = new Vector3(0, 1, 0);
     public bool triggerEventWhenFinished;
     
     [HideInInspector] public JournalManager journalManager;
