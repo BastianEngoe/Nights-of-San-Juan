@@ -68,6 +68,12 @@ public class JournalManager : MonoBehaviour
             journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
             File.WriteAllText(saveFile, journalData.text);
         }
+        else if(saveFile!=journalData.text)
+        {
+            File.WriteAllText( saveFile,journalData.text);
+            journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
+
+        }
         else
         {
             journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(File.ReadAllText(saveFile));
@@ -121,7 +127,9 @@ public class JournalManager : MonoBehaviour
 
     private void PopulatePage(Quest quest, GameObject page)
     {
+        if(quest.unlocked)
         AddTitleSlot(page, quest.name);
+
         foreach (Entry entry in quest.entries)
         {
             if (!entry.unlocked)
