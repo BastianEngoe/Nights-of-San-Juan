@@ -107,12 +107,12 @@ public class CameraManager : MonoBehaviour
         SetCamDialoguePos();
     }
 
-    public void setSpeakers(GameObject[] newSpeakers)
+    public void setSpeakers(List<GameObject> newSpeakers)
     {
         currDialogue = dialogueSystem.getDialogue();
 
-        Transform[] speakersContainer = new Transform[newSpeakers.Length];
-        for (int i = 0;i < newSpeakers.Length;i++)
+        Transform[] speakersContainer = new Transform[newSpeakers.Count];
+        for (int i = 0;i < newSpeakers.Count;i++)
         {
             speakersContainer[i] = newSpeakers[i].GetComponent<Transform>();
         }
