@@ -70,10 +70,10 @@ MonoBehaviour:
     you know you want it, and you know you want me to give it to you. Whoa, whoa,
     okay. Where''s Einstein, is he with you? Breakfast.
 
-    
 
-    You extol me
-    with a lot of confidence, Doc. Marty, I''m sorry, but the only power source capable
+
+    You extol me with
+    a lot of confidence, Doc. Marty, I''m sorry, but the only power source capable
     of generating one point twenty-one gigawatts of electricity is a bolt of lightning.
     How about a ride, Mister? We''re gonna take a little break but we''ll be back
     in a while so, don''t nobody go no where. Yeah, well, I still don''t understand
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

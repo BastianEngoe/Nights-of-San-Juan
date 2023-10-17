@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -56,4 +57,8 @@ public class CameraController : MonoBehaviour
         state = newState;
     }
 
+    public void setOffset(Vector3 cameraOffset)
+    {
+        offset = cameraOffset;
+    }
 }
