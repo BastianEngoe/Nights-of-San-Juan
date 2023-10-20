@@ -1,0 +1,19 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: A book on ''Nuberu'' sightings?"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Huh..."
+        }  
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
