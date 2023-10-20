@@ -31,7 +31,7 @@ public class InputManager : MonoBehaviour
     private void onInteract()
     {
         if (!onJournal){
-            GameManager.instance.onInteract();
+            GameManager.instance.OnInteract();
         }
     }
 
@@ -43,14 +43,14 @@ public class InputManager : MonoBehaviour
     public void addDialogueInput()
     {
         inputReader.OnNextLineEvent += GameManager.instance.nextNode;
-        inputReader.InteractEvent -= GameManager.instance.onInteract;
+        inputReader.InteractEvent -= GameManager.instance.OnInteract;
         inputReader.OnToggleJournal -= ToggleJournal;
 
     }
     public void removeDialogueInput()
     {
         inputReader.OnNextLineEvent -= GameManager.instance.nextNode;
-        inputReader.InteractEvent += GameManager.instance.onInteract;
+        inputReader.InteractEvent += GameManager.instance.OnInteract;
         inputReader.OnToggleJournal += ToggleJournal;
     }
 
@@ -58,12 +58,12 @@ public class InputManager : MonoBehaviour
         if(toWhat){
             inputReader.OnPageLeftEvent += GameManager.instance.journalManager.TurnLeftPage;
             inputReader.OnPageRightEvent += GameManager.instance.journalManager.TurnRightPage;
-            inputReader.InteractEvent -= GameManager.instance.onInteract;
+            inputReader.InteractEvent -= GameManager.instance.OnInteract;
         }else
         {
             inputReader.OnPageLeftEvent -= GameManager.instance.journalManager.TurnLeftPage;
             inputReader.OnPageRightEvent -= GameManager.instance.journalManager.TurnRightPage;
-            inputReader.InteractEvent += GameManager.instance.onInteract;
+            inputReader.InteractEvent += GameManager.instance.OnInteract;
         }
     }
 

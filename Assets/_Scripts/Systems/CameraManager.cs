@@ -39,7 +39,7 @@ public class CameraManager : MonoBehaviour
     public void UpdateCameraState(CameraState cameraState)
     {
         this.cameraState = cameraState;
-        cameraController.setState(cameraState);
+        cameraController.SetState(cameraState);
         ChangeCamera();
     }
 
@@ -87,8 +87,8 @@ public class CameraManager : MonoBehaviour
         directionOffset.x = direction.z * -1;
         directionOffset.z = direction.x;
 
-        cameraController.setCamPosition(betweenSpeakers);
-        cameraController.setTargetPosition(currentSpeaker.position);
+        cameraController.SetCamPosition(betweenSpeakers);
+        cameraController.SetTargetPosition(currentSpeaker.position);
 
     }
 
@@ -116,7 +116,7 @@ public class CameraManager : MonoBehaviour
     }
     public void setOffset(Vector3 cameraOffset)
     {
-        cameraController.setOffset(cameraOffset);
+        cameraController.SetOffset(cameraOffset);
     }
 }
 
