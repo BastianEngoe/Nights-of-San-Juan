@@ -44,26 +44,32 @@ public class InputManager : MonoBehaviour
     {
         inputReader.OnNextLineEvent += GameManager.instance.nextNode;
         inputReader.InteractEvent -= GameManager.instance.onInteract;
+        inputReader.OnToggleJournal -= ToggleJournal;
 
     }
     public void removeDialogueInput()
     {
         inputReader.OnNextLineEvent -= GameManager.instance.nextNode;
         inputReader.InteractEvent += GameManager.instance.onInteract;
+        inputReader.OnToggleJournal += ToggleJournal;
     }
 
     public void SetJournalControls(bool toWhat){
         if(toWhat){
             inputReader.OnPageLeftEvent += GameManager.instance.journalManager.TurnLeftPage;
             inputReader.OnPageRightEvent += GameManager.instance.journalManager.TurnRightPage;
+            inputReader.InteractEvent -= GameManager.instance.onInteract;
         }else
         {
             inputReader.OnPageLeftEvent -= GameManager.instance.journalManager.TurnLeftPage;
             inputReader.OnPageRightEvent -= GameManager.instance.journalManager.TurnRightPage;
+            inputReader.InteractEvent += GameManager.instance.onInteract;
         }
     }
 
-    public void startIntroScene(){
+    public void startIntroScene()
+    {
+        openingController = FindObjectOfType<OpeningController>();
         //openingController.onSceneStart();
         inputReader.OnCutsceneStartEvent -= startIntroScene;
     }

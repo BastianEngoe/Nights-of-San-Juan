@@ -13,14 +13,13 @@ public class OpeningController : MonoBehaviour
     public PlayableDirector cutController;
     public Animator beaAnim;
 
+    private void Start()
+    {
+        StartCutscene();
+    }
+
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            startFade = true;
-
-            Invoke("StartCutscene", 2.5f);
-        }
 
         if (startFade)
         {
@@ -34,10 +33,17 @@ public class OpeningController : MonoBehaviour
     {
         cutController.Play();
         beaAnim.enabled = true;
-        Invoke("BeaLook", 4f);
+        Invoke("BeaLook", 22f);
     }
     void BeaLook()
     {
         beaAnim.SetBool("Look", true);
     }
+
+    /*
+    public void onSceneStart(){
+        GameManager.instance.CanPlayerMove(false);
+        startFade = true;
+        Invoke("StartCutscene", 2.5f);
+    }*/
 }

@@ -160,6 +160,7 @@ MonoBehaviour:
   interactionComponent: {fileID: 1238221792}
   inputManager: {fileID: 1474062319}
   playerCameraTargetPosition: {fileID: 1280760830}
+  quillController: {fileID: 1074095698}
 --- !u!114 &71324447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
     type: 3}
   journalQuestsData:
     quests: []
+  animator: {fileID: 0}
 --- !u!4 &402120848
 Transform:
   m_ObjectHideFlags: 0
@@ -377,6 +379,118 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1230609984}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1074095696
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1885237627}
+    m_Modifications:
+    - target: {fileID: 2853860211429831779, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442716467867078494, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6432880445471195468, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_text
+      value: Whenever this quill icon appear in the corner, your journal has updated!
+        Press "<color=red>J</color>" to view your findings.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687347292584269202, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_Name
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -403.86053
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -96.430016
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 88.68295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804422352520942232, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130580124252217258, guid: 8e6369b20ac5a514499cf6c047131e89,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e6369b20ac5a514499cf6c047131e89, type: 3}
+--- !u!4 &1074095697 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6767883907061944655, guid: 8e6369b20ac5a514499cf6c047131e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074095696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1074095698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2834514093642750617, guid: 8e6369b20ac5a514499cf6c047131e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074095696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d11f8262d71654ab7132c4e5ce8918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1230609984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,11 +499,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1885237627}
     m_Modifications:
-    - target: {fileID: 503896149112572109, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
-        type: 3}
-      propertyPath: canJump
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4298999225068146002, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -560,7 +669,7 @@ MonoBehaviour:
   answer: {fileID: 1088071196479719137, guid: 84d6a0afbcc47ef4995b9d872ea183aa, type: 3}
   dialogueCanvas: {fileID: 759678658}
   textComponent: {fileID: 733972340}
-  writingDelay: 0.02
+  writingDelay: 0
   dialogue:
     conversations: []
   gameManager: {fileID: 71324446}
@@ -596,7 +705,7 @@ GameObject:
   - component: {fileID: 1885237627}
   - component: {fileID: 1885237628}
   m_Layer: 0
-  m_Name: ----MANAGERS----
+  m_Name: ---MANAGERS---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,6 +733,7 @@ Transform:
   - {fileID: 402120848}
   - {fileID: 2042324609}
   - {fileID: 1474062317}
+  - {fileID: 1074095697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1885237628
@@ -646,6 +756,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1885237627}
     m_Modifications:
+    - target: {fileID: 446335972663542610, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 446335972663542610, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2886002677517291473, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_Color.a
@@ -719,7 +839,7 @@ PrefabInstance:
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 88.68295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
@@ -729,27 +849,27 @@ PrefabInstance:
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -807.72107
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -192.86003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}

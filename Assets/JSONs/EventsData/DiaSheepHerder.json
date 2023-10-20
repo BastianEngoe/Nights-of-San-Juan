@@ -5,133 +5,71 @@
       "lines": [
         {
           "speakerIndex": "1",
-          "text": "Beatriz: Greetings! Could you tell me a little bit about Luarca?"
+          "text": "Beatriz: Do you need any help with that?"
         },
         {
           "speakerIndex": "0",
-          "text": "Sheperd: There is not much left to talk about..."
-        },
-        {
-          "speakerIndex": "1",
-          "text": "Beatriz: ..."
-        }
-      ],
-      "responses": [
-        {
-          "responseText": "What happened here?",
-          "nextConvIndex": "1"
-        },
-        {
-          "responseText": "Why won't the others talk to me?",
-          "nextConvIndex": "2"
-        },
-        {
-          "responseText": "Thank you, farewell!",
-          "nextConvIndex": "4"
-        }
-      ]
-    },
-    {
-      "id": "1",
-      "lines": [
-        {
-          "speakerIndex": "1",
-          "text": "Beatriz: What happened here?"
+          "text": "Farmer: Thank you, but I’m afraid it's no use, the fire burnt the entire field."
         },
         {
           "speakerIndex": "0",
-          "text": "Sheperd: Well in my case my sheep are all gone, probably all eaten by now."
+          "text": "Farmer: I haven't seen you around here before, what’s your name?"
         },
         {
           "speakerIndex": "1",
-          "text": "Beatriz: Eaten by what?"
+          "text": "Beatriz: I’m Beatriz, I just got here from Sevilla. I’m a scholar sent to investigate what is happening in the region."
         },
         {
           "speakerIndex": "0",
-          "text": "Sheperd: There is a dangerous predator in Pontigón forest, it's been harassing us for a while. We can't quite identify what this predator actually is..."
+          "text": "Farmer: Well then, I can assist your investigation by telling you we’re dealing with a dragon and that you should seek shelter in case it returns."
         },
         {
           "speakerIndex": "1",
-          "text": "Beatriz: ..."
-        }
-      ],
-      "responses": [
-        {
-          "responseText": "Pontigón forest?",
-          "nextConvIndex": "3"
-        },
-        {
-          "responseText": "Why won't the others talk to me?",
-          "nextConvIndex": "2"
-        },
-        {
-          "responseText": "Thank you, farewell!",
-          "nextConvIndex": "4"
-        }
-      ]
-    },
-    {
-      "id": "2",
-      "lines": [
-        {
-          "speakerIndex": "1",
-          "text": "Beatriz: Why won't the others talk to me?"
+          "text": "Beatriz: A dragon?! Do you know why it’s attacking the village?"
         },
         {
           "speakerIndex": "0",
-          "text": "Sheperd: We have almost lost everything, but not our pride. We have faith in ourselves."
+          "text": "Farmer: I’m not sure. He first appeared around the mountains a few months ago, but only started attacking when we started preparing for the San Juan festival a few days ago."
         },
         {
           "speakerIndex": "1",
-          "text": "Beatriz: ..."
-        }
-      ],
-      "responses": [
-        {
-          "responseText": "What happened here?",
-          "nextConvIndex": "1"
-        },
-        {
-          "responseText": "Thank you, farewell!",
-          "nextConvIndex": "4"
-        }
-      ]
-    },{
-      "id": "3",
-      "lines": [
-        {
-          "speakerIndex": "1",
-          "text": "Beatriz: Pontigón forest?"
+          "text": "Beatriz: Strange… Could you tell me more about this San Juan festival?"
         },
         {
           "speakerIndex": "0",
-          "text": "Sheperd: Its a dense forest quite a bit south of here, but I would not go there if I were you."
-        },
-        {
-          "speakerIndex": "1",
-          "text": "Beatriz: ..."
-        }
-      ],
-      "responses": [
-        {
-          "responseText": "Why won't the others talk to me?",
-          "nextConvIndex": "2"
-        },
-        {
-          "responseText": "Thank you, farewell!",
-          "nextConvIndex": "4"
-        }
-      ]
-    },{
-      "id": "4",
-      "lines": [
-        {
-          "speakerIndex": "1",
-          "text": "Beatriz: Thank you, farewell!"
+          "text": "Farmer: It is a celebration of Saint John the Baptist’s birth, but the night of San Juan is also a time to be wary of evil spirits walking amongst us when the sun doesn’t set."
         },
         {
           "speakerIndex": "0",
-          "text": "Sheperd: Be careful out there, the wilds of Luarca can be dangerous."
+          "text": "Farmer: We light bonfires to protect ourselves from the evil spirits and carry torches to prepare the way for Christ, like Saint John."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Farmer: But with the dragon disrupting the preparations we stand unprotected from the spirits, allowing them to haunt our homes. There are rumors in the village of furniture moving by itself and belongings disappearing."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Do you think the festival is the reason for the dragon attacking?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Farmer: I believe so, but why is uncertain. Maybe it’s another evil spirit or the devil himself reeking havoc because of our pagan roots. It matters little, the dragon does not seem interested in stating its purpose."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Guessing his motivation won’t get me closer to the answers we need so I’ll have to continue my search and seek them out. Thank you for your time, is there anything else I should know before I leave?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Farmer: If you insist on not heeding my warning I only ask of you to seek out Xibu Lake. Find the lady of the lake and offer her these herbs."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Farmer: We hang bouquets on our doors to protect us from the spirits, but I fear the dragon is weakening her magic so I hope by offering the lady my herbs her song will grant our souls protection once more while the spirits roam."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Farmer: I wish you luck on your travels."
         }
       ],
       "responses": [

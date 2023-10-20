@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,8 +23,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject playerCameraTargetPosition;
 
+    [SerializeField] private UIQuillController quillController;
+
     public static GameManager instance;
 
+    private UnityEvent nextInter= new UnityEvent();
+
+    private bool newJournalEntryAdded = false;
     private bool onConversation = false;
 
     private void Awake()
@@ -34,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SceneManager.sceneLoaded += AddPlayerToDialogues;
+        SceneManager.sceneLoaded += ConfigureDialogues;
     }
     
     public void CanPlayerMove(bool canThey)
@@ -63,6 +69,10 @@ public class GameManager : MonoBehaviour
             dialogueSystem.EndDialogue();
             InCutscene(false);
             onConversation = false;
+            nextInter.Invoke();
+            if(newJournalEntryAdded) quillController.QuillAppear();
+            nextInter.RemoveAllListeners();
+            newJournalEntryAdded = false;
         }
     }
 
@@ -70,9 +80,13 @@ public class GameManager : MonoBehaviour
     {
         if (interactionComponent.currentTarget != null&&!onConversation) {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
+            if (interactableData.triggerEventWhenFinished) {
+                newJournalEntryAdded = true;
+                nextInter.AddListener(interactableData.TriggerNextEvent); }
             inputManager.addDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             camManager.setSpeakers(interactableData.actors);
+            camManager.setOffset(interactableData.cameraOffset);
             camManager.UpdateCameraState(CameraState.DialogueState);
             dialogueSystem.StartConversation();
             Cursor.visible = true;
@@ -120,7 +134,7 @@ public class GameManager : MonoBehaviour
         camManager.UpdateCameraState(newState);
     }
 
-    private void AddPlayerToDialogues(Scene scene, LoadSceneMode mode)
+    private void ConfigureDialogues(Scene scene, LoadSceneMode mode)
     {
         GameObject[] npcs= GameObject.FindGameObjectsWithTag("Interactable");
 
@@ -128,7 +142,8 @@ public class GameManager : MonoBehaviour
         InteractableData data = npc.GetComponent<InteractableData>();
             if (data != null)
             {
-                data.addOject(playerCameraTargetPosition);
+                data.journalManager = journalManager;
+                data.AddOject(playerCameraTargetPosition);
             }
         }
     }

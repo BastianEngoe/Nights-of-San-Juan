@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -33,12 +34,6 @@ public class CameraManager : MonoBehaviour
     private Vector3 direction, directionOffset;
     [SerializeField] private DialogueSystem dialogueSystem;
     private Dialogue currDialogue;
-    private bool convEnter=true;
-
-
-    private void Start()
-    {
-    }
 
 
     public void UpdateCameraState(CameraState cameraState)
@@ -119,7 +114,12 @@ public class CameraManager : MonoBehaviour
         currentSpeaker = speakersContainer[currDialogue.lines[dialogueSystem.GetLineCurrentIndex()].speakerIndex];
         speakers = speakersContainer;
     }
+    public void setOffset(Vector3 cameraOffset)
+    {
+        cameraController.setOffset(cameraOffset);
+    }
 }
+
 
 
 

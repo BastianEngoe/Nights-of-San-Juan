@@ -21,6 +21,7 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private GameObject titlePrefab;
     [SerializeField] private JournalQuestsData journalQuestsData;
+    [SerializeField] private Animator animator;
     private bool isActive;
     private string saveFile;
     private int currentDisplayedQuest = 0;
@@ -34,7 +35,7 @@ public class JournalManager : MonoBehaviour
     {
         saveFile = Application.persistentDataPath + "/QuestsData.json";
         Debug.Log(saveFile);
-
+        animator = journalObject.GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -52,9 +53,29 @@ public class JournalManager : MonoBehaviour
         journalObject.SetActive(true);
         isActive = true;
         UpdatePages();
+        Invoke("EnablePages", 1f);
+    }
+
+    public void EnablePages()
+    {
+        leftPage.SetActive(true);
+        rightPage.SetActive(true);
+    }
+
+    public void DisablePages()
+    {
+        leftPage.SetActive(false);
+        rightPage.SetActive(false);
     }
 
     public void QuitJournal()
+    {
+        animator.SetTrigger("closeJournal");
+        DisablePages();
+        Invoke("DisableJournal", 1f);
+    }
+
+    public void DisableJournal()
     {
         journalObject.SetActive(false);
         isActive = false;
@@ -62,24 +83,30 @@ public class JournalManager : MonoBehaviour
 
     private void ProccesJournal()
     {
-
+        //If there is not a save file
         if (!File.Exists(saveFile))
         {
             journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
             File.WriteAllText(saveFile, journalData.text);
         }
+        //If there is a save file but is not the same as the text asset (Edited by designers) Text asset takes priority
+        else if(saveFile!=journalData.text)
+        {
+            File.WriteAllText(saveFile,journalData.text);
+            journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(journalData.text);
+        }
+        //If both match
         else
         {
             journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(File.ReadAllText(saveFile));
         }
     }
-    private void UpdateJournal() //Still has to be tested
+    private void UpdateJournal()
     {
         string jsonString = JsonUtility.ToJson(journalQuestsData);
         File.WriteAllText(saveFile, jsonString);
         File.WriteAllText(AssetDatabase.GetAssetPath(journalData), jsonString);
         EditorUtility.SetDirty(journalData);
-
     }
 
     public void TurnLeftPage() {
@@ -121,7 +148,9 @@ public class JournalManager : MonoBehaviour
 
     private void PopulatePage(Quest quest, GameObject page)
     {
+        if(quest.unlocked)
         AddTitleSlot(page, quest.name);
+
         foreach (Entry entry in quest.entries)
         {
             if (!entry.unlocked)
@@ -157,22 +186,14 @@ public class JournalManager : MonoBehaviour
     ///the filepath value should look like
     ///</para>
     ///<para>
-    ///"Sprites/yourSprite.png"
+    ///"Sprites/yourSprite"
     ///</para>
     ///</summary>
     private void AddImageSlot(GameObject page, string filepath, float scale){
-
-
         GameObject newImageSlot = Instantiate(imagePrefab, page.transform);
 
         Image imgObject = newImageSlot.GetComponent<Image>();
         imgObject.sprite = Resources.Load<Sprite>(filepath);
-        
-
-
-        //newImageSlot.transform.localScale *= scale;
-        
-    
     }
 
 
@@ -198,6 +219,23 @@ public class JournalManager : MonoBehaviour
             return;
         }
         journalQuestsData.quests[questIndex].entries[entryIndex].unlocked = true;
+    }
+
+    public void UnlockQuest(string questName)
+    {
+        int questIndex= SearchForQuest(questName);
+        journalQuestsData.quests[questIndex].unlocked = true;
+        if (journalQuestsData.quests[questIndex].entries.Length > 0)
+        {
+            int i = 0;
+            while (i < journalQuestsData.quests[questIndex].entries.Length)
+            {
+                journalQuestsData.quests[questIndex].entries[i].unlocked = true;
+                i++;
+            }
+        }
+
+        currentDisplayedQuest = questIndex - (questIndex % 2);
     }
 
     private int SearchForQuest(string questName)
