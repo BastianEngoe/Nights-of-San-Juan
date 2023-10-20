@@ -105,8 +105,8 @@ public class JournalManager : MonoBehaviour
     {
         string jsonString = JsonUtility.ToJson(journalQuestsData);
         File.WriteAllText(saveFile, jsonString);
-        File.WriteAllText(AssetDatabase.GetAssetPath(journalData), jsonString);
-        EditorUtility.SetDirty(journalData);
+        //File.WriteAllText(AssetDatabase.GetAssetPath(journalData), jsonString);
+        //EditorUtility.SetDirty(journalData);
     }
 
     public void TurnLeftPage() {

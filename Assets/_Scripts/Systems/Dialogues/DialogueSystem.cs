@@ -64,7 +64,7 @@ public class DialogueSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Tries to move to the next line, or ends the dialogue
+    /// Tries to move to the next line, or ends the dialogue 
     /// </summary>
     void NextLine(){
         lineIndex++;

@@ -669,7 +669,7 @@ MonoBehaviour:
   answer: {fileID: 1088071196479719137, guid: 84d6a0afbcc47ef4995b9d872ea183aa, type: 3}
   dialogueCanvas: {fileID: 759678658}
   textComponent: {fileID: 733972340}
-  writingDelay: 0.02
+  writingDelay: 0
   dialogue:
     conversations: []
   gameManager: {fileID: 71324446}
@@ -839,7 +839,7 @@ PrefabInstance:
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 88.68295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
@@ -849,27 +849,27 @@ PrefabInstance:
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -807.72107
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -192.86003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869650326991434266, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
         type: 3}
