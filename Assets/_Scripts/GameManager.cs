@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        DialogueSetup();
         SceneManager.sceneLoaded += ConfigureDialogues;
     }
     
@@ -136,10 +137,16 @@ public class GameManager : MonoBehaviour
 
     private void ConfigureDialogues(Scene scene, LoadSceneMode mode)
     {
-        GameObject[] npcs= GameObject.FindGameObjectsWithTag("Interactable");
+        DialogueSetup();
+    }
 
-        foreach (GameObject npc in npcs) {
-        InteractableData data = npc.GetComponent<InteractableData>();
+    private void DialogueSetup()
+    {
+        GameObject[] npcs = GameObject.FindGameObjectsWithTag("Interactable");
+
+        foreach (GameObject npc in npcs)
+        {
+            InteractableData data = npc.GetComponent<InteractableData>();
             if (data != null)
             {
                 data.journalManager = journalManager;
