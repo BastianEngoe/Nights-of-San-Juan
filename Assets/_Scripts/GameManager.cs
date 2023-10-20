@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void onInteract()
+    public void OnInteract()
     {
         if (interactionComponent.currentTarget != null&&!onConversation) {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();

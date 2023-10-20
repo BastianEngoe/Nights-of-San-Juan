@@ -40,24 +40,24 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void setTargetPosition(Vector3 newPos)
+    public void SetTargetPosition(Vector3 newPos)
     {
         currPos = newPos;
     }
-    public void setCamPosition(Vector3 newPos)
+    public void SetCamPosition(Vector3 newPos)
     {
         newPos += offset;
         transform.position = newPos;
 
     }
 
-    public void setState(CameraState newState) {
+    public void SetState(CameraState newState) {
         if(newState == CameraState.DialogueState)
             currPos = targetTransform.position;
         state = newState;
     }
 
-    public void setOffset(Vector3 cameraOffset)
+    public void SetOffset(Vector3 cameraOffset)
     {
         offset = cameraOffset;
     }
