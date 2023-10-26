@@ -8,10 +8,9 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    //[SerializeField] private ThirdPersonController playerController;
     [SerializeField] private CameraManager camManager;
+
     [SerializeField] private DialogueSystem dialogueSystem;
-    //[SerializeField] private InputReader inputReader;
 
     [SerializeField] public JournalManager journalManager;
 
@@ -35,11 +34,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        //DontDestroyOnLoad(this);
     }
 
     void Start()
     {
+        //Assign Player reference to all dialogues and to the event of loading an scene
         DialogueSetup();
         SceneManager.sceneLoaded += ConfigureDialogues;
     }
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour
         if(dialogueSystem.GetLineCurrentIndex() < dialogueSystem.dialogue.conversations[dialogueSystem.GetConvCurrentIndex()].lines.Length - 1 )
         {
             if(dialogueSystem.ProccessLine())
-                camManager.nextNode();
+                camManager.NextNode();
         }
         else{
             inputManager.removeDialogueInput();
@@ -86,8 +85,8 @@ public class GameManager : MonoBehaviour
                 nextInter.AddListener(interactableData.TriggerNextEvent); }
             inputManager.addDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
-            camManager.setSpeakers(interactableData.actors);
-            camManager.setOffset(interactableData.cameraOffset);
+            camManager.SetSpeakers(interactableData.actors);
+            camManager.SetOffset(interactableData.cameraOffset);
             camManager.UpdateCameraState(CameraState.DialogueState);
             dialogueSystem.StartConversation();
             Cursor.visible = true;

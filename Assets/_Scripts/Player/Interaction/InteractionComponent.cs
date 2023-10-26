@@ -33,6 +33,14 @@ public class InteractionComponent : MonoBehaviour
             targetSprite.SetActive(false); 
             currentTarget = null;
         }
+
+        foreach(Transform t in currentTransformsInRange)
+        {
+            if (!t.gameObject.activeSelf)
+            {
+                currentTransformsInRange.Remove(t);
+            }
+        }
     }
 
     private Transform FindNearestInteractable()

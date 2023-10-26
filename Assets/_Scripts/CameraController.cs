@@ -40,23 +40,26 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    //Assign a new target to look at
     public void SetTargetPosition(Vector3 newPos)
     {
         currPos = newPos;
     }
+    //Set a new camera position with the configured offset
     public void SetCamPosition(Vector3 newPos)
     {
         newPos += offset;
         transform.position = newPos;
-
     }
 
+    //Changes a new state, if its dialogue changes current position to look at to the new target
     public void SetState(CameraState newState) {
         if(newState == CameraState.DialogueState)
             currPos = targetTransform.position;
         state = newState;
     }
 
+    //Sets a new offset position
     public void SetOffset(Vector3 cameraOffset)
     {
         offset = cameraOffset;

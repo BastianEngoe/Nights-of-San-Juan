@@ -29,20 +29,21 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform currentSpeaker, dialoguePos;
-    public Transform[] speakers; //Move to Events
+    public Transform[] speakers;
     public float speakerDistance, directionLength, height, tiltScale;
     private Vector3 direction, directionOffset;
     [SerializeField] private DialogueSystem dialogueSystem;
     private Dialogue currDialogue;
 
-
-    public void UpdateCameraState(CameraState cameraState)
+    //Changes the state of the camera on this manager and in the camera controller
+    public void UpdateCameraState(CameraState newCameraState)
     {
-        this.cameraState = cameraState;
-        cameraController.SetState(cameraState);
+        cameraState = newCameraState;
+        cameraController.SetState(newCameraState);
         ChangeCamera();
     }
 
+    //Switches between the possible states
     private void ChangeCamera()
     {
         switch (cameraState)
@@ -50,16 +51,12 @@ public class CameraManager : MonoBehaviour
             case CameraState.MoveState:
                 cinemaBrain.enabled = true;
                 journalCameraControl.enabled = false;
-                //cameraController.enabled = false;
                 break;
             case CameraState.DialogueState:
                 cinemaBrain.enabled = false;
-                //int index = dialogueSystem.GetLineCurrentIndex();
-                //currentSpeaker = speakers[currDialogue.lines[index].speakerIndex];
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
-                //cinemaBrain.enabled = false;
                 break;
             case CameraState.CinematicState:
                 break;
@@ -71,6 +68,7 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    //Sets the camera between the speakers and updates everything accordingly
     private void SetCamDialoguePos()
     {
         Vector3 betweenSpeakers= Vector3.zero;
@@ -92,7 +90,8 @@ public class CameraManager : MonoBehaviour
 
     }
 
-    public void nextNode(){
+    //Changes the target to focus at
+    public void NextNode(){
         int index = dialogueSystem.GetLineCurrentIndex();
         currDialogue = dialogueSystem.getDialogue();
 
@@ -102,7 +101,9 @@ public class CameraManager : MonoBehaviour
         SetCamDialoguePos();
     }
 
-    public void setSpeakers(List<GameObject> newSpeakers)
+    //Updates the dialogue and given the gameobjects that interact with each other
+    //the transforms get assigned in the speakers container
+    public void SetSpeakers(List<GameObject> newSpeakers)
     {
         currDialogue = dialogueSystem.getDialogue();
 
@@ -114,7 +115,9 @@ public class CameraManager : MonoBehaviour
         currentSpeaker = speakersContainer[currDialogue.lines[dialogueSystem.GetLineCurrentIndex()].speakerIndex];
         speakers = speakersContainer;
     }
-    public void setOffset(Vector3 cameraOffset)
+
+    //Sets a new offset
+    public void SetOffset(Vector3 cameraOffset)
     {
         cameraController.SetOffset(cameraOffset);
     }
