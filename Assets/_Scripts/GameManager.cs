@@ -139,6 +139,16 @@ public class GameManager : MonoBehaviour
         DialogueSetup();
     }
 
+    public void DeactivatePlayer()
+    {
+        playerObject.SetActive(false);
+    }
+    public void ActivatePlayer()
+    {
+        playerObject.SetActive(true);
+    }
+
+
     private void DialogueSetup()
     {
         GameObject[] npcs = GameObject.FindGameObjectsWithTag("Interactable");
