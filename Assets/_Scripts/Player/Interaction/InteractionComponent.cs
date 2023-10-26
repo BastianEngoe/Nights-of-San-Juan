@@ -34,12 +34,20 @@ public class InteractionComponent : MonoBehaviour
             currentTarget = null;
         }
 
-        foreach(Transform t in currentTransformsInRange)
+        HashSet<Transform> objectsToRemove = new HashSet<Transform>();
+
+
+        foreach (Transform t in currentTransformsInRange)
         {
-            if (!t.gameObject.activeSelf)
+            if (!t.gameObject.activeInHierarchy)
             {
-                currentTransformsInRange.Remove(t);
+                objectsToRemove.Add(t);
             }
+        }
+
+        foreach(Transform t in objectsToRemove)
+        {
+            currentTransformsInRange.Remove(t);
         }
     }
 
