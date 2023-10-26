@@ -1,0 +1,19 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Beatriz: Huh..?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Beatriz: There are noises under the bed..."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
