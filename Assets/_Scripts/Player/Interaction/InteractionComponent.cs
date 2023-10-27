@@ -34,7 +34,8 @@ public class InteractionComponent : MonoBehaviour
             currentTarget = null;
         }
 
-        HashSet<Transform> objectsToRemove = new HashSet<Transform>();
+
+        HashSet < Transform > objectsToRemove = new HashSet<Transform>();
 
 
         foreach (Transform t in currentTransformsInRange)
@@ -54,9 +55,10 @@ public class InteractionComponent : MonoBehaviour
     //Returns a reference to the nearest Transform to the player
     private Transform FindNearestInteractable()
     {
+ 
         float minDistanceFound = float.MaxValue;
         Transform nearestCandidateFound = null;
-        foreach (var candidate in currentTransformsInRange)
+        foreach (Transform candidate in currentTransformsInRange)
         {
             float thisDistance = Vector3.Distance(candidate.transform.position, transform.position);
             if (thisDistance < minDistanceFound)
