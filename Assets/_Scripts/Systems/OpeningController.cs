@@ -63,10 +63,4 @@ public class OpeningController : MonoBehaviour
         beaAnim.SetBool("Look", true);
     }
 
-    /*
-    public void onSceneStart(){
-        GameManager.instance.CanPlayerMove(false);
-        startFade = true;
-        Invoke("StartCutscene", 2.5f);
-    }*/
 }

@@ -34,7 +34,8 @@ public class JournalManager : MonoBehaviour
     private void Awake()
     {
         saveFile = Application.persistentDataPath + "/QuestsData.json";
-        Debug.Log(saveFile);
+        //Uncomment to find your current file route
+        //Debug.Log(saveFile);
         animator = journalObject.GetComponent<Animator>();
     }
     // Start is called before the first frame update
@@ -43,11 +44,14 @@ public class JournalManager : MonoBehaviour
         ProccesJournal();
     }
 
+    //When you exit the game it saves the data changed of the journal
+    //MOVE TO SAVE SYSTEM
     private void OnApplicationQuit()
     {
         UpdateJournal();
     }
 
+    //Activates the pages object and updates the info
     public void ShowJournal()
     {
         journalObject.SetActive(true);
@@ -56,18 +60,21 @@ public class JournalManager : MonoBehaviour
         Invoke("EnablePages", 1f);
     }
 
+    //Activates the gameobject of both pages
     public void EnablePages()
     {
         leftPage.SetActive(true);
         rightPage.SetActive(true);
     }
 
+    //Disables the gameobject of both pages
     public void DisablePages()
     {
         leftPage.SetActive(false);
         rightPage.SetActive(false);
     }
 
+    //Closes the journal
     public void QuitJournal()
     {
         animator.SetTrigger("closeJournal");
@@ -75,12 +82,14 @@ public class JournalManager : MonoBehaviour
         Invoke("DisableJournal", 1f);
     }
 
+    //Disables the journal object with a delay so it has time to perform the animation
     public void DisableJournal()
     {
         journalObject.SetActive(false);
         isActive = false;
     }
 
+    //Manages the journal info
     private void ProccesJournal()
     {
         //If there is not a save file
@@ -101,6 +110,8 @@ public class JournalManager : MonoBehaviour
             journalQuestsData = JsonUtility.FromJson<JournalQuestsData>(File.ReadAllText(saveFile));
         }
     }
+
+    //Updates the journal current data and safe data
     private void UpdateJournal()
     {
         string jsonString = JsonUtility.ToJson(journalQuestsData);
@@ -109,6 +120,7 @@ public class JournalManager : MonoBehaviour
         EditorUtility.SetDirty(journalData);
     }
 
+    //Toggles between pages, as there are two pages showcased on the journal it progresses +-2
     public void TurnLeftPage() {
         if(currentDisplayedQuest > 0){
             currentDisplayedQuest -= 2;
@@ -146,6 +158,7 @@ public class JournalManager : MonoBehaviour
             PopulatePage(journalQuestsData.quests[currentDisplayedQuest + 1], rightPage);
     }
 
+    //Adds the text and images to page
     private void PopulatePage(Quest quest, GameObject page)
     {
         if(quest.unlocked)
@@ -207,20 +220,7 @@ public class JournalManager : MonoBehaviour
         newTextSlot.GetComponent<TMP_Text>().text = text;
     }
 
-
-    void UnlockEntry(string questName, int entryIndex){
-        int questIndex = SearchForQuest(questName);
-        if (questIndex == -1){
-            Debug.Log("Error: quest name not found");
-            return;
-        }
-        if(journalQuestsData.quests[questIndex].entries.Length < entryIndex){
-            Debug.Log("Error, entry index not found");
-            return;
-        }
-        journalQuestsData.quests[questIndex].entries[entryIndex].unlocked = true;
-    }
-
+    //Unlocks the quest with the asked name
     public void UnlockQuest(string questName)
     {
         int questIndex= SearchForQuest(questName);
@@ -238,6 +238,7 @@ public class JournalManager : MonoBehaviour
         currentDisplayedQuest = questIndex - (questIndex % 2);
     }
 
+    //Tries to find the quest with a certain name and returns the index of its location
     private int SearchForQuest(string questName)
     {
         int index = -1;

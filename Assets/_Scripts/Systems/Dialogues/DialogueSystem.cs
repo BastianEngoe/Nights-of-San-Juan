@@ -22,7 +22,7 @@ public class DialogueSystem : MonoBehaviour
     private int convIndex;
     private int lineIndex;
 
-
+    //Cleans previous conversation data and starts the new one
     public void StartConversation()
     {
         textComponent.text = string.Empty;
@@ -30,7 +30,8 @@ public class DialogueSystem : MonoBehaviour
         StartDialogue();
     }
 
-
+    //If the text has already been written in the dialogue box it moves to the next conversation
+    //else it writes the whole text on the text box
     public bool ProccessLine(){
         if(textComponent.text == dialogue.conversations[convIndex].lines[lineIndex].text){
                 NextLine();
@@ -72,6 +73,8 @@ public class DialogueSystem : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
+    //Ends the current conversation branch and showcases the next answers,
+    //if there are no answers then finsihes the whole conversation
     public void EndDialogue()
     {
         int numAnswers = dialogue.conversations[convIndex].responses.Length;
@@ -101,6 +104,7 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
+    //Event method assigned to every button, which correlates it to next a conversation branch
     private void AnswerClick(int nextDialogue)
     {
         //Set next dialogue and reset text box

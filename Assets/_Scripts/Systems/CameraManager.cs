@@ -79,7 +79,6 @@ public class CameraManager : MonoBehaviour
         }
 
         betweenSpeakers /= numSpeakers;
-        Debug.Log(betweenSpeakers);
         direction = currentSpeaker.position - betweenSpeakers;
 
         directionOffset.x = direction.z * -1;
