@@ -10,7 +10,6 @@ using UnityEngine.Events;
 
 public class DialogueSystem : MonoBehaviour
 {
-    TextAsset dialoguesTextData; 
     [SerializeField] private GameObject answerBox, answer, dialogueCanvas;
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private float writingDelay;
@@ -119,16 +118,12 @@ public class DialogueSystem : MonoBehaviour
         StartDialogue();
     }
 
-    private void ProcessJSON()
-    {
-        dialogue=JsonUtility.FromJson<DialoguesData>(dialoguesTextData.text);
-    }
 
     public void setDialogue(TextAsset newDialogue)
     {
-        dialoguesTextData = newDialogue;
-        ProcessJSON();
+        dialogue = JsonUtility.FromJson<DialoguesData>(newDialogue.text);
     }
+
     public Dialogue getDialogue()
     {
         return dialogue.conversations[convIndex];

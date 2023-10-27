@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += ConfigureDialogues;
     }
 
+
     public void NextNode(){
         if(dialogueSystem.GetLineCurrentIndex() < dialogueSystem.dialogue.conversations[dialogueSystem.GetConvCurrentIndex()].lines.Length - 1 )
         {
@@ -60,24 +61,35 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Interaction event, sets up conversation front end
     public void OnInteract()
     {
-        if (interactionComponent.currentTarget != null&&!onConversation) {
+        if (interactionComponent.currentTarget != null&&!onConversation)
+        {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
-            if (interactableData.triggerEventWhenFinished) {
+            if (interactableData.triggerEventWhenFinished)
+            {
                 newJournalEntryAdded = true;
-                nextInter.AddListener(interactableData.TriggerNextEvent); }
+                nextInter.AddListener(interactableData.TriggerNextEvent);
+            }
             inputManager.addDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
-            camManager.SetSpeakers(interactableData.actors);
-            camManager.SetOffset(interactableData.cameraOffset);
-            camManager.UpdateCameraState(CameraState.DialogueState);
+            SetUpCamera(interactableData);
             dialogueSystem.StartConversation();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             onConversation = true;
         }
     }
+
+    //Sets camera values
+    private void SetUpCamera(InteractableData interactableData)
+    {
+        camManager.SetSpeakers(interactableData.actors);
+        camManager.SetOffset(interactableData.cameraOffset);
+        camManager.UpdateCameraState(CameraState.DialogueState);
+    }
+
     ///<summary>
     ///Controls when does the journal show up, and locks the player movement
     ///</summary>
