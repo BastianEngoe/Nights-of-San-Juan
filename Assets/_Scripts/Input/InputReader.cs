@@ -16,7 +16,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action OnCutsceneStartEvent; 
 
 
-
     public void OnInteract(InputAction.CallbackContext context)
     {
         if(!context.performed) {return;}
@@ -34,12 +33,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     void OnDestroy()
     {
         controls.Player.Disable();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnMove(InputAction.CallbackContext context)

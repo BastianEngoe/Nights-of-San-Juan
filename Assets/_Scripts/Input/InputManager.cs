@@ -8,7 +8,6 @@ public class InputManager : MonoBehaviour
     [SerializeField] private InputReader inputReader;
     [SerializeField] private OpeningController openingController;
     
-
     bool onJournal = false;
 
     /// <summary>
@@ -21,13 +20,8 @@ public class InputManager : MonoBehaviour
         inputReader.InteractEvent += onInteract;
         inputReader.OnCutsceneStartEvent += startIntroScene;
     }
-
-    void OnDestroy()
-    {
-        inputReader.OnToggleJournal -= ToggleJournal;
-        inputReader.InteractEvent -= onInteract;
-    }
-
+    
+    //Calls the interact method at the game manager only if the journal is not triggered
     private void onInteract()
     {
         if (!onJournal){
@@ -35,25 +29,29 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    //Toggles the journal from the game manager and toggles the boolean to know wether its active or not
     void ToggleJournal(){
         onJournal = !onJournal;
         GameManager.instance.ToggleJournal();
     }
 
+    //Adds controls for dialogue input
     public void addDialogueInput()
     {
-        inputReader.OnNextLineEvent += GameManager.instance.nextNode;
+        inputReader.OnNextLineEvent += GameManager.instance.NextNode;
         inputReader.InteractEvent -= GameManager.instance.OnInteract;
         inputReader.OnToggleJournal -= ToggleJournal;
 
     }
+    //Removes controls for dialogue input
     public void removeDialogueInput()
     {
-        inputReader.OnNextLineEvent -= GameManager.instance.nextNode;
+        inputReader.OnNextLineEvent -= GameManager.instance.NextNode;
         inputReader.InteractEvent += GameManager.instance.OnInteract;
         inputReader.OnToggleJournal += ToggleJournal;
     }
 
+    //Sets controls for journal
     public void SetJournalControls(bool toWhat){
         if(toWhat){
             inputReader.OnPageLeftEvent += GameManager.instance.journalManager.TurnLeftPage;
@@ -67,10 +65,10 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    //Sets the controls for the intro scene
     public void startIntroScene()
     {
         openingController = FindObjectOfType<OpeningController>();
-        //openingController.onSceneStart();
         inputReader.OnCutsceneStartEvent -= startIntroScene;
     }
 

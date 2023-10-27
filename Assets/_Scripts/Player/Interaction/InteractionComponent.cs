@@ -51,6 +51,7 @@ public class InteractionComponent : MonoBehaviour
         }
     }
 
+    //Returns a reference to the nearest Transform to the player
     private Transform FindNearestInteractable()
     {
         float minDistanceFound = float.MaxValue;
@@ -67,6 +68,7 @@ public class InteractionComponent : MonoBehaviour
         return nearestCandidateFound;
     }
 
+    //When an object enters the interactable area triggers it gets added if it has Interactable Data
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<InteractableData>()){
@@ -74,6 +76,7 @@ public class InteractionComponent : MonoBehaviour
         }
     }
 
+    //Objects get removed when exiting the interactable area
     private void OnTriggerExit(Collider other)
     {
         currentTransformsInRange.Remove(other.transform);

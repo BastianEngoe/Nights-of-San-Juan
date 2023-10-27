@@ -16,11 +16,13 @@ public class InteractableData : MonoBehaviour
 
     [HideInInspector] public JournalManager journalManager;
 
+    //Adds an object
     public void AddOject(GameObject o)
     {
         actors.Add(o);
     }
 
+    //If any of the fields have something assigned it triggers / changes them
     public void TriggerNextEvent()
     {
         if(events[0].journalEntryToUnlock!="") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
@@ -42,6 +44,7 @@ public class InteractableData : MonoBehaviour
         if (events[0].customEvent != null) { events[0].customEvent.Invoke(); }
     }
 
+    //Changes actors in the conversation
     public void ChangeActors(List<Actors> newActors)
     {
         actors.Clear();
@@ -53,6 +56,7 @@ public class InteractableData : MonoBehaviour
         }
     }
     
+    //Changes the JSON conversation
     public void ChangeConversation(TextAsset newJSONConversation)
     {
         JSONConversation = newJSONConversation;

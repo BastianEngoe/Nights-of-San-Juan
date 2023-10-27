@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public InputManager inputManager;
 
-    [SerializeField] private GameObject playerCameraTargetPosition;
+    [SerializeField] private GameObject playerCameraTarget;
 
     [SerializeField] private UIQuillController quillController;
 
@@ -42,23 +42,8 @@ public class GameManager : MonoBehaviour
         DialogueSetup();
         SceneManager.sceneLoaded += ConfigureDialogues;
     }
-    
-    public void CanPlayerMove(bool canThey)
-    {
-        //playerController.canMove = canThey;
-    }
 
-    public void CanPlayerJump(bool canThey)
-    {
-        //playerController.canJump = canThey;
-    }
-
-    public void InCutscene(bool areThey, Dialogue dial = null)
-    {
-        CanPlayerJump(!areThey);
-    }
-
-    public void nextNode(){
+    public void NextNode(){
         if(dialogueSystem.GetLineCurrentIndex() < dialogueSystem.dialogue.conversations[dialogueSystem.GetConvCurrentIndex()].lines.Length - 1 )
         {
             if(dialogueSystem.ProccessLine())
@@ -67,7 +52,6 @@ public class GameManager : MonoBehaviour
         else{
             inputManager.removeDialogueInput();
             dialogueSystem.EndDialogue();
-            InCutscene(false);
             onConversation = false;
             nextInter.Invoke();
             if(newJournalEntryAdded) quillController.QuillAppear();
@@ -122,23 +106,27 @@ public class GameManager : MonoBehaviour
         Debug.Log("Journal active: " + journalManager.IsActive);
     }
 
+    //Activates and Deactivates movement
     private void SetPlayerMovement(bool toWhat)
     {
         ThirdPersonController thirdPersonController = playerObject.GetComponent<ThirdPersonController>();
         thirdPersonController.canMove = toWhat;
-        //thirdPersonController.canJump = toWhat;
     }
 
+    //Changes camera state
     public void SetCameraState(CameraState newState)
     {
         camManager.UpdateCameraState(newState);
     }
 
+    //Event formatted for Scene Manager, sets up dialogues when a scene is loaded
     private void ConfigureDialogues(Scene scene, LoadSceneMode mode)
     {
         DialogueSetup();
     }
 
+    //Methods to activate and deactivate player
+    //NOTE: Dont use these methods while loading scenes
     public void DeactivatePlayer()
     {
         playerObject.SetActive(false);
@@ -149,6 +137,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+    //Assings player to npcs dialogue and references to dialogue manager
     private void DialogueSetup()
     {
         GameObject[] npcs = GameObject.FindGameObjectsWithTag("Interactable");
@@ -159,7 +148,14 @@ public class GameManager : MonoBehaviour
             if (data != null)
             {
                 data.journalManager = journalManager;
-                data.AddOject(playerCameraTargetPosition);
+                bool hasPlayer = false;
+                for(int i =0; i < data.actors.Count; i++)
+                {
+                    if(data.actors[i]==playerCameraTarget)
+                        hasPlayer = true;
+                }
+                if(!hasPlayer)
+                data.AddOject(playerCameraTarget);
             }
         }
     }
