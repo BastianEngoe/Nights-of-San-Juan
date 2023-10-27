@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StyalizedWaterMat
+  m_Name: StyalizedWaterMat 1
   m_Shader: {fileID: -6465566751694194690, guid: 6a0a508d7059ad5428393ec8b9b78591,
     type: 3}
   m_Parent: {fileID: 0}
@@ -59,9 +59,9 @@ Material:
     - _Cull: 2
     - _DstBlend: 10
     - _FoamAmount: 1
-    - _FoamCutoff: 0.9
-    - _FoamScale: 500
-    - _FoamSpeed: 0.5
+    - _FoamCutoff: 0.98
+    - _FoamScale: 691.4
+    - _FoamSpeed: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RefractionScale: 100
@@ -74,7 +74,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Deep_water: {r: 0.12976147, g: 0.20315552, b: 0.33962262, a: 1}
+    - _Deep_water: {r: 0.14778392, g: 0.31154904, b: 0.38679248, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 0.6588235}
-    - _Shallow_water: {r: 0.04926131, g: 0.36764175, b: 0.38679248, a: 0.7882353}
+    - _Shallow_water: {r: 0, g: 0.0038368222, b: 0.01886791, a: 0.7882353}
   m_BuildTextureStacks: []
