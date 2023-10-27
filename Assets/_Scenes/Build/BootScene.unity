@@ -159,7 +159,7 @@ MonoBehaviour:
   playerObject: {fileID: 751845902}
   interactionComponent: {fileID: 1238221792}
   inputManager: {fileID: 1474062319}
-  playerCameraTargetPosition: {fileID: 1280760830}
+  playerCameraTarget: {fileID: 1280760830}
   quillController: {fileID: 1074095698}
 --- !u!114 &71324447
 MonoBehaviour:
