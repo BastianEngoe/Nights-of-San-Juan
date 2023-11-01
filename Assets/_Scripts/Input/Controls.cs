@@ -89,6 +89,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""403b5e7c-2dde-4607-b987-db95e9290bf9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -300,6 +309,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Start Cutscene"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a10cfa8-5dfd-4bbf-b80e-e8106c3238de"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KB+Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39c276dd-31bb-4289-9f11-d76934dbd96f"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -326,6 +357,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_PageLeft = m_Player.FindAction("Page Left", throwIfNotFound: true);
         m_Player_PageRight = m_Player.FindAction("Page Right", throwIfNotFound: true);
         m_Player_StartCutscene = m_Player.FindAction("Start Cutscene", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -394,6 +426,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PageLeft;
     private readonly InputAction m_Player_PageRight;
     private readonly InputAction m_Player_StartCutscene;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -405,6 +438,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @PageLeft => m_Wrapper.m_Player_PageLeft;
         public InputAction @PageRight => m_Wrapper.m_Player_PageRight;
         public InputAction @StartCutscene => m_Wrapper.m_Player_StartCutscene;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -435,6 +469,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @StartCutscene.started += instance.OnStartCutscene;
             @StartCutscene.performed += instance.OnStartCutscene;
             @StartCutscene.canceled += instance.OnStartCutscene;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -460,6 +497,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @StartCutscene.started -= instance.OnStartCutscene;
             @StartCutscene.performed -= instance.OnStartCutscene;
             @StartCutscene.canceled -= instance.OnStartCutscene;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -504,5 +544,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnPageLeft(InputAction.CallbackContext context);
         void OnPageRight(InputAction.CallbackContext context);
         void OnStartCutscene(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

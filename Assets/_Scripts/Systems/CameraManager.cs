@@ -120,6 +120,15 @@ public class CameraManager : MonoBehaviour
     {
         cameraController.SetOffset(cameraOffset);
     }
+
+    public void StopCursorTrack()
+    {
+        cinemaBrain.enabled = false;
+    }
+    public void StartCursorTrack()
+    {
+        cinemaBrain.enabled = true;
+    }
 }
 
 

@@ -14,6 +14,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action OnPageLeftEvent; 
     public event Action OnPageRightEvent; 
     public event Action OnCutsceneStartEvent; 
+    public event Action OnPauseEvent; 
 
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -73,5 +74,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if (!context.performed && context.action.WasReleasedThisFrame()){
             OnCutsceneStartEvent?.Invoke();
         }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (!context.performed && context.action.WasReleasedThisFrame())
+            OnPauseEvent?.Invoke();
     }
 }

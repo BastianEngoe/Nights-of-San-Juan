@@ -5,6 +5,7 @@ using StarterAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,12 +25,16 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private UIQuillController quillController;
 
+    [SerializeField] private GameObject pauseMenu;
+
     public static GameManager instance;
 
     private UnityEvent nextInter= new UnityEvent();
 
     private bool newJournalEntryAdded = false;
     private bool onConversation = false;
+    private bool onPause = false;
+
 
     private void Awake()
     {
@@ -51,7 +56,7 @@ public class GameManager : MonoBehaviour
                 camManager.NextNode();
         }
         else{
-            inputManager.removeDialogueInput();
+            inputManager.RemoveDialogueInput();
             dialogueSystem.EndDialogue();
             onConversation = false;
             nextInter.Invoke();
@@ -72,7 +77,7 @@ public class GameManager : MonoBehaviour
                 newJournalEntryAdded = true;
                 nextInter.AddListener(interactableData.TriggerNextEvent);
             }
-            inputManager.addDialogueInput();
+            inputManager.AddDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             SetUpCamera(interactableData);
             dialogueSystem.StartConversation();
@@ -169,6 +174,29 @@ public class GameManager : MonoBehaviour
                 if(!hasPlayer)
                 data.AddOject(playerCameraTarget);
             }
+        }
+    }
+
+    public void TogglePause()
+    {
+        onPause = !onPause;
+        
+        if (onPause)
+        {
+            Time.timeScale = 0f;
+            pauseMenu.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            camManager.StopCursorTrack();
+
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pauseMenu.SetActive(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            camManager.StartCursorTrack();
         }
     }
 }

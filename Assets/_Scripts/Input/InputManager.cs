@@ -16,13 +16,19 @@ public class InputManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        inputReader.OnPauseEvent += TogglePause;
         inputReader.OnToggleJournal += ToggleJournal;
-        inputReader.InteractEvent += onInteract;
-        inputReader.OnCutsceneStartEvent += startIntroScene;
+        inputReader.InteractEvent += OnInteract;
+        inputReader.OnCutsceneStartEvent += StartIntroScene;
     }
-    
+
+    private void TogglePause()
+    {
+         GameManager.instance.TogglePause();
+    }
+
     //Calls the interact method at the game manager only if the journal is not triggered
-    private void onInteract()
+    private void OnInteract()
     {
         if (!onJournal){
             GameManager.instance.OnInteract();
@@ -36,7 +42,7 @@ public class InputManager : MonoBehaviour
     }
 
     //Adds controls for dialogue input
-    public void addDialogueInput()
+    public void AddDialogueInput()
     {
         inputReader.OnNextLineEvent += GameManager.instance.NextNode;
         inputReader.InteractEvent -= GameManager.instance.OnInteract;
@@ -44,7 +50,7 @@ public class InputManager : MonoBehaviour
 
     }
     //Removes controls for dialogue input
-    public void removeDialogueInput()
+    public void RemoveDialogueInput()
     {
         inputReader.OnNextLineEvent -= GameManager.instance.NextNode;
         inputReader.InteractEvent += GameManager.instance.OnInteract;
@@ -66,10 +72,10 @@ public class InputManager : MonoBehaviour
     }
 
     //Sets the controls for the intro scene
-    public void startIntroScene()
+    public void StartIntroScene()
     {
         openingController = FindObjectOfType<OpeningController>();
-        inputReader.OnCutsceneStartEvent -= startIntroScene;
+        inputReader.OnCutsceneStartEvent -= StartIntroScene;
     }
 
 }
