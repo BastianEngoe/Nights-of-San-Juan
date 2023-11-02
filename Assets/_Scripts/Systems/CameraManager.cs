@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using StarterAssets;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
@@ -27,6 +28,8 @@ public class CameraManager : MonoBehaviour
 
     public JournalCameraControl journalCameraControl;
 
+    [SerializeField] private ThirdPersonController thirdPersonController;
+
     [SerializeField] private CameraState cameraState = CameraState.CinematicState;
     public Transform currentSpeaker, dialoguePos;
     public Transform[] speakers;
@@ -49,11 +52,11 @@ public class CameraManager : MonoBehaviour
         switch (cameraState)
         {
             case CameraState.MoveState:
-                cinemaBrain.enabled = true;
+                StartCursorTrack();
                 journalCameraControl.enabled = false;
                 break;
             case CameraState.DialogueState:
-                cinemaBrain.enabled = false;
+                StopCursorTrack();
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
@@ -61,7 +64,7 @@ public class CameraManager : MonoBehaviour
             case CameraState.CinematicState:
                 break;
             case CameraState.JournalState:
-                cinemaBrain.enabled = false;
+                StopCursorTrack();
                 journalCameraControl.enabled = true;
                 break;
             
@@ -123,10 +126,12 @@ public class CameraManager : MonoBehaviour
 
     public void StopCursorTrack()
     {
+        thirdPersonController.LockCameraPosition = true;
         cinemaBrain.enabled = false;
     }
     public void StartCursorTrack()
     {
+        thirdPersonController.LockCameraPosition = false;
         cinemaBrain.enabled = true;
     }
 }
