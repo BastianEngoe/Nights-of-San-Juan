@@ -6,9 +6,9 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private InputReader inputReader;
-    private OpeningController openingController;
     
-    bool onJournal = false;
+    public bool onJournal = false;
+    public bool onPause = false ;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -30,15 +30,19 @@ public class InputManager : MonoBehaviour
     //Calls the interact method at the game manager only if the journal is not triggered
     private void OnInteract()
     {
-        if (!onJournal){
+        if (!onPause&&!onJournal){
             GameManager.instance.OnInteract();
         }
     }
 
     //Toggles the journal from the game manager and toggles the boolean to know wether its active or not
-    void ToggleJournal(){
-        onJournal = !onJournal;
-        GameManager.instance.ToggleJournal();
+    void ToggleJournal()
+    {
+        if (!onPause)
+        {
+            onJournal = !onJournal;
+            GameManager.instance.ToggleJournal();
+        }
     }
 
     //Adds controls for dialogue input
@@ -74,7 +78,6 @@ public class InputManager : MonoBehaviour
     //Sets the controls for the intro scene
     public void StartIntroScene()
     {
-        openingController = FindObjectOfType<OpeningController>();
         inputReader.OnCutsceneStartEvent -= StartIntroScene;
     }
 

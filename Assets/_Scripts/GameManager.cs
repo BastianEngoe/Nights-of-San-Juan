@@ -187,8 +187,8 @@ public class GameManager : MonoBehaviour
             pauseMenu.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
-            camManager.StopCursorTrack();
-
+            camManager.UpdateCameraState(CameraState.MenuState);
+            inputManager.onPause = true;
         }
         else
         {
@@ -196,7 +196,8 @@ public class GameManager : MonoBehaviour
             pauseMenu.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            camManager.StartCursorTrack();
+            camManager.UpdateCameraState(CameraState.MoveState);
+            inputManager.onPause = false;
         }
     }
 }

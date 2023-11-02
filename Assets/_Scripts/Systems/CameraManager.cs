@@ -60,6 +60,8 @@ public class CameraManager : MonoBehaviour
                 SetCamDialoguePos();
                 break;
             case CameraState.MenuState:
+                StopCursorTrack();
+                journalCameraControl.enabled = false;
                 break;
             case CameraState.CinematicState:
                 break;
