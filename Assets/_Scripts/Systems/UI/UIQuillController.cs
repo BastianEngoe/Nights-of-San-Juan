@@ -8,6 +8,7 @@ public class UIQuillController : MonoBehaviour
     [SerializeField] private Animator mainAnim, firstAnim;
     public bool firstTime;
     
+    
     public void DisableAnimator()
     {
         mainAnim.enabled = false;
@@ -21,20 +22,21 @@ public class UIQuillController : MonoBehaviour
         }  
         mainAnim.enabled = true;
         mainAnim.Play("QuillAppear");
+        GameManager.instance.inputManager.inputReader.OnToggleJournal += UpdateAnimTriggers;
     }
     
-    private void Update()
+   
+
+    private void UpdateAnimTriggers()
     {
-        if (Input.GetKeyUp(KeyCode.J))
+        if (mainAnim.enabled)
         {
-            if (mainAnim.enabled)
+            mainAnim.SetTrigger("read");
+            if (firstTime && firstAnim.enabled)
             {
-                mainAnim.SetTrigger("read");
-                if (firstTime && firstAnim.enabled)
-                {
-                    firstAnim.SetTrigger("done");
-                    firstTime = false;
-                }
+                firstAnim.SetTrigger("done");
+                firstTime = false;
+                GameManager.instance.inputManager.inputReader.OnToggleJournal -= UpdateAnimTriggers;
             }
         }
     }

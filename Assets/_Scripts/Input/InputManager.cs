@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private InputReader inputReader;
+    [SerializeField] public InputReader inputReader;
+    private OpeningController openingController;
     
     public bool onJournal = false;
     public bool onPause = false ;

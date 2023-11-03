@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
@@ -8,6 +9,8 @@ public class InteractionComponent : MonoBehaviour
     HashSet<Transform> currentTransformsInRange;
     [SerializeField] private GameObject targetSprite;
     public Transform currentTarget {get; private set;} = null;
+
+    private bool isSomeoneOutlined = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +27,24 @@ public class InteractionComponent : MonoBehaviour
 
         if (currentTransformsInRange.Count > 0)
         {
-            currentTarget = FindNearestInteractable();
-            targetSprite.SetActive(true);
-            targetSprite.transform.position = currentTarget.position;
+            var newTargetCandidate = FindNearestInteractable();
+            
+            currentTarget = newTargetCandidate;
+            
+            //targetSprite.SetActive(true);
+            //targetSprite.transform.position = currentTarget.position;
+
+
+            DrawOutline();
+
         }
         else
         {
-            targetSprite.SetActive(false); 
+            //targetSprite.SetActive(false);
+            if(currentTarget)
+                currentTarget.gameObject.GetComponent<Outline>().enabled = false;
             currentTarget = null;
+
         }
 
 
@@ -49,6 +62,21 @@ public class InteractionComponent : MonoBehaviour
         foreach(Transform t in objectsToRemove)
         {
             currentTransformsInRange.Remove(t);
+        }
+    }
+
+    private void DrawOutline()
+    {
+        if (currentTarget.gameObject.GetComponent<Outline>() != null)
+        {
+            currentTarget.gameObject.GetComponent<Outline>().enabled = true;
+        }
+        else
+        {
+            Outline outline = currentTarget.gameObject.AddComponent<Outline>();
+            outline.enabled = true;
+            currentTarget.gameObject.GetComponent<Outline>().OutlineColor = Color.yellow;
+            currentTarget.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
         }
     }
 
@@ -83,4 +111,6 @@ public class InteractionComponent : MonoBehaviour
     {
         currentTransformsInRange.Remove(other.transform);
     }
+
+ 
 }
