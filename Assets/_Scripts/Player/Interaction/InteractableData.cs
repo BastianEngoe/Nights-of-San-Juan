@@ -40,11 +40,11 @@ public class InteractableData : MonoBehaviour
         }
 
         if(events!=null&&events.Count>1&&wantToRemoveEvents) events.RemoveAt(0);
-        else if (events != null&&events.Count==1) {
-            triggerEventWhenFinished = false;
-        }
+        //else if (events != null&&events.Count==1) {
+        //    triggerEventWhenFinished = false;
+        //}
 
-        if (events[0].customEvent != null) { events[0].customEvent.Invoke(); }
+         if (events[0].customEvent != null) { events[0].customEvent.Invoke(); }
     }
 
     //Changes actors in the conversation
