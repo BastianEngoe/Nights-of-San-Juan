@@ -1,0 +1,27 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "El Cuélebere: Mwahaha I am the mighty villain of this game."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "El Cuélebere: Although nothing what I say now is representetive of how I will be..."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "El Cuélebere: But have a good look at me! Once the developers finish making my home I will be very scary just wait and see!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "El Cuélebere: You can even read all about in our dialogue documents... you know about the documents right?"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

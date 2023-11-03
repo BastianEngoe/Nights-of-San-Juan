@@ -1,0 +1,19 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: This is my house!!! But I will teleport you back to the village now."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: If you wanna come back here, either talk to me again in the village or walk! :)"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

@@ -569,8 +569,9 @@ MonoBehaviour:
   playerObject: {fileID: 494944128}
   interactionComponent: {fileID: 944553242}
   inputManager: {fileID: 518210414}
-  playerCameraTargetPosition: {fileID: 1107745392}
+  playerCameraTarget: {fileID: 0}
   quillController: {fileID: 1615648637}
+  pauseMenu: {fileID: 0}
 --- !u!114 &208245804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +631,7 @@ MonoBehaviour:
   cameraController: {fileID: 185663171}
   cinemaBrain: {fileID: 185663170}
   journalCameraControl: {fileID: 185663165}
+  thirdPersonController: {fileID: 0}
   cameraState: 3
   currentSpeaker: {fileID: 0}
   dialoguePos: {fileID: 0}
@@ -884,6 +886,7 @@ MonoBehaviour:
   cameraController: {fileID: 0}
   cinemaBrain: {fileID: 0}
   journalCameraControl: {fileID: 0}
+  thirdPersonController: {fileID: 0}
   cameraState: 3
   currentSpeaker: {fileID: 0}
   dialoguePos: {fileID: 0}
@@ -1788,7 +1791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 518210413}
-  openingController: {fileID: 0}
+  onJournal: 0
+  onPause: 0
 --- !u!1 &589251808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6680323342028231425, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
@@ -3316,12 +3320,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!1 &1107745392 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 469084805409289706, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
-    type: 3}
-  m_PrefabInstance: {fileID: 703760464}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1120939601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7846576346046122297, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,

@@ -796,6 +796,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 1474062318}
+  onJournal: 0
+  onPause: 0
 --- !u!1 &1498446776
 GameObject:
   m_ObjectHideFlags: 0
