@@ -1,0 +1,23 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Distressed villager: Oh thank you so much! Don't scare me like that again Maxwell..."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: It was my pleasure!"
+        },
+        {
+          "speakerIndex": "2",
+          "text": "Maxwell: *Meow*"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

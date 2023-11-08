@@ -1,0 +1,31 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Distressed villager: Oh heavens, could you help me?"
+        },
+        {
+          "speakerIndex": "2",
+          "text": "Beatriz: What's the issue?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Distressed villager: Some weird pink little creature lured my cat up there, and now I think he's stuck!"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Funny Looking Cat: *meow*"
+        },        
+        {
+          "speakerIndex": "2",
+          "text": "Beatriz: I'll see what I can do!"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
