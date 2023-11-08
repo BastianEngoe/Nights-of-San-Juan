@@ -33,8 +33,8 @@ public class JournalManager : MonoBehaviour
     }
     private void Awake()
     {
-        saveFile = Application.persistentDataPath + "/QuestsData.json";
         //Uncomment to find your current file route
+        saveFile = Application.persistentDataPath + "/QuestsData.json";
         //Debug.Log(saveFile);
         animator = journalObject.GetComponent<Animator>();
     }

@@ -7,8 +7,8 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private InputReader inputReader;
     
-    public bool onJournal = false;
-    public bool onPause = false ;
+    [HideInInspector] public bool onJournal = false;
+    [HideInInspector] public bool onPause = false ;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before

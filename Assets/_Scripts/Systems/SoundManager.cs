@@ -14,6 +14,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private GameObject musicSource;
     private AudioSource[] musicSources = new AudioSource[4];
 
+    private float musicVolume, soundVolume;
+
     int currentMusic;
 
     private void Awake()
@@ -47,5 +49,17 @@ public class SoundManager : MonoBehaviour
             myAudioSource.PlayOneShot(soundEffects[(int)sound]);
     }
 
+   public void ChangeSoundsVolume(float newVolume)
+   {
+        soundVolume = newVolume;
+        myAudioSource.volume=soundVolume;
+   }
+    public void ChangeMusicVolume(float newVolume)
+   {
+        musicVolume = newVolume;
+        //foreach music in musicSources{
+
+        //}
+   }
 
 }
