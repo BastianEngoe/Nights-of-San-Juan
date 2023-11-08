@@ -207,6 +207,8 @@ public class JournalManager : MonoBehaviour
 
         Image imgObject = newImageSlot.GetComponent<Image>();
         imgObject.sprite = Resources.Load<Sprite>(filepath);
+
+        if (imgObject.sprite == null) Debug.Log("Failed to load at: " + filepath);
     }
 
 
