@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenu;
 
+    [SerializeField] private TraceManager traceManager;
+
     public static GameManager instance;
 
     private UnityEvent nextInter= new UnityEvent();
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        traceManager = FindObjectOfType<TraceManager>();
     }
 
     void Start()
@@ -72,6 +75,7 @@ public class GameManager : MonoBehaviour
         if (interactionComponent.currentTarget != null&&!onConversation)
         {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
+            traceManager.NPCInteracted(interactableData.actors[0].name);
             if (interactableData.triggerEventWhenFinished)
             {
                 newJournalEntryAdded = true;

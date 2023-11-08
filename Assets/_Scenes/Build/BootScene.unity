@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42668453565b4204ca66d6d3dfddc1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traceManager: {fileID: 0}
   leftPage: {fileID: 774849450}
   rightPage: {fileID: 223152795}
   journalObject: {fileID: 221452290}
@@ -1025,6 +1026,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705888557}
   m_CullTransparentMesh: 1
+--- !u!1 &1751682952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1751682953}
+  - component: {fileID: 1751682955}
+  - component: {fileID: 1751682954}
+  m_Layer: 0
+  m_Name: TraceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1751682953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751682952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1885237627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751682954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751682952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7018d2d1fd2feca458fa3d4284e1220e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: Beatriz
+  email: 349606@student.nord.no
+--- !u!114 &1751682955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751682952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9251e9e3ed36f4eb38a5089a747a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoStart: 1
+  processingLoopTime: 1
 --- !u!1 &1879283419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8165289593891500939, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
@@ -1071,6 +1133,7 @@ Transform:
   - {fileID: 1474062317}
   - {fileID: 1074095697}
   - {fileID: 380052426}
+  - {fileID: 1751682953}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1885237628
