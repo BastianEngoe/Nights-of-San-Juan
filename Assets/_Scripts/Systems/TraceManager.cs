@@ -31,6 +31,7 @@ public class TraceManager : MonoBehaviour
 
         Debug.Log("Done!");
         
+        //InvokeRepeating("TrackPlayerPosition", 30f, 30f);
     }
 
     public async void AccessedJournal()
@@ -46,6 +47,11 @@ public class TraceManager : MonoBehaviour
     public async void LocationVisited(string location)
     {
         await AccessibleTracker.Instance.Accessed(location, AccessibleTracker.AccessibleType.Area);
+    }
+
+    public async void TrackPlayerPosition()
+    {
+        await AccessibleTracker.Instance.Accessed(GameManager.instance.playerObject.transform.position.ToString(), AccessibleTracker.AccessibleType.Accessible);
     }
     
     public async void Progressed()

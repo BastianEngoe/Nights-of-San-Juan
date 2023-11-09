@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public JournalManager journalManager;
 
-    [SerializeField] private GameObject playerObject;
+    public GameObject playerObject;
 
     [SerializeField] private InteractionComponent interactionComponent;
 
