@@ -72,21 +72,24 @@ public class GameManager : MonoBehaviour
         if (interactionComponent.currentTarget != null&&!onConversation)
         {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
-            if (interactableData.JSONConversation) { 
             if (interactableData.triggerEventWhenFinished)
             {
-                newJournalEntryAdded = true;
                 nextInter.AddListener(interactableData.TriggerNextEvent);
             }
-
-            inputManager.AddDialogueInput();
+            if (interactableData.JSONConversation) {
+                newJournalEntryAdded = true;
+                inputManager.AddDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             SetUpCamera(interactableData);
             dialogueSystem.StartConversation();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             onConversation = true;
-        }
+            }
+            else
+            {
+                nextInter.Invoke();
+            }
         }
     }
 
