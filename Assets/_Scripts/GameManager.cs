@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
                 nextInter.AddListener(interactableData.TriggerNextEvent);
             }
             if (interactableData.JSONConversation) {
+                if (interactableData.events[0].journalEntryToUnlock!="")
                 newJournalEntryAdded = true;
             inputManager.AddDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
