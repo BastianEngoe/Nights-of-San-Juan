@@ -78,16 +78,22 @@ public class GameManager : MonoBehaviour
             traceManager.NPCInteracted(interactableData.actors[0].name);
             if (interactableData.triggerEventWhenFinished)
             {
-                newJournalEntryAdded = true;
                 nextInter.AddListener(interactableData.TriggerNextEvent);
             }
-            inputManager.AddDialogueInput();
+            if (interactableData.JSONConversation) {
+                newJournalEntryAdded = true;
+                inputManager.AddDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             SetUpCamera(interactableData);
             dialogueSystem.StartConversation();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             onConversation = true;
+            }
+            else
+            {
+                nextInter.Invoke();
+            }
         }
     }
 
