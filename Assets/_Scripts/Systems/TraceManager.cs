@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class TraceManager : MonoBehaviour
 {
     [SerializeField] private string username, email;
+    public string currentLocation;
     
     public async void Start()
     {
@@ -41,7 +42,12 @@ public class TraceManager : MonoBehaviour
     {
         await GameObjectTracker.Instance.Interacted(NPC, GameObjectTracker.TrackedGameObject.Npc);
     }
-
+    
+    public async void LocationVisited(string location)
+    {
+        await AccessibleTracker.Instance.Accessed(location, AccessibleTracker.AccessibleType.Area);
+    }
+    
     public async void Progressed()
     {
         await CompletableTracker.Instance.Progressed("MyGame", CompletableTracker.CompletableType.Game, 0.5f);

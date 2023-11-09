@@ -162,6 +162,7 @@ MonoBehaviour:
   playerCameraTarget: {fileID: 1280760830}
   quillController: {fileID: 1074095698}
   pauseMenu: {fileID: 1704976261}
+  traceManager: {fileID: 0}
 --- !u!114 &71324447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,6 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: Beatriz
   email: 349606@student.nord.no
+  currentLocation: 
 --- !u!114 &1751682955
 MonoBehaviour:
   m_ObjectHideFlags: 0
