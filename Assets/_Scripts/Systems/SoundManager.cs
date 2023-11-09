@@ -57,9 +57,10 @@ public class SoundManager : MonoBehaviour
     public void ChangeMusicVolume(float newVolume)
    {
         musicVolume = newVolume;
-        //foreach music in musicSources{
-
-        //}
-   }
+        foreach (AudioSource audioSource in musicSources)
+        {
+            audioSource.volume = newVolume;
+        }
+    }
 
 }

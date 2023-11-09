@@ -6,6 +6,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private InputReader inputReader;
+    [SerializeField] private MenusManager menuManager;
     
     [HideInInspector] public bool onJournal = false;
     [HideInInspector] public bool onPause = false ;
@@ -24,6 +25,7 @@ public class InputManager : MonoBehaviour
 
     private void TogglePause()
     {
+        if(!menuManager.onMenu)
          GameManager.instance.TogglePause();
     }
 

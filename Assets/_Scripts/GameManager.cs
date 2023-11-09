@@ -74,9 +74,10 @@ public class GameManager : MonoBehaviour
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             if (interactableData.triggerEventWhenFinished)
             {
-                newJournalEntryAdded = true;
                 nextInter.AddListener(interactableData.TriggerNextEvent);
             }
+            if (interactableData.JSONConversation) {
+                newJournalEntryAdded = true;
             inputManager.AddDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
             SetUpCamera(interactableData);
@@ -84,6 +85,11 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             onConversation = true;
+            }
+            else
+            {
+                nextInter.Invoke();
+            }
         }
     }
 

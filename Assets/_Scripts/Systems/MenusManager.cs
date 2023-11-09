@@ -9,7 +9,7 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private GameObject mainMenu, settingsMenu;
     [SerializeField] private Toggle toggleScreen;
     [SerializeField] private Slider soundSlider, musicSlider;
-    private bool gameStarted = false;
+    [HideInInspector] public bool onMenu = true;
 
     private void Start()
     {
@@ -25,6 +25,7 @@ public class MenusManager : MonoBehaviour
         mainMenu.SetActive(false);
         Cursor.visible = false;
         GameManager.instance.ActivatePlayer();
+        onMenu = false;
     }
 
     public void NewGame()
@@ -33,6 +34,7 @@ public class MenusManager : MonoBehaviour
         mainMenu.SetActive(false);
         GameManager.instance.ActivatePlayer();
         Cursor.visible = false;
+        onMenu = false;
     }
 
     public void ToMainMenu()
@@ -51,7 +53,6 @@ public class MenusManager : MonoBehaviour
     public void ToggleFullScreen(bool toggleFullScreen)
     {
         Screen.fullScreen = toggleFullScreen;
-        Debug.Log(toggleFullScreen);
     }
 
     public void ChangeSoundVolume()
