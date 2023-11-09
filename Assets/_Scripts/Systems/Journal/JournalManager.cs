@@ -117,7 +117,7 @@ public class JournalManager : MonoBehaviour
     }
 
     //Updates the journal current data and safe data
-    private void UpdateJournal()
+    public void UpdateJournal()
     {
         string jsonString = JsonUtility.ToJson(journalQuestsData);
         File.WriteAllText(saveFile, jsonString);

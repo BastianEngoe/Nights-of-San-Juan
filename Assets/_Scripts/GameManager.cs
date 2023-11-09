@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private bool newJournalEntryAdded = false;
     private bool onConversation = false;
-    private bool onPause = false;
+    [HideInInspector] public bool onPause = false;
 
 
     private void Awake()
