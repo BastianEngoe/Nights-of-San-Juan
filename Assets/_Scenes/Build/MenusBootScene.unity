@@ -2931,6 +2931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 1474062318}
+  menuManager: {fileID: 1530508654}
   onJournal: 0
   onPause: 1
 --- !u!1 &1488121925
@@ -3119,6 +3120,7 @@ MonoBehaviour:
   toggleScreen: {fileID: 1031592890}
   soundSlider: {fileID: 645905932}
   musicSlider: {fileID: 901324292}
+  onMenu: 1
 --- !u!1 &1658970902
 GameObject:
   m_ObjectHideFlags: 0
