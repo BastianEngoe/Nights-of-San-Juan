@@ -83,6 +83,7 @@ public class InteractionComponent : MonoBehaviour
             outline.enabled = true;
             currentTarget.gameObject.GetComponent<Outline>().OutlineColor = Color.yellow;
             currentTarget.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
+            currentTarget.gameObject.GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
         }
     }
 
