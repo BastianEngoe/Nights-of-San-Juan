@@ -29,6 +29,12 @@ public class InteractionComponent : MonoBehaviour
         {
             var newTargetCandidate = FindNearestInteractable();
             
+
+            if(currentTarget != newTargetCandidate)
+            {
+                if(currentTarget)
+                    currentTarget.gameObject.GetComponent<Outline>().enabled = false;
+            }
             currentTarget = newTargetCandidate;
             
             //targetSprite.SetActive(true);
