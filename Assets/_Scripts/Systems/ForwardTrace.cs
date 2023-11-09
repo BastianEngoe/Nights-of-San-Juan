@@ -5,19 +5,20 @@ using UnityEngine.Events;
 public class ForwardTrace : MonoBehaviour
 {
     
-    [SerializeField] private TraceManager _traceManager;
+    private TraceManager _traceManager;
+    private LocationText _locationText; 
     [SerializeField] private UnityEvent EnterLocation;
 
     private void Awake()
     {
         _traceManager = FindObjectOfType<TraceManager>();
+        _locationText = FindObjectOfType<LocationText>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player is triggering");
             EnterLocation.Invoke();
         }
     }
@@ -30,6 +31,7 @@ public class ForwardTrace : MonoBehaviour
             _traceManager.currentLocation = null;
             return;
         }
+        _locationText.CallLocation(location);
         _traceManager.currentLocation = location;
         _traceManager.LocationVisited(location);
     }

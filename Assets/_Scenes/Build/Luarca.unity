@@ -3007,7 +3007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff266c6e1faa5149afd668b788614c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _traceManager: {fileID: 0}
   EnterLocation:
     m_PersistentCalls:
       m_Calls:
@@ -3051,7 +3050,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441904601}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4545,7 +4544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff266c6e1faa5149afd668b788614c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _traceManager: {fileID: 0}
   EnterLocation:
     m_PersistentCalls:
       m_Calls:
@@ -4558,7 +4556,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: AramoCrossroad
+          m_StringArgument: Aramo Crossroad
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!65 &584115592
@@ -4589,7 +4587,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584115590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8936,7 +8934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff266c6e1faa5149afd668b788614c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _traceManager: {fileID: 0}
   EnterLocation:
     m_PersistentCalls:
       m_Calls:
@@ -8980,7 +8977,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066387392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15984,7 +15981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff266c6e1faa5149afd668b788614c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _traceManager: {fileID: 0}
   EnterLocation:
     m_PersistentCalls:
       m_Calls:
@@ -16028,7 +16024,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058180424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -16216,7 +16212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff266c6e1faa5149afd668b788614c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _traceManager: {fileID: 0}
   EnterLocation:
     m_PersistentCalls:
       m_Calls:
@@ -16260,7 +16255,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102238917}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
