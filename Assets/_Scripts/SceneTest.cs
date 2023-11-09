@@ -9,6 +9,6 @@ public class SceneTest : MonoBehaviour
 {
     void Start()
     {
-        MultiSceneLoader.loadCollection("Luarca", collectionLoadMode.Difference);
+        //MultiSceneLoader.loadCollection("Luarca", collectionLoadMode.Difference);
     }
 }

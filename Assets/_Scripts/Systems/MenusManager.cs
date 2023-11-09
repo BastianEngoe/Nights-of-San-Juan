@@ -40,7 +40,7 @@ public class MenusManager : MonoBehaviour
     public void ToMainMenu()
     {
         mainMenu.SetActive(true);
-        settingsMenu.SetActive(true);
+        settingsMenu.SetActive(false);
     }
 
 

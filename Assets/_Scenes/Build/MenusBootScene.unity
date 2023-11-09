@@ -204,6 +204,7 @@ MonoBehaviour:
   playerCameraTarget: {fileID: 1280760830}
   quillController: {fileID: 1074095698}
   pauseMenu: {fileID: 1704976261}
+  traceManager: {fileID: 0}
 --- !u!114 &71324447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,6 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42668453565b4204ca66d6d3dfddc1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traceManager: {fileID: 0}
   leftPage: {fileID: 774849450}
   rightPage: {fileID: 223152795}
   journalObject: {fileID: 221452290}
