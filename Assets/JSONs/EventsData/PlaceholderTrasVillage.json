@@ -1,0 +1,23 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Hi!!! I am the Trasgu!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: You can encounter me in my house, but its a bit far away from here and the road is empty..."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: So I will take you there now! Talk to me again outside the house to go back to the village!"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

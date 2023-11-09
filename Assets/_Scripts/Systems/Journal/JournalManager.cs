@@ -12,6 +12,8 @@ using Unity.VisualScripting;
 //[ExecuteInEditMode]
 public class JournalManager : MonoBehaviour
 {
+    [SerializeField] private TraceManager traceManager;
+    
     [SerializeField] private GameObject leftPage;
     [SerializeField] private GameObject rightPage;
     [SerializeField] private GameObject journalObject;
@@ -33,6 +35,8 @@ public class JournalManager : MonoBehaviour
     }
     private void Awake()
     {
+        traceManager = FindObjectOfType<TraceManager>();
+        saveFile = Application.persistentDataPath + "/QuestsData.json";
         //Uncomment to find your current file route
         saveFile = Application.persistentDataPath + "/QuestsData.json";
         //Debug.Log(saveFile);
@@ -54,6 +58,7 @@ public class JournalManager : MonoBehaviour
     //Activates the pages object and updates the info
     public void ShowJournal()
     {
+        traceManager.AccessedJournal();
         journalObject.SetActive(true);
         isActive = true;
         UpdatePages();

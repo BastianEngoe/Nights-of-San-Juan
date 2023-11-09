@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public JournalManager journalManager;
 
-    [SerializeField] private GameObject playerObject;
+    public GameObject playerObject;
 
     [SerializeField] private InteractionComponent interactionComponent;
 
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIQuillController quillController;
 
     [SerializeField] private GameObject pauseMenu;
+
+    [SerializeField] private TraceManager traceManager;
 
     public static GameManager instance;
 
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        traceManager = FindObjectOfType<TraceManager>();
     }
 
     void Start()
@@ -72,6 +75,7 @@ public class GameManager : MonoBehaviour
         if (interactionComponent.currentTarget != null&&!onConversation)
         {
             InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
+            traceManager.NPCInteracted(interactableData.actors[0].name);
             if (interactableData.triggerEventWhenFinished)
             {
                 nextInter.AddListener(interactableData.TriggerNextEvent);

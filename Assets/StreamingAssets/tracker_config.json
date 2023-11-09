@@ -1,0 +1,9 @@
+{
+    "online": "true",
+    "lrs_endpoint": "https://watershedlrs.com/api/organizations/24095/lrs/",
+    "auth_protocol": "basic", 
+    "auth_parameters": {
+        "username": "c954f5b6dbd0fc",
+        "password": "2e2bf12976176e"
+    }
+}

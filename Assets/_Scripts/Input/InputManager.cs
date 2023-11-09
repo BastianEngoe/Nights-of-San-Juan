@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private InputReader inputReader;
+    [SerializeField] public InputReader inputReader;
     [SerializeField] private MenusManager menuManager;
+    private OpeningController openingController;
     
     [HideInInspector] public bool onJournal = false;
     [HideInInspector] public bool onPause = false ;

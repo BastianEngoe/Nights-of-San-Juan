@@ -13,6 +13,7 @@ public class InteractableData : MonoBehaviour
 
     public Vector3 cameraOffset = new Vector3(0, 1, 0);
     public bool triggerEventWhenFinished;
+    [SerializeField] private bool wantToRemoveEvents = true;
 
     [HideInInspector] public JournalManager journalManager;
 
@@ -32,16 +33,18 @@ public class InteractableData : MonoBehaviour
         {
             for (int i = 0; i < events[0].nextEvents.Count; i++)
             {
-                events[0].nextEvents[i].nextEvent.events.RemoveAt(0);
+                if(wantToRemoveEvents)
+                    events[0].nextEvents[i].nextEvent.events.RemoveAt(0);
                 events[0].nextEvents[i].nextEvent.triggerEventWhenFinished = events[0].nextEvents[i].nextEventTriggers;
             }
         }
-        if(events!=null&&events.Count>1) events.RemoveAt(0);
-        else if (events != null&&events.Count==1) {
-            triggerEventWhenFinished = false;
-        }
 
-        if (events[0].customEvent != null) { events[0].customEvent.Invoke(); }
+        if(events!=null&&events.Count>1&&wantToRemoveEvents) events.RemoveAt(0);
+        //else if (events != null&&events.Count==1) {
+        //    triggerEventWhenFinished = false;
+        //}
+
+         if (events[0].customEvent != null) { events[0].customEvent.Invoke(); }
     }
 
     //Changes actors in the conversation
