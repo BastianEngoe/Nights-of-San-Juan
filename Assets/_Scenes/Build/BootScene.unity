@@ -2919,6 +2919,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5611894871774818683, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611894871774818683, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6680323342028231425, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
         type: 3}
       propertyPath: m_Name
@@ -4421,8 +4431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7018d2d1fd2feca458fa3d4284e1220e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: Beatriz
   email: 349606@student.nord.no
+  userLength: 7
   currentLocation: 
 --- !u!114 &1751682955
 MonoBehaviour:

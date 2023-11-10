@@ -37,7 +37,7 @@ public class TraceManager : MonoBehaviour
 
         Debug.Log("Done!");
 
-        //InvokeRepeating("TrackPlayerPosition", 30f, 30f);
+        InvokeRepeating("TrackPlayerPosition", 30f, 30f);
     }
 
     private string RandomStringBuilder()
@@ -74,7 +74,12 @@ public class TraceManager : MonoBehaviour
 
     public async void TrackPlayerPosition()
     {
-        await AccessibleTracker.Instance.Accessed(GameManager.instance.playerObject.transform.position.ToString(), AccessibleTracker.AccessibleType.Accessible);
+        Debug.Log("playerpos!");
+        await AccessibleTracker.Instance.Stayed(currentLocation, AccessibleTracker.AccessibleType.Accessible)
+            .WithResultExtensions(new Dictionary<string, object>
+            {
+                {"http://NoSJ/PlayerPosition", GameManager.instance.playerObject.transform.position}    
+            });
     }
 
     public async void TrasguPuzzleStarted(string puzzle)
