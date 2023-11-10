@@ -26,26 +26,34 @@ public class InteractableData : MonoBehaviour
     //If any of the fields have something assigned it triggers / changes them
     public void TriggerNextEvent()
     {
-        if(eventToTrigger!=null) { eventToTrigger.Invoke(); }
+        if(eventToTrigger != null) { 
+            eventToTrigger.Invoke(); }
         if(events[0].journalEntryToUnlock!="") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
         if(events[0].nextConversation!=null) ChangeConversation(events[0].nextConversation);
         if (events[0].nextActors != null && events[0].nextActors.Count>0) ChangeActors(events[0].nextActors);
-        if (events[0].nextEvents != null)
+        bool nextEventTrigger = events[0].triggerNextEventWhenFinished;
+        eventToTrigger = new UnityEvent();
+        eventToTrigger = events[0].nextCustomEvent;
+        if (triggerEventWhenFinished&&events!=null&&events.Count>1) events.RemoveAt(0);
+        triggerEventWhenFinished = nextEventTrigger;
+        
+    }
+
+    public void TriggerEventFromMethod()
+    {
+
+        if (eventToTrigger != null)
         {
-            for (int i = 0; i < events[0].nextEvents.Count; i++)
-            {
-                if(wantToRemoveEvents)
-                    events[0].nextEvents[i].nextEvent.events.RemoveAt(0);
-                events[0].nextEvents[i].nextEvent.triggerEventWhenFinished = events[0].nextEvents[i].nextEventTriggers;
-            }
+            eventToTrigger.Invoke();
         }
-
-        if(events!=null&&events.Count>1&&wantToRemoveEvents) events.RemoveAt(0);
-        //else if (events != null&&events.Count==1) {
-        //    triggerEventWhenFinished = false;
-        //}
-
-        eventToTrigger = events[0].nextCustomEvent; 
+        if (events[0].journalEntryToUnlock != "") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
+        if (events[0].nextConversation != null) ChangeConversation(events[0].nextConversation);
+        if (events[0].nextActors != null && events[0].nextActors.Count > 0) ChangeActors(events[0].nextActors);
+        eventToTrigger = new UnityEvent();
+        bool nextEventTrigger = events[0].triggerNextEventWhenFinished;
+        eventToTrigger = events[0].nextCustomEvent;
+        if (events != null && events.Count > 1) events.RemoveAt(0);
+        triggerEventWhenFinished = nextEventTrigger;
     }
 
     //Changes actors in the conversation
@@ -65,4 +73,5 @@ public class InteractableData : MonoBehaviour
     {
         JSONConversation = newJSONConversation;
     }
+
 }

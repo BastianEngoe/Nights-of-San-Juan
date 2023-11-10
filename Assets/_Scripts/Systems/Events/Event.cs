@@ -12,6 +12,7 @@ public class Event
     public string journalEntryToUnlock;
     public UnityEvent nextCustomEvent;
     public List<NextEvent> nextEvents;
+    public bool triggerNextEventWhenFinished;
 }
 
 [System.Serializable]
