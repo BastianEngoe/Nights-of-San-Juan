@@ -10,7 +10,7 @@ public class Event
     public List<Actors> nextActors;
     public TextAsset nextConversation;
     public string journalEntryToUnlock;
-    public UnityEvent customEvent;
+    public UnityEvent nextCustomEvent;
     public List<NextEvent> nextEvents;
 }
 

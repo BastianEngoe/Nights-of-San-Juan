@@ -10,7 +10,7 @@ public class InteractableData : MonoBehaviour
     public TextAsset JSONConversation;
     public List<GameObject> actors;
     public List<Event> events;
-
+    public UnityEvent eventToTrigger;
     public Vector3 cameraOffset = new Vector3(0, 1, 0);
     public bool triggerEventWhenFinished;
     [SerializeField] private bool wantToRemoveEvents = true;
@@ -26,6 +26,7 @@ public class InteractableData : MonoBehaviour
     //If any of the fields have something assigned it triggers / changes them
     public void TriggerNextEvent()
     {
+        if(eventToTrigger!=null) { eventToTrigger.Invoke(); }
         if(events[0].journalEntryToUnlock!="") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
         if(events[0].nextConversation!=null) ChangeConversation(events[0].nextConversation);
         if (events[0].nextActors != null && events[0].nextActors.Count>0) ChangeActors(events[0].nextActors);
@@ -44,7 +45,7 @@ public class InteractableData : MonoBehaviour
         //    triggerEventWhenFinished = false;
         //}
 
-         if (events[0].customEvent != null) { events[0].customEvent.Invoke(); }
+         if (events[0].nextCustomEvent != null) { eventToTrigger = events[0].nextCustomEvent; }
     }
 
     //Changes actors in the conversation
