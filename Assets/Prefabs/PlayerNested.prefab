@@ -522,13 +522,13 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.7633424, b: 0.4669811, a: 1}
-  m_Intensity: 5
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2420,6 +2420,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7660565700744609721}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd9a84349165e564ea5db3c43e29c67e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7816537647187980720}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fd9a84349165e564ea5db3c43e29c67e,
         type: 3}
@@ -2705,6 +2709,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transToRespawn: {fileID: 108609272585770482}
   _controller: {fileID: 8744644207509231583}
+--- !u!1001 &971868152880073524
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 108609272585770482}
+    m_Modifications:
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116026927695791975, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: m_Name
+      value: WeatherSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501075290986611720, guid: b0409b9eac063f642867e178d155620a,
+        type: 3}
+      propertyPath: weatherShiftTimer
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0409b9eac063f642867e178d155620a, type: 3}
+--- !u!4 &7816537647187980720 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6991046206704450180, guid: b0409b9eac063f642867e178d155620a,
+    type: 3}
+  m_PrefabInstance: {fileID: 971868152880073524}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1133178595145912093
 PrefabInstance:
   m_ObjectHideFlags: 0

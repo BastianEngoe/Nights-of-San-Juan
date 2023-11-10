@@ -2919,23 +2919,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5611894871774818683, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5611894871774818683, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6680323342028231425, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
         type: 3}
       propertyPath: m_Name
       value: PlayerNested
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8051855755906813011, guid: 919640cfc8f915a40ba8a70ab4c27dc9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 919640cfc8f915a40ba8a70ab4c27dc9, type: 3}

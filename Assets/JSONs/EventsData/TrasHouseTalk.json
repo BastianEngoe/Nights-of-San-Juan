@@ -1,0 +1,55 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Congratulations clever traveler, you found Trasgu! Now excuse little Trasgu, he has places to be!"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Not so fast! I believe you have something of mine."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: What, who, Trasgu? He has no idea what you’re talking about."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Can you at least tell me who or..what you are?"
+        },        
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: You, lucky traveler, are in the presence of Trasgu himself! The greatest trickster of Asturias! The villagers know Trasgu as eeevil spirits haunting their homes haha!"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: I see, so the haunted rumors were all your doing. For being the “greatest trickster of Asturias”, tricking a bunch of paranoid villagers isn’t very impressive."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: You dare question the great Trasgu?! You think some mortal like you can do better?"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: I offer a bigger challenge. If we fix the messes you’ve made you will be able to trick the monster living in the region. Fooling a big monster would make you the greatest trickster who ever lived."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Hmmmm..trick a monster you say? The great trickster Trasgu accepts the challenge!"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Now, before we go, can I have my journal back?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: What, this? Silly Trasgu didn’t realize it was yours, of course little old Trasgu would never steal from you. Now let's get going."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

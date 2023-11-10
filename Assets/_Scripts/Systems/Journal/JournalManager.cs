@@ -121,8 +121,8 @@ public class JournalManager : MonoBehaviour
     {
         string jsonString = JsonUtility.ToJson(journalQuestsData);
         File.WriteAllText(saveFile, jsonString);
-        File.WriteAllText(AssetDatabase.GetAssetPath(journalData), jsonString);
-        EditorUtility.SetDirty(journalData);
+        //File.WriteAllText(AssetDatabase.GetAssetPath(journalData), jsonString);
+        //EditorUtility.SetDirty(journalData);
     }
 
     //Toggles between pages, as there are two pages showcased on the journal it progresses +-2
