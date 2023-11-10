@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
             }
             if (interactableData.JSONConversation) {
                 SetPlayerMovement(false);
-                if (interactableData.events[0].journalEntryToUnlock!="")
+                if (interactableData.events.Count>0&&interactableData.events[0].journalEntryToUnlock!="")
                 newJournalEntryAdded = true;
             inputManager.AddDialogueInput();
             dialogueSystem.setDialogue(interactableData.JSONConversation);
@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
 
 
     //Assings player to npcs dialogue and references to dialogue manager
-    private void DialogueSetup()
+    public void DialogueSetup()
     {
         GameObject[] npcs = GameObject.FindGameObjectsWithTag("Interactable");
 

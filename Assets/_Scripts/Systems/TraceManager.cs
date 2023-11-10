@@ -74,12 +74,12 @@ public class TraceManager : MonoBehaviour
 
     public async void TrackPlayerPosition()
     {
-        Debug.Log("playerpos!");
-        await AccessibleTracker.Instance.Stayed(currentLocation, AccessibleTracker.AccessibleType.Accessible)
-            .WithResultExtensions(new Dictionary<string, object>
-            {
-                {"http://NoSJ/PlayerPosition", GameManager.instance.playerObject.transform.position}    
-            });
+        //Debug.Log("playerpos!");
+        //await AccessibleTracker.Instance.Stayed(currentLocation, AccessibleTracker.AccessibleType.Accessible)
+        //    .WithResultExtensions(new Dictionary<string, object>
+        //    {
+        //        {"http://NoSJ/PlayerPosition", GameManager.instance.playerObject.transform.position}    
+        //    });
     }
 
     public async void TrasguPuzzleStarted(string puzzle)

@@ -16,6 +16,11 @@ public class InteractableData : MonoBehaviour
 
     [HideInInspector] public JournalManager journalManager;
 
+    private void OnEnable()
+    {
+        GameManager.instance.DialogueSetup();
+    }
+
     //Adds an object
     public void AddOject(GameObject o)
     {
