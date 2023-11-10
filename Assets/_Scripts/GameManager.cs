@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     private UnityEvent nextInter= new UnityEvent();
 
+    private InteractableData interactableData;
+
     private bool newJournalEntryAdded = false;
     private bool onConversation = false;
     [HideInInspector] public bool onPause = false;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
             dialogueSystem.EndDialogue();
             onConversation = false;
             nextInter.Invoke();
+            interactableData.eventToTrigger.Invoke();
             if(newJournalEntryAdded) quillController.QuillAppear();
             nextInter.RemoveAllListeners();
             newJournalEntryAdded = false;
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
     {
         if (interactionComponent.currentTarget != null&&!onConversation)
         {
-            InteractableData interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
+            interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             traceManager.NPCInteracted(interactableData.actors[0].name);
             if (interactableData.triggerEventWhenFinished)
             {
