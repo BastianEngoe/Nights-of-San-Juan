@@ -1,4 +1,5 @@
 using HH.MultiSceneTools;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,17 @@ public class MenusManager : MonoBehaviour
         Cursor.visible = true;
         GameManager.instance.DeactivatePlayer();
         Cursor.lockState = CursorLockMode.Confined;
+        SetSettingsFromPlayerPrefs();
+    }
+
+    private void SetSettingsFromPlayerPrefs()
+    {
+        soundSlider.value = PlayerPrefs.GetFloat("SoundVolume", 0.5f);
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        SoundManager.instance.ChangeMusicVolume(musicSlider.value);
+        SoundManager.instance.ChangeSoundsVolume(soundSlider.value);
+        ToggleFullScreen(Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen", 0)));
+        toggleScreen.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen", 0));
     }
 
     public void ContinueGame()
@@ -28,7 +40,7 @@ public class MenusManager : MonoBehaviour
         MultiSceneLoader.loadCollection("Luarca", collectionLoadMode.Difference);
         mainMenu.SetActive(false);
         Cursor.visible = false;
-        GameManager.instance.ActivatePlayer();
+        GameManager.instance.ActivatePlayer();  
         onMenu = false;
     }
 
@@ -74,17 +86,25 @@ public class MenusManager : MonoBehaviour
 
     public void ToggleFullScreen(bool toggleFullScreen)
     {
+        PlayerPrefs.SetInt("FullScreen", toggleFullScreen? 1:0);
         Screen.fullScreen = toggleFullScreen;
+    }
+
+    public void SaveGame()
+    {
+        journalManager.UpdateJournal();
     }
 
     public void ChangeSoundVolume()
     {
         SoundManager.instance.ChangeSoundsVolume(soundSlider.value);
+        PlayerPrefs.SetFloat("SoundVolume", soundSlider.value);
     }
 
     public void ChangeMusicVolume() 
     {
         SoundManager.instance.ChangeMusicVolume(musicSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
     }
 
     public void Quit()
