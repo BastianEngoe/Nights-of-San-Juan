@@ -3555,9 +3555,12 @@ MonoBehaviour:
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntryToUnlock: The San Juan Festival & Luarca
-    customEvent:
+    nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   cameraOffset: {x: -0.7, y: 1, z: 0}
   triggerEventWhenFinished: 1
   wantToRemoveEvents: 0
@@ -5216,21 +5219,12 @@ MonoBehaviour:
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntryToUnlock: 
-    customEvent:
+    nextCustomEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 620047357}
-          m_TargetAssemblyTypeName: PlaceholderTeleport, Assembly-CSharp
-          m_MethodName: MovePlayerToVillage
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   cameraOffset: {x: 0, y: 1, z: 0}
   triggerEventWhenFinished: 1
   wantToRemoveEvents: 0
@@ -5281,9 +5275,12 @@ MonoBehaviour:
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntryToUnlock: The San Juan Festival & Luarca 2
-    customEvent:
+    nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   cameraOffset: {x: -2, y: 1, z: 0}
   triggerEventWhenFinished: 1
   wantToRemoveEvents: 0
@@ -14686,21 +14683,12 @@ MonoBehaviour:
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntryToUnlock: 
-    customEvent:
+    nextCustomEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1672871587}
-          m_TargetAssemblyTypeName: PlaceholderTeleport, Assembly-CSharp
-          m_MethodName: MovePlayerToHouse
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   cameraOffset: {x: 0, y: 1, z: 0}
   triggerEventWhenFinished: 1
   wantToRemoveEvents: 0
@@ -15349,6 +15337,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 972643850}
+    - target: {fileID: 6522971973950478946, guid: 2e67e08fdf9dd664796308586691e1bd,
+        type: 3}
+      propertyPath: wantToRemoveEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522971973950478946, guid: 2e67e08fdf9dd664796308586691e1bd,
+        type: 3}
+      propertyPath: triggerEventWhenFinished
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7430623071899468535, guid: 2e67e08fdf9dd664796308586691e1bd,
         type: 3}
       propertyPath: m_Mesh

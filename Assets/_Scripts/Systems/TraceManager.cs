@@ -76,6 +76,16 @@ public class TraceManager : MonoBehaviour
     {
         await AccessibleTracker.Instance.Accessed(GameManager.instance.playerObject.transform.position.ToString(), AccessibleTracker.AccessibleType.Accessible);
     }
+
+    public async void TrasguPuzzleStarted(string puzzle)
+    {
+        await CompletableTracker.Instance.Progressed(puzzle, CompletableTracker.CompletableType.Level, 0.5f);
+    }
+
+    public async void TrasguPuzzleCompleted(string puzzle)
+    {
+        await CompletableTracker.Instance.Completed(puzzle, CompletableTracker.CompletableType.Completable);
+    }
     
     public async void Progressed()
     {
