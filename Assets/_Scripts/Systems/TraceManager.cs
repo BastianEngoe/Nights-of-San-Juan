@@ -5,16 +5,22 @@ using Xasu;
 using Xasu.HighLevel;
 using System.Threading.Tasks;
 using UnityEngine.UI;
+using System.Text;
+using System;
 
 public class TraceManager : MonoBehaviour
 {
-    [SerializeField] private string username, email;
+    [SerializeField] private string email;
+    [SerializeField] private int userLength=7;
+    private string username;
     public string currentLocation;
     
     public async void Start()
     {
+        username=PlayerPrefs.GetString("Username", RandomStringBuilder());
+        PlayerPrefs.SetString("Username", username);
         await Task.Yield();
-        while(XasuTracker.Instance.Status.State == TrackerState.Uninitialized)
+        while (XasuTracker.Instance.Status.State == TrackerState.Uninitialized)
         {
             await Task.Yield();
         }
@@ -30,8 +36,25 @@ public class TraceManager : MonoBehaviour
         await CompletableTracker.Instance.Initialized("MyGame", CompletableTracker.CompletableType.Game);
 
         Debug.Log("Done!");
-        
+
         //InvokeRepeating("TrackPlayerPosition", 30f, 30f);
+    }
+
+    private string RandomStringBuilder()
+    {
+        StringBuilder randomString = new StringBuilder();
+        System.Random random = new System.Random();
+
+        char letter;
+
+        for (int i = 0; i < userLength; i++)
+        {
+            double flt = random.NextDouble();
+            int shift = Convert.ToInt32(Math.Floor(25 * flt));
+            letter = Convert.ToChar(shift + 65);
+            randomString.Append(letter);
+        }
+        return randomString.ToString();
     }
 
     public async void AccessedJournal()
