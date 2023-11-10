@@ -45,7 +45,7 @@ public class InteractableData : MonoBehaviour
         //    triggerEventWhenFinished = false;
         //}
 
-         if (events[0].nextCustomEvent != null) { eventToTrigger = events[0].nextCustomEvent; }
+        eventToTrigger = events[0].nextCustomEvent; 
     }
 
     //Changes actors in the conversation
