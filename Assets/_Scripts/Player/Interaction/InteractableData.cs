@@ -13,7 +13,6 @@ public class InteractableData : MonoBehaviour
     public UnityEvent eventToTrigger;
     public Vector3 cameraOffset = new Vector3(0, 1, 0);
     public bool triggerEventWhenFinished;
-    [SerializeField] private bool wantToRemoveEvents = true;
 
     [HideInInspector] public JournalManager journalManager;
 

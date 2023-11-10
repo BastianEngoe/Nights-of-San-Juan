@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
             }
             if (interactableData.JSONConversation) {
                 SetPlayerMovement(false);
-
                 if (interactableData.events[0].journalEntryToUnlock!="")
                 newJournalEntryAdded = true;
             inputManager.AddDialogueInput();
@@ -99,7 +98,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                nextInter.Invoke();
+                interactableData.eventToTrigger.Invoke();
             }
         }
     }
