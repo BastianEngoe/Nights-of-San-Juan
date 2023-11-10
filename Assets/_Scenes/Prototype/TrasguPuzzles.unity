@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42668453565b4204ca66d6d3dfddc1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traceManager: {fileID: 0}
   leftPage: {fileID: 1068744728}
   rightPage: {fileID: 358611838}
   journalObject: {fileID: 1645520055}
@@ -407,6 +408,8 @@ MonoBehaviour:
   playerCameraTarget: {fileID: 209024398}
   quillController: {fileID: 1615648637}
   pauseMenu: {fileID: 0}
+  traceManager: {fileID: 0}
+  onPause: 0
 --- !u!114 &208245804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,6 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 518210413}
+  menuManager: {fileID: 0}
   onJournal: 0
   onPause: 0
 --- !u!1001 &703760464

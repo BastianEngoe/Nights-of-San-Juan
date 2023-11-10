@@ -1,0 +1,23 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Congratulations clever traveler, you saw through my trickery!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: As a reward, I will tell you about *PLACE*!",
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: *Placeholder text*"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
