@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
     {
         if (interactionComponent.currentTarget != null&&!onConversation)
         {
-            SetPlayerMovement(false);
             interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             traceManager.NPCInteracted(interactableData.actors[0].name);
             if (interactableData.triggerEventWhenFinished)
@@ -86,6 +85,8 @@ public class GameManager : MonoBehaviour
                 nextInter.AddListener(interactableData.TriggerNextEvent);
             }
             if (interactableData.JSONConversation) {
+                SetPlayerMovement(false);
+
                 if (interactableData.events[0].journalEntryToUnlock!="")
                 newJournalEntryAdded = true;
             inputManager.AddDialogueInput();
