@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
             if(newJournalEntryAdded) quillController.QuillAppear();
             nextInter.RemoveAllListeners();
             newJournalEntryAdded = false;
+            SetPlayerMovement(true);
         }
     }
 
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
     {
         if (interactionComponent.currentTarget != null&&!onConversation)
         {
+            SetPlayerMovement(false);
             interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             traceManager.NPCInteracted(interactableData.actors[0].name);
             if (interactableData.triggerEventWhenFinished)
@@ -141,6 +143,8 @@ public class GameManager : MonoBehaviour
     private void SetPlayerMovement(bool toWhat)
     {
         ThirdPersonController thirdPersonController = playerObject.GetComponent<ThirdPersonController>();
+        Animator animator= playerObject.GetComponent<Animator>();
+        animator.enabled = toWhat;
         thirdPersonController.canMove = toWhat;
     }
 
