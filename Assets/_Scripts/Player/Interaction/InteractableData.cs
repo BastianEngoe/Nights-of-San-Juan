@@ -13,6 +13,7 @@ public class InteractableData : MonoBehaviour
     public UnityEvent eventToTrigger;
     public Vector3 cameraOffset = new Vector3(0, 1, 0);
     public bool triggerEventWhenFinished;
+    public int triggerCount = 0;
 
     [HideInInspector] public JournalManager journalManager;
 
@@ -43,6 +44,7 @@ public class InteractableData : MonoBehaviour
             eventToTrigger = events[0].nextCustomEvent;
             if (triggerEventWhenFinished&&events!=null&&events.Count>1) events.RemoveAt(0);
             triggerEventWhenFinished = nextEventTrigger;
+            triggerCount++;
         }
     }
 
@@ -61,7 +63,9 @@ public class InteractableData : MonoBehaviour
         bool nextEventTrigger = events[0].triggerNextEventWhenFinished;
         eventToTrigger = events[0].nextCustomEvent;
         if (events != null && events.Count > 1) events.RemoveAt(0);
-        triggerEventWhenFinished = nextEventTrigger;}
+        triggerEventWhenFinished = nextEventTrigger;
+            triggerCount++;
+        }
     }
 
     //Changes actors in the conversation
