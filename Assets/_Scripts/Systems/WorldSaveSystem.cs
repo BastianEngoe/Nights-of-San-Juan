@@ -15,6 +15,7 @@ public class WorldSaveSystem : MonoBehaviour
         scenesSaved.Clear();
         foreach(Scene scene in SceneManager.GetAllScenes())
         {
+            if(scene.name!="BootScene")
             scenesSaved.Add(SceneSerialization.SerializeScene(scene));
         }
     }
