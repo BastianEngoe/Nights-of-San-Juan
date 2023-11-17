@@ -2325,6 +2325,7 @@ MonoBehaviour:
   soundSlider: {fileID: 206845213}
   musicSlider: {fileID: 1991504075}
   onMenu: 1
+  continueButton: {fileID: 1470242870}
 --- !u!1 &1109221456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,7 +3797,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1074095701}
         m_TargetAssemblyTypeName: MenusManager, Assembly-CSharp
         m_MethodName: ContinueGame
         m_Mode: 1

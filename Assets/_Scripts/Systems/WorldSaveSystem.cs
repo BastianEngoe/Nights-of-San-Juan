@@ -58,6 +58,10 @@ public class WorldSaveSystem : MonoBehaviour
         }
         int numOfDataChanged = 0;
         InteractableData data = obj.GetComponent<InteractableData>();
+        if (obj.name == "TrasguPuzzleStart")
+        {
+            Debug.Log("eu");
+        }
         if (data != null)
             numOfDataChanged = data.triggerCount;
         try
@@ -97,7 +101,7 @@ public class WorldSaveSystem : MonoBehaviour
         SceneManager.sceneLoaded+=AsyncLoad;
     }
 
-    private void AsyncLoad(Scene mockScene, LoadSceneMode loadSceneMode)
+    private void AsyncLoad(Scene currScene, LoadSceneMode loadSceneMode)
     {
         string data = PlayerPrefs.GetString("SavedData", "");
         List<GameObject> sceneObjects = new List<GameObject>();
@@ -116,28 +120,37 @@ public class WorldSaveSystem : MonoBehaviour
         {
             if (data != "")
             {
+                int n=0;
                 List<string> info = new List<string>(data.Split('|'));
                 info.RemoveAt(0);
                 while (info[0] != "InstantiatedObjects")
                 {
                     List<String> currObjData = new List<string>(info[0].Split('$'));
+                    n++;
+                    
                     if (currObjData.Count == 4) currObjData.RemoveAt(1);
+                    GameObject currObject = null;
                     foreach (GameObject gameObject in sceneObjects)
                     {
+                        
                         if (gameObject.name == currObjData[0])
                         {
-                            GameObject currObject = gameObject;
+                            
+                            currObject = gameObject;
                             currObject.SetActive(bool.Parse(currObjData[1]));
                             InteractableData currData = currObject.GetComponent<InteractableData>();
-                            if (currData != null) currData.AdvanceEventNum(int.Parse(currObjData[2]));
+                            if (currData != null && int.Parse (currObjData[2])!=0)
+                                currData.AdvanceEventNum(int.Parse(currObjData[2]));
                             info.RemoveAt(0);
+                            break;
                         }
                     }
-                    if (gameObject.name == "")
+                    if (currObject==null)
                     {
                         Debug.Log("Fail at: " + currObjData[0]);
+                        info.RemoveAt(0);
                     }
-                    
+                    Debug.Log(n);
                 }
                 info.RemoveAt(0);
                 while (info.Count != 0&&info[0]!="")
@@ -145,6 +158,7 @@ public class WorldSaveSystem : MonoBehaviour
                     List<String> currObjData = new List<string>(info[0].Split('$'));
 
                     GameObject currObject = AddGameObject(Resources.Load(currObjData[0], typeof(GameObject)) as GameObject);
+                    SceneManager.MoveGameObjectToScene(currObject, currScene);
                     InteractableData currData = currObject.GetComponent<InteractableData>();
                     if (currData != null) currData.AdvanceEventNum(int.Parse(currObjData[1]));
                     info.RemoveAt(0);
@@ -172,5 +186,10 @@ public class WorldSaveSystem : MonoBehaviour
         objectsToInstantiate.Add(gameObject.name, numOfDataChanged);
         return Instantiate(gameObject);
 
+    }
+
+    public bool CheckSave()
+    {
+        return (PlayerPrefs.GetString("SavedData", "") != "");
     }
 }

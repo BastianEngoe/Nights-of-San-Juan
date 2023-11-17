@@ -15,9 +15,10 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Slider soundSlider, musicSlider;
     [HideInInspector] public bool onMenu = true;
-
+    [SerializeField] private GameObject continueButton;
     private void Start()
     {
+        continueButton.SetActive(WorldSaveSystem.instance.CheckSave());
         toggleScreen.onValueChanged.AddListener(ToggleFullScreen);
         Cursor.visible = true;
         GameManager.instance.DeactivatePlayer();
