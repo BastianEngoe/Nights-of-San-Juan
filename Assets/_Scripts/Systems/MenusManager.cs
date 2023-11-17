@@ -42,6 +42,7 @@ public class MenusManager : MonoBehaviour
         Cursor.visible = false;
         GameManager.instance.ActivatePlayer();  
         onMenu = false;
+        WorldSaveSystem.instance.LoadAll();
     }
 
     public void NewGame()

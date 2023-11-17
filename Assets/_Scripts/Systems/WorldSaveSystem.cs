@@ -35,16 +35,16 @@ public class WorldSaveSystem : MonoBehaviour
         string saveData = "SavedObjects|";
         foreach(var key in savedObjects.Keys)
         {
-            saveData += key+"|";
-            saveData += savedObjects[key].Item1+"|";
+            saveData += key+"$";
+            saveData += savedObjects[key].Item1+"$";
             saveData += savedObjects[key].Item2+"|";
         }
 
         saveData += "InstantiatedObjects|";
         foreach(var key in objectsToInstantiate.Keys)
         {
-            saveData += key+"|";
-            saveData += objectsToInstantiate[key];
+            saveData += key+"$";
+            saveData += objectsToInstantiate[key]+"|";
         }
 
         PlayerPrefs.SetString("SavedData", saveData);
@@ -62,7 +62,7 @@ public class WorldSaveSystem : MonoBehaviour
             numOfDataChanged = data.triggerCount;
         try
         {
-            savedObjects.Add(obj.name + "$" + obj.transform.position, new Tuple<bool, int>(obj.activeSelf, numOfDataChanged));
+            savedObjects.Add(obj.name, new Tuple<bool, int>(obj.activeSelf, numOfDataChanged));
         }
         catch(Exception e)
         {
@@ -74,7 +74,7 @@ public class WorldSaveSystem : MonoBehaviour
     {
         try
         {
-            savedObjects.Add(obj.name + "$" + obj.transform.position + "$" + numRep, new Tuple<bool, int>(obj.activeSelf, numOfDataChanged));
+            savedObjects.Add(obj.name + "$" + numRep, new Tuple<bool, int>(obj.activeSelf, numOfDataChanged));
         }catch (Exception e)
         {
             numRep++;
@@ -82,42 +82,95 @@ public class WorldSaveSystem : MonoBehaviour
         }
     }
 
-    private bool LoadAll()
+
+    private void GetGameObjectsForLoad(GameObject gameObject, ref List<GameObject> sceneObjects)
     {
-        string data= PlayerPrefs.GetString("SavedData", "");
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            GetGameObjectsForLoad(gameObject.transform.GetChild(i).gameObject,ref sceneObjects);
+        }
+        sceneObjects.Add(gameObject);
+    }
+
+    public void LoadAll()
+    {
+        SceneManager.sceneLoaded+=AsyncLoad;
+    }
+
+    private void AsyncLoad(Scene mockScene, LoadSceneMode loadSceneMode)
+    {
+        string data = PlayerPrefs.GetString("SavedData", "");
+        List<GameObject> sceneObjects = new List<GameObject>();
+
+        foreach (Scene scene in SceneManager.GetAllScenes())
+        {
+            if (scene.name != "BootScene")
+            {
+                foreach (GameObject gameObject in scene.GetRootGameObjects())
+                {
+                    GetGameObjectsForLoad(gameObject, ref sceneObjects);
+                }
+            }
+        }
         try
         {
             if (data != "")
             {
-                string[] info = data.Split('|');
-                for(int i = 0; i < info.Length; i++)
+                List<string> info = new List<string>(data.Split('|'));
+                info.RemoveAt(0);
+                while (info[0] != "InstantiatedObjects")
                 {
-                    GameObject currObject= GameObject.Find(info[i].ToString());
-                    //currObject.SetActive(info[i]);
-                    i += 2;
+                    List<String> currObjData = new List<string>(info[0].Split('$'));
+                    if (currObjData.Count == 4) currObjData.RemoveAt(1);
+                    foreach (GameObject gameObject in sceneObjects)
+                    {
+                        if (gameObject.name == currObjData[0])
+                        {
+                            GameObject currObject = gameObject;
+                            currObject.SetActive(bool.Parse(currObjData[1]));
+                            InteractableData currData = currObject.GetComponent<InteractableData>();
+                            if (currData != null) currData.AdvanceEventNum(int.Parse(currObjData[2]));
+                            info.RemoveAt(0);
+                        }
+                    }
+                    if (gameObject.name == "")
+                    {
+                        Debug.Log("Fail at: " + currObjData[0]);
+                    }
+                    
+                }
+                info.RemoveAt(0);
+                while (info.Count != 0&&info[0]!="")
+                {
+                    List<String> currObjData = new List<string>(info[0].Split('$'));
+
+                    GameObject currObject = AddGameObject(Resources.Load(currObjData[0], typeof(GameObject)) as GameObject);
+                    InteractableData currData = currObject.GetComponent<InteractableData>();
+                    if (currData != null) currData.AdvanceEventNum(int.Parse(currObjData[1]));
+                    info.RemoveAt(0);
                 }
             }
             else
             {
-                throw new Exception("No Data to be loaded");
+                Debug.Log("No Data to be loaded");
             }
-            return true;
         }
-        catch(Exception e)
+        catch (Exception e)
         {
-            Debug.Log("Load fail: " +e);
-            return false;
+            Debug.Log("Load fail: " + e);
         }
+        SceneManager.sceneLoaded -= AsyncLoad;
     }
 
-    public void AddGameObject(GameObject gameObject)
+    public GameObject AddGameObject(GameObject gameObject)
     {
-        Instantiate(gameObject);
         int numOfDataChanged = 0;
         InteractableData data = gameObject.GetComponent<InteractableData>();
          if (data != null)
             numOfDataChanged = data.triggerCount;
 
         objectsToInstantiate.Add(gameObject.name, numOfDataChanged);
+        return Instantiate(gameObject);
+
     }
 }

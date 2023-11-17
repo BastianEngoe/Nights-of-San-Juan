@@ -36,15 +36,7 @@ public class InteractableData : MonoBehaviour
 
         if (events.Count > 0)
         {
-            if(events[0].journalEntryToUnlock!="") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
-            if(events[0].nextConversation!=null) ChangeConversation(events[0].nextConversation);
-            if (events[0].nextActors != null && events[0].nextActors.Count>0) ChangeActors(events[0].nextActors);
-            bool nextEventTrigger = events[0].triggerNextEventWhenFinished;
-            eventToTrigger = new UnityEvent();
-            eventToTrigger = events[0].nextCustomEvent;
-            if (triggerEventWhenFinished&&events!=null&&events.Count>1) events.RemoveAt(0);
-            triggerEventWhenFinished = nextEventTrigger;
-            triggerCount++;
+            AdvanceData();
         }
     }
 
@@ -55,7 +47,14 @@ public class InteractableData : MonoBehaviour
         {
             eventToTrigger.Invoke();
         }
-        if(events.Count>0){
+        if(events.Count>0)
+        {
+            AdvanceData();
+        }
+    }
+
+    private void AdvanceData()
+    {
         if (events[0].journalEntryToUnlock != "") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
         if (events[0].nextConversation != null) ChangeConversation(events[0].nextConversation);
         if (events[0].nextActors != null && events[0].nextActors.Count > 0) ChangeActors(events[0].nextActors);
@@ -64,7 +63,14 @@ public class InteractableData : MonoBehaviour
         eventToTrigger = events[0].nextCustomEvent;
         if (events != null && events.Count > 1) events.RemoveAt(0);
         triggerEventWhenFinished = nextEventTrigger;
-            triggerCount++;
+        triggerCount++;
+    }
+
+    public void AdvanceEventNum(int n)
+    {
+        for(int i = 0; i<n; i++)
+        {
+            AdvanceData();  
         }
     }
 
