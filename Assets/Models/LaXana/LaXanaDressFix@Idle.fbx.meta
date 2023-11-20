@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c14b2bb929201344199eadf20a85870b
+guid: 49940244525f7e340937777bdbc99021
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Dress1
-    second: {fileID: 2100000, guid: 65df595397da69449805d43dfd8c0cc8, type: 2}
+    second: {fileID: 2100000, guid: 592a59a9f87d5f545b8d84f06e1a5395, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MainTex
-    second: {fileID: 2100000, guid: 592a59a9f87d5f545b8d84f06e1a5395, type: 2}
+    second: {fileID: 2100000, guid: 65df595397da69449805d43dfd8c0cc8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -87,9 +87,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - cb6816ae32b6d49439fef62f5f400f62
-  - 49940244525f7e340937777bdbc99021
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
