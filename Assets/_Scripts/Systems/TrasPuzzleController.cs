@@ -21,7 +21,7 @@ public class TrasPuzzleController : MonoBehaviour
 
     public void onCompletePuzzle()
     {
-        Instantiate(trasPrefab, trasSpawnLocation.position, Quaternion.identity);
+        Instantiate(trasPrefab, trasSpawnLocation.position, trasSpawnLocation.rotation);
         _traceManager.TrasguPuzzleCompleted(gameObject.name);
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3478209047929382589}
+  - component: {fileID: 2422489265577059343}
   m_Layer: 0
   m_Name: TrasguPuzzle2
   m_TagString: Untagged
@@ -34,6 +35,26 @@ Transform:
   - {fileID: 3183208927457142937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2422489265577059343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586941276671214507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e061dd22775c4c84c8bc55b8eff3c1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleValues:
+  - {fileID: 1649649332456476263}
+  - {fileID: 1618958892150759581}
+  - {fileID: 6563469784392477069}
+  trasguLocation: {fileID: 0}
+  trasguPrefab: {fileID: 2405098188673695624, guid: 0c4f4c17da5d62f47bdf91f721d0ce4f,
+    type: 3}
+  _traceManager: {fileID: 0}
 --- !u!1 &889184619814109145
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ef30408f8164f42975c8ef8672cc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 1
+  puzzleController: {fileID: 2422489265577059343}
 --- !u!1 &1441823925719169990
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ef30408f8164f42975c8ef8672cc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 1
+  puzzleController: {fileID: 2422489265577059343}
 --- !u!1 &2035037656549822325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,7 +2050,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 818
+  m_VersionIndex: 821
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2121,24 +2146,15 @@ MonoBehaviour:
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntryToUnlock: 
-    customEvent:
+    nextCustomEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6563469784392477069}
-          m_TargetAssemblyTypeName: TrasguPuzzle2, Assembly-CSharp
-          m_MethodName: Rotate90Degrees
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+    triggerNextEventWhenFinished: 0
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   cameraOffset: {x: 0, y: 1, z: 0}
   triggerEventWhenFinished: 1
-  wantToRemoveEvents: 0
   journalManager: {fileID: 0}
 --- !u!1 &3819094868054488645
 GameObject:
@@ -2356,6 +2372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ef30408f8164f42975c8ef8672cc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 1
+  puzzleController: {fileID: 2422489265577059343}
 --- !u!1 &4171124995065175400
 GameObject:
   m_ObjectHideFlags: 0
@@ -4085,7 +4103,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 818
+  m_VersionIndex: 821
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4181,24 +4199,15 @@ MonoBehaviour:
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntryToUnlock: 
-    customEvent:
+    nextCustomEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1649649332456476263}
-          m_TargetAssemblyTypeName: TrasguPuzzle2, Assembly-CSharp
-          m_MethodName: Rotate90Degrees
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+    triggerNextEventWhenFinished: 0
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   cameraOffset: {x: 0, y: 1, z: 0}
   triggerEventWhenFinished: 1
-  wantToRemoveEvents: 0
   journalManager: {fileID: 0}
 --- !u!1 &5301206322650636239
 GameObject:
@@ -6102,7 +6111,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 902
+  m_VersionIndex: 905
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6198,24 +6207,15 @@ MonoBehaviour:
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntryToUnlock: 
-    customEvent:
+    nextCustomEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1618958892150759581}
-          m_TargetAssemblyTypeName: TrasguPuzzle2, Assembly-CSharp
-          m_MethodName: Rotate90Degrees
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+    triggerNextEventWhenFinished: 0
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   cameraOffset: {x: 0, y: 1, z: 0}
   triggerEventWhenFinished: 1
-  wantToRemoveEvents: 0
   journalManager: {fileID: 0}
 --- !u!1 &9048872504559507316
 GameObject:
