@@ -1,0 +1,31 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "???: Who approaches my lake?"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: My name is Beatriz, a scholar from Sevilla. Who are you?!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "???: I am La Xana, the water fairy of Xibu lake and I protect the kind souls of this land."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Your voice felt enchanting, like all burdens were lifted from my mind. The people of Luarca are troubled with fear and could really use to hear your beautiful song."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "La Xana: I wish to ease their fears, but the curse brought down on this land by El Cuelebre has weakened my magic. Near here grows a powerful herb called St. John wort, valued for its healing properties. If you could bring me 3 it will heal my magic so I can protect the people of Luarca. Do this for me and you will be rewarded."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
