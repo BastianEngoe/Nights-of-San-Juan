@@ -1,0 +1,27 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "If you're like me who have come to make offerings to Aramo, be careful!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Multiple times me and other villagers have seen our offerings missing, presumably stolen."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "I don't know who in their right mind would steal offerings and upset the spirits, but be careful!"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: I don't see any offerings around here, did they get stolen or did the villagers stop entirely?"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
