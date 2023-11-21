@@ -10,7 +10,7 @@ public class TrasguPuzzle2Controller : MonoBehaviour
     [SerializeField] private GameObject trasguPrefab;
     [SerializeField] private TraceManager _traceManager;
 
-    private string combination = "243";
+    private string combination = "213";
     private string combinationAttempt;
 
     private bool started, completed;
@@ -35,10 +35,5 @@ public class TrasguPuzzle2Controller : MonoBehaviour
         }
         
         Debug.Log("Current combination attempt: " + combinationAttempt);
-    }
-
-    private void SpawnTrasgu()
-    {
-        
     }
 }

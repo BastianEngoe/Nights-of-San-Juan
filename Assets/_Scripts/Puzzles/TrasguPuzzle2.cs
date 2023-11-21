@@ -10,7 +10,7 @@ public class TrasguPuzzle2 : MonoBehaviour
     [HideInInspector] public int value = 1;
 
     [SerializeField] private TrasguPuzzle2Controller puzzleController;
-    private bool isAnimating, isRotating;
+    [SerializeField] private bool isAnimating, isRotating;
 
     
     public void Rotate90Degrees()
@@ -31,7 +31,6 @@ public class TrasguPuzzle2 : MonoBehaviour
         }
         isAnimating = true;
         transform.DORotate(new Vector3(0, -90f, 0f), 1.5f, RotateMode.LocalAxisAdd).OnComplete((() => UpdateValue()));
-        isRotating = false;
     }
 
     private void UpdateValue()
@@ -46,6 +45,7 @@ public class TrasguPuzzle2 : MonoBehaviour
         }
 
         isAnimating = false;
+        isRotating = false;
         puzzleController.checkCombination();
     }
 }
