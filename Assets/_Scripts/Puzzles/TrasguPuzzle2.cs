@@ -1,30 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Xasu.HighLevel;
 
 public class TrasguPuzzle2 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [HideInInspector] public int value = 1;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private TrasguPuzzle2Controller puzzleController;
+    [SerializeField] private bool isAnimating, isRotating;
 
+    
     public void Rotate90Degrees()
     {
-        transform.DOShakeRotation(0.5f, Vector3.up * 20f, 10, 10f, true, ShakeRandomnessMode.Harmonic)
-            .OnComplete(() => ActuallyRotate());
+        if (isRotating)
+        {
+            return;
+        }
+        isRotating = true;
+        transform.DOShakeRotation(0.5f, Vector3.up * 20f, 10, 10f, true, ShakeRandomnessMode.Harmonic).OnComplete((() => ActuallyRotate()));
     }
 
     private void ActuallyRotate()
     {
-        transform.DORotate(new Vector3(0, -90f, 0f), 1.5f, RotateMode.LocalAxisAdd);
+        if (isAnimating)
+        {
+            return;
+        }
+        isAnimating = true;
+        transform.DORotate(new Vector3(0, -90f, 0f), 1.5f, RotateMode.LocalAxisAdd).OnComplete((() => UpdateValue()));
+    }
+
+    private void UpdateValue()
+    {
+        if (value == 4)
+        {
+            value = 1;
+        }
+        else
+        {
+            value++;
+        }
+
+        isAnimating = false;
+        isRotating = false;
+        puzzleController.checkCombination();
     }
 }

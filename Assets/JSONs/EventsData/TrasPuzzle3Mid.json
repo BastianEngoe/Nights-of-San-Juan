@@ -1,0 +1,19 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: What was the riddle again?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Distressed villager: To retrieve your guiding tribute, this riddle you must continue!\nThe dolmens stand tall, but which one is above all?\nThere make way and ask yourself. What gets bigger the more you take away?"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

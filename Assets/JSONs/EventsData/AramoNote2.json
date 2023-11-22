@@ -1,0 +1,31 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "It happened to me too!! I came back here and found my previous offering gone!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "But fear not! I looked around and found them in the lone abandoned house on the road along the lake here..."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "No one has lived there for a long time, what's going on? The kids claimed its haunted but I managed to get my offering back there."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "If you're not afraid, just follow the road and go up the hill to find the house. Good luck!"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: A haunted house? Seems worth investigating!"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
