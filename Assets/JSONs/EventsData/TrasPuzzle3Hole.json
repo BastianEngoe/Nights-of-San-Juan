@@ -1,0 +1,23 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Seems like a hole was dug here recently! Whats in here?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "*Offering retrieved*"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: Ah here it is! The villager will be happy to see it again."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

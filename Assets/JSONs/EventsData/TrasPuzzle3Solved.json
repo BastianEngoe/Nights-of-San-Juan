@@ -1,0 +1,27 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Very clever traveler you bested my tricks, but to be as clever as me you need to be as knowledgeable as me."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Aramo, also known as the god of travel, protects the crossroads. Offerings can be given at crossroads to receive his blessing."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Even more important, my house is nearby hehe!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: That's all for now, bye!"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
