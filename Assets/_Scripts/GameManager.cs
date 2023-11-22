@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TraceManager traceManager;
 
+    [SerializeField] private List<GameObject> Inventory;
+
     public static GameManager instance;
 
     private UnityEvent nextInter= new UnityEvent();
@@ -38,6 +40,9 @@ public class GameManager : MonoBehaviour
     private bool newJournalEntryAdded = false;
     private bool onConversation = false;
     [HideInInspector] public bool onPause = false;
+
+    private int inventoryQuantityChecker;
+    private bool isItThere;
 
 
     private void Awake()
@@ -217,5 +222,70 @@ public class GameManager : MonoBehaviour
             camManager.UpdateCameraState(CameraState.MoveState);
             inputManager.onPause = false;
         }
+    }
+
+    public void AddToInventory(GameObject objectToAdd)
+    {
+        Inventory.Add(objectToAdd);
+    }
+
+    public void RemoveFromInventory(String objectSearch, bool useTag)
+    {
+        foreach (var go in Inventory)
+        {
+            if (useTag)
+            {
+                if (go.tag == objectSearch)
+                {
+                    Inventory.Remove(go);
+                }
+            }
+            else
+            {
+                if (go.name == objectSearch)
+                {
+                    Inventory.Remove(go);
+                }
+            }
+        }
+    }
+
+    public bool SearchInventory(String objectSearch, int Quantity, bool useTag)
+    {
+        inventoryQuantityChecker = 0;
+        foreach (var go in Inventory)
+        {
+            if (useTag)
+            {
+                if (go.tag == objectSearch)
+                {
+                    inventoryQuantityChecker++;
+                    if (inventoryQuantityChecker >= Quantity)
+                    {
+                        isItThere = true;
+                    }
+                    else
+                    {
+                        isItThere = false;
+                    }
+                }
+            }
+            else
+            {
+                if (go.name == objectSearch)
+                {
+                    inventoryQuantityChecker++;
+                    if (inventoryQuantityChecker >= Quantity)
+                    {
+                        isItThere = true;
+                    }
+                    else
+                    {
+                        isItThere = false;
+                    }
+                }
+            }
+        }
+        return isItThere;
     }
 }
