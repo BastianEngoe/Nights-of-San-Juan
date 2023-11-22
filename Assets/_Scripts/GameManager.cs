@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public InputManager inputManager;
 
-    [SerializeField] private GameObject playerCameraTarget;
+    [SerializeField] public GameObject playerCameraTarget;
 
     [SerializeField] private UIQuillController quillController;
 

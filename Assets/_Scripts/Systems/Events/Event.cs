@@ -20,6 +20,11 @@ public class Actors
 {
     public GameObject actor;
     public bool setActive;
+    public Actors(GameObject newActor)
+    {
+        actor = newActor;
+        setActive = true;
+    }
 }
 
 public class NextEvent

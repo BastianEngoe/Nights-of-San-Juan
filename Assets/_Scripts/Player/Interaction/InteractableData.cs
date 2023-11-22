@@ -37,7 +37,11 @@ public class InteractableData : MonoBehaviour
         {
             if(events[0].journalEntryToUnlock!="") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
             if(events[0].nextConversation!=null) ChangeConversation(events[0].nextConversation);
-            if (events[0].nextActors != null && events[0].nextActors.Count>0) ChangeActors(events[0].nextActors);
+            if (events[0].nextActors != null && events[0].nextActors.Count > 0) {
+                if (events[0].nextActors[events[0].nextActors.Count-1].actor!=GameManager.instance.playerCameraTarget)
+                events[0].nextActors.Add(new Actors(GameManager.instance.playerCameraTarget));
+                ChangeActors(events[0].nextActors);
+                 }
             bool nextEventTrigger = events[0].triggerNextEventWhenFinished;
             eventToTrigger = new UnityEvent();
             eventToTrigger = events[0].nextCustomEvent;
@@ -56,8 +60,12 @@ public class InteractableData : MonoBehaviour
         if(events.Count>0){
         if (events[0].journalEntryToUnlock != "") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
         if (events[0].nextConversation != null) ChangeConversation(events[0].nextConversation);
-        if (events[0].nextActors != null && events[0].nextActors.Count > 0) ChangeActors(events[0].nextActors);
-        eventToTrigger = new UnityEvent();
+            if (events[0].nextActors != null && events[0].nextActors.Count > 0)
+            {
+                events[0].nextActors.Add(new Actors(GameManager.instance.playerCameraTarget));
+                ChangeActors(events[0].nextActors);
+            }
+                eventToTrigger = new UnityEvent();
         bool nextEventTrigger = events[0].triggerNextEventWhenFinished;
         eventToTrigger = events[0].nextCustomEvent;
         if (events != null && events.Count > 1) events.RemoveAt(0);
