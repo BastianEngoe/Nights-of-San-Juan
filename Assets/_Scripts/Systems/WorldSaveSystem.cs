@@ -21,6 +21,9 @@ public class WorldSaveSystem : MonoBehaviour
 
     public void SaveAll()
     {
+        PlayerPrefs.SetFloat("PlayerPosX",GameManager.instance.playerObject.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPosY",GameManager.instance.playerObject.transform.position.y);
+        PlayerPrefs.SetFloat("PlayerPosZ",GameManager.instance.playerObject.transform.position.z);
         foreach(Scene scene in SceneManager.GetAllScenes())
         {
             if (scene.name != "BootScene")
@@ -103,6 +106,7 @@ public class WorldSaveSystem : MonoBehaviour
 
     private void AsyncLoad(Scene currScene, LoadSceneMode loadSceneMode)
     {
+        GameManager.instance.playerObject.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), PlayerPrefs.GetFloat("PlayerPosZ"));
         string data = PlayerPrefs.GetString("SavedData", "");
         List<GameObject> sceneObjects = new List<GameObject>();
 
