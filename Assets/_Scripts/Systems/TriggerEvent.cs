@@ -14,4 +14,11 @@ public class TriggerEvent : MonoBehaviour
             EventToTrigger.Invoke();
         }
     }
+
+    public void RespawnBeatriz(Transform location)
+    {
+        GameManager.instance.playerObject.GetComponent<CharacterController>().enabled = false;
+        GameManager.instance.playerObject.transform.position = location.position;
+        GameManager.instance.playerObject.GetComponent<CharacterController>().enabled = true;
+    }
 }

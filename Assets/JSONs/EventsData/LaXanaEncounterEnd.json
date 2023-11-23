@@ -1,0 +1,27 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Beatriz: I got you the herbs!"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "La Xana: Thank you Beatriz, I want you to have this."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "*La Xana takes your herbs and gives you a tear shaped artifact in return."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "La Xana: Use this as you see fit..."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
