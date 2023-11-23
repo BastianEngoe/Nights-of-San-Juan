@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using Unity.VisualScripting;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class GameManager : MonoBehaviour
 
     private int inventoryQuantityChecker;
     private bool isItThere;
+
+    [SerializeField] private AudioSource beatrizAudioSource;
+    [SerializeField] private AudioClip[] greetingsAudioClips;
 
 
     private void Awake()
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         if (interactionComponent.currentTarget != null&&!onConversation)
         {
+            PlayGreetings();
             interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             traceManager.NPCInteracted(interactableData.actors[0].name);
             if (interactableData.triggerEventWhenFinished)
@@ -287,5 +292,13 @@ public class GameManager : MonoBehaviour
             }
         }
         return isItThere;
+    }
+
+    public void PlayGreetings()
+    {
+        int random = Random.Range(0, greetingsAudioClips.Length);
+        AudioClip clipToPlay = greetingsAudioClips[random];
+        beatrizAudioSource.clip = clipToPlay;
+        beatrizAudioSource.Play();
     }
 }

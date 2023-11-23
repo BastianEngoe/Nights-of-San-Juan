@@ -9087,13 +9087,22 @@ MonoBehaviour:
   JSONConversation: {fileID: 4900000, guid: c91f56af6e05c204fa396c791c49fb1a, type: 3}
   actors:
   - {fileID: 623149412}
-  events: []
+  events:
+  - nextActors:
+    - actor: {fileID: 623149412}
+      setActive: 1
+    nextConversation: {fileID: 4900000, guid: 6761446d87c561842b1f47f6caa9dd0c, type: 3}
+    journalEntryToUnlock: 
+    nextCustomEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    triggerNextEventWhenFinished: 0
   eventToTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1346150969}
-        m_TargetAssemblyTypeName: TrasPuzzleController, Assembly-CSharp
-        m_MethodName: onCompletePuzzle
+      - m_Target: {fileID: 775529260}
+        m_TargetAssemblyTypeName: InteractableData, Assembly-CSharp
+        m_MethodName: TriggerNextEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9104,7 +9113,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   cameraOffset: {x: 0, y: 1, z: 0}
-  triggerEventWhenFinished: 0
+  triggerEventWhenFinished: 1
   journalManager: {fileID: 0}
 --- !u!1 &625932200 stripped
 GameObject:
@@ -9698,6 +9707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrasguPuzzleStart
       objectReference: {fileID: 0}
+    - target: {fileID: 3010471997119524849, guid: 73a091f5e6fff8345a54b9da9e16ac36,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9739,6 +9753,36 @@ MonoBehaviour:
     - actor: {fileID: 775529259}
       setActive: 1
     nextConversation: {fileID: 4900000, guid: db2456c4172256042a2b6808f93b6ab1, type: 3}
+    journalEntryToUnlock: 
+    nextCustomEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    triggerNextEventWhenFinished: 0
+  - nextActors:
+    - actor: {fileID: 775529259}
+      setActive: 1
+    nextConversation: {fileID: 4900000, guid: 0b1aed109b5c3e9409296e0168e8d61d, type: 3}
+    journalEntryToUnlock: 
+    nextCustomEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1346150969}
+          m_TargetAssemblyTypeName: TrasPuzzleController, Assembly-CSharp
+          m_MethodName: onCompletePuzzle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    triggerNextEventWhenFinished: 1
+  - nextActors:
+    - actor: {fileID: 775529259}
+      setActive: 1
+    nextConversation: {fileID: 4900000, guid: bdccabd3a5e49484596361f13823dcab, type: 3}
     journalEntryToUnlock: 
     nextCustomEvent:
       m_PersistentCalls:
@@ -21304,6 +21348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: events.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522971973950478946, guid: 2e67e08fdf9dd664796308586691e1bd,
+        type: 3}
+      propertyPath: playVoiceGreeting
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6522971973950478946, guid: 2e67e08fdf9dd664796308586691e1bd,
         type: 3}

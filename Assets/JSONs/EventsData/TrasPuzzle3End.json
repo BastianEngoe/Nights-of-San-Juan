@@ -1,0 +1,19 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: I found your offering, here you go!"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Distressed villager: Thank you so much!"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
