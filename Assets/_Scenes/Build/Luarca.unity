@@ -9102,7 +9102,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 775529260}
         m_TargetAssemblyTypeName: InteractableData, Assembly-CSharp
-        m_MethodName: TriggerNextEvent
+        m_MethodName: TriggerEventFromMethod
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -50,7 +50,7 @@ public class InteractableData : MonoBehaviour
         }
     }
 
-    public void TriggerEventFromMethod()
+    public void TriggerEventFromElse()
     {
 
         if (eventToTrigger != null)
