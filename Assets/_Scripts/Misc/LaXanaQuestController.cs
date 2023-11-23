@@ -13,7 +13,7 @@ public class LaXanaQuestController : MonoBehaviour
         {
             Debug.Log("Has wort");
             
-            GameManager.instance.RemoveFromInventory("StJohnsWort", false);
+            //GameManager.instance.RemoveFromInventory("StJohnsWort", false);
             result.Invoke();
         }
         else

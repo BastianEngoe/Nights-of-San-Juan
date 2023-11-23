@@ -5266,6 +5266,8 @@ MonoBehaviour:
   traceManager: {fileID: 0}
   Inventory: []
   onPause: 0
+  beatrizAudioSource: {fileID: 0}
+  greetingsAudioClips: []
 --- !u!114 &1712738557
 MonoBehaviour:
   m_ObjectHideFlags: 0
