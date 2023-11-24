@@ -5,16 +5,18 @@ using UnityEngine.Events;
 
 public class LaXanaQuestController : MonoBehaviour
 {
-    public UnityEvent result;
+    //public UnityEvent result;
+    [SerializeField] private InteractableData laXanaDialogue;
     
     public void CheckInventory()
     {
-        if (GameManager.instance.SearchInventory("StJohnsWort", 3, false))
+        if (GameManager.instance.Wort >= 3)
         {
             Debug.Log("Has wort");
             
+            laXanaDialogue.TriggerEventFromElse();
             //GameManager.instance.RemoveFromInventory("StJohnsWort", false);
-            result.Invoke();
+            //result.Invoke();
         }
         else
         {

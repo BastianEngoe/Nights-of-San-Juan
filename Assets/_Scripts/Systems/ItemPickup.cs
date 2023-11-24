@@ -6,7 +6,7 @@ public class ItemPickup : MonoBehaviour
 {
     public void Pickup()
     {
-        GameManager.instance.AddToInventory(gameObject);
+        GameManager.instance.Wort++;
         gameObject.SetActive(false);
     }
 }

@@ -18953,6 +18953,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250127264892913274, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
+      propertyPath: laXanaDialogue
+      value: 
+      objectReference: {fileID: 1569678405}
+    - target: {fileID: 6250127264892913274, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
       propertyPath: result.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1569678405}
@@ -19088,9 +19093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86726d40ffaf3e14885d90f2926d962b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result:
-    m_PersistentCalls:
-      m_Calls: []
+  laXanaDialogue: {fileID: 0}
 --- !u!114 &1569678405 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,

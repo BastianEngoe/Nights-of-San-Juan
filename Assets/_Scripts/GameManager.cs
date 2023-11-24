@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TraceManager traceManager;
 
-    [SerializeField] private List<GameObject> Inventory;
+    //[SerializeField] private List<GameObject> Inventory;
 
     public static GameManager instance;
 
@@ -42,8 +42,11 @@ public class GameManager : MonoBehaviour
     private bool onConversation = false;
     [HideInInspector] public bool onPause = false;
 
-    private int inventoryQuantityChecker;
-    private bool isItThere;
+    //private int inventoryQuantityChecker;
+    //private bool isItThere;
+
+    [HideInInspector] public int Wort;
+    [HideInInspector] public int XanaArtifact;
 
     [SerializeField] private AudioSource beatrizAudioSource;
     [SerializeField] private AudioClip[] greetingsAudioClips;
@@ -229,7 +232,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddToInventory(GameObject objectToAdd)
+   /* public void AddToInventory(GameObject objectToAdd)
     {
         Inventory.Add(objectToAdd);
     }
@@ -292,7 +295,7 @@ public class GameManager : MonoBehaviour
             }
         }
         return isItThere;
-    }
+    }*/
 
     public void PlayGreetings()
     {
