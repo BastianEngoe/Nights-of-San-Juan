@@ -57,6 +57,7 @@ public class OpeningController : MonoBehaviour
     {
         cutController.Stop();
         cutController.gameObject.SetActive(false);
+        GameManager.instance.playerObject.SetActive(true);
     }
     void BeaLook()
     {
