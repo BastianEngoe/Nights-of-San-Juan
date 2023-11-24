@@ -5264,7 +5264,10 @@ MonoBehaviour:
   quillController: {fileID: 2095911473}
   pauseMenu: {fileID: 1105422283}
   traceManager: {fileID: 0}
+  Inventory: []
   onPause: 0
+  beatrizAudioSource: {fileID: 0}
+  greetingsAudioClips: []
 --- !u!114 &1712738557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6535,6 +6538,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d11f8262d71654ab7132c4e5ce8918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &3571093509868122249
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.399529
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.1642
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.677034
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091827147674167123, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225570937183465066, guid: d333e360cc5dc3b4aaba4d3144add222,
+        type: 3}
+      propertyPath: m_Name
+      value: StJohnsWort
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d333e360cc5dc3b4aaba4d3144add222, type: 3}
 --- !u!1001 &5089923168956907777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6621,3 +6692,4 @@ SceneRoots:
   - {fileID: 997281555}
   - {fileID: 1568470068}
   - {fileID: 5089923168956907777}
+  - {fileID: 3571093509868122249}

@@ -298,7 +298,18 @@ MonoBehaviour:
   quillController: {fileID: 1074095698}
   pauseMenu: {fileID: 1704976261}
   traceManager: {fileID: 0}
+  Inventory: []
   onPause: 0
+  beatrizAudioSource: {fileID: 751845909}
+  greetingsAudioClips:
+  - {fileID: 8300000, guid: b5ea576863f700e47b6c3c393d3c49c6, type: 3}
+  - {fileID: 8300000, guid: a330ca62f11715b4d9d2a7e78c225242, type: 3}
+  - {fileID: 8300000, guid: 9725ceadb99710f4a84fdb5e15633b1e, type: 3}
+  - {fileID: 8300000, guid: dd8c6eabfc0cc3b42bdd25e1a881f1f2, type: 3}
+  - {fileID: 8300000, guid: b92f8b5c07803fe4389662d5579fe257, type: 3}
+  - {fileID: 8300000, guid: 307528abeefd24b4eb2789050862c52f, type: 3}
+  - {fileID: 8300000, guid: 3b8b9fa5056f21d4b9ea3ff8e4f49723, type: 3}
+  - {fileID: 8300000, guid: 4bb810b25606b184ba6a6d03fd038fd4, type: 3}
 --- !u!114 &71324447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1681,6 +1692,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &751845909 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1744657383297084799, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1230609984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &759678658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7846576346046122297, guid: a447cf92f5a0f7e4e9b14e4a369b3e3c,
@@ -2943,6 +2960,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1885237627}
     m_Modifications:
+    - target: {fileID: 503896149112572109, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 5.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4298999225068146002, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
         type: 3}
       propertyPath: m_LocalPosition.x

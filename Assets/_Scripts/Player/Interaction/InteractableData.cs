@@ -40,7 +40,7 @@ public class InteractableData : MonoBehaviour
         }
     }
 
-    public void TriggerEventFromMethod()
+    public void TriggerEventFromElse()
     {
 
         if (eventToTrigger != null)
@@ -57,8 +57,12 @@ public class InteractableData : MonoBehaviour
     {
         if (events[0].journalEntryToUnlock != "") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
         if (events[0].nextConversation != null) ChangeConversation(events[0].nextConversation);
-        if (events[0].nextActors != null && events[0].nextActors.Count > 0) ChangeActors(events[0].nextActors);
-        eventToTrigger = new UnityEvent();
+            if (events[0].nextActors != null && events[0].nextActors.Count > 0)
+            {
+                events[0].nextActors.Add(new Actors(GameManager.instance.playerCameraTarget));
+                ChangeActors(events[0].nextActors);
+            }
+                eventToTrigger = new UnityEvent();
         bool nextEventTrigger = events[0].triggerNextEventWhenFinished;
         eventToTrigger = events[0].nextCustomEvent;
         if (events != null && events.Count > 1) events.RemoveAt(0);

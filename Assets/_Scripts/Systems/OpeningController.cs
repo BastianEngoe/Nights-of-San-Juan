@@ -50,13 +50,14 @@ public class OpeningController : MonoBehaviour
     {
         cutController.Play();
         beaAnim.enabled = true;
-        Invoke("BeaLook", 22f);
+        Invoke("BeaLook", 55f);
     }
 
     void SkipCutscene()
     {
         cutController.Stop();
         cutController.gameObject.SetActive(false);
+        GameManager.instance.playerObject.SetActive(true);
     }
     void BeaLook()
     {
