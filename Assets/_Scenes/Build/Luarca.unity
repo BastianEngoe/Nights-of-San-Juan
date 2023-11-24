@@ -18951,6 +18951,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6250127264892913274, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: result.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1569678405}
+    - target: {fileID: 6250127264892913274, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: result.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TriggerEventFromElse
+      objectReference: {fileID: 0}
     - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
       propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.size
@@ -19081,6 +19091,18 @@ MonoBehaviour:
   result:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1569678405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1569678401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bebfe89760891f47857620a7cb7f897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1578232853
 Mesh:
   m_ObjectHideFlags: 0
