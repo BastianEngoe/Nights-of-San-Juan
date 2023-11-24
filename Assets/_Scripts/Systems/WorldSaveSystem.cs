@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class WorldSaveSystem : MonoBehaviour
@@ -11,7 +12,7 @@ public class WorldSaveSystem : MonoBehaviour
     private Tuple<bool, int> gameObjectsState;
     private Tuple<GameObject, int> instantiatedState;
     private Dictionary<string, Tuple<bool,int>> savedObjects= new Dictionary<string, Tuple<bool, int>>();
-    private Dictionary<string, int> objectsToInstantiate= new Dictionary<string, int>();
+    private Dictionary<string, Tuple<Vector3, Quaternion>> objectsToInstantiate = new Dictionary<string, Tuple<Vector3,Quaternion>>();
     public static WorldSaveSystem instance;
 
     private void Awake()
@@ -47,7 +48,13 @@ public class WorldSaveSystem : MonoBehaviour
         foreach(var key in objectsToInstantiate.Keys)
         {
             saveData += key+"$";
-            saveData += objectsToInstantiate[key]+"|";
+            saveData += objectsToInstantiate[key].Item1.x+"$";
+            saveData += objectsToInstantiate[key].Item1.y+"$";
+            saveData += objectsToInstantiate[key].Item1.z+"$";
+            saveData += objectsToInstantiate[key].Item2.x+"$";
+            saveData += objectsToInstantiate[key].Item2.y+"$";
+            saveData += objectsToInstantiate[key].Item2.z+"$";
+            saveData += objectsToInstantiate[key].Item2.w+"|";
         }
 
         PlayerPrefs.SetString("SavedData", saveData);
@@ -161,7 +168,8 @@ public class WorldSaveSystem : MonoBehaviour
                 {
                     List<String> currObjData = new List<string>(info[0].Split('$'));
 
-                    GameObject currObject = AddGameObject(Resources.Load(currObjData[0], typeof(GameObject)) as GameObject);
+                    GameObject currObject =Resources.Load<GameObject>("Prefabs/"+currObjData[0]);
+                    AddLoadedGameObject(currObject,new Vector3(float.Parse(currObjData[1]), float.Parse(currObjData[2]), float.Parse(currObjData[3])),new Quaternion(float.Parse(currObjData[4]),float.Parse(currObjData[5]),float.Parse(currObjData[6]),float.Parse(currObjData[7])));
                     SceneManager.MoveGameObjectToScene(currObject, currScene);
                     InteractableData currData = currObject.GetComponent<InteractableData>();
                     if (currData != null) currData.AdvanceEventNum(int.Parse(currObjData[1]));
@@ -176,20 +184,79 @@ public class WorldSaveSystem : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log("Load fail: " + e);
+            SceneManager.sceneLoaded -= AsyncLoad;
         }
         SceneManager.sceneLoaded -= AsyncLoad;
     }
 
-    public GameObject AddGameObject(GameObject gameObject)
+    private GameObject AddLoadedGameObject(GameObject gameObject)
     {
+        GameObject instantiated= Instantiate(gameObject);
+
         int numOfDataChanged = 0;
-        InteractableData data = gameObject.GetComponent<InteractableData>();
+
+        InteractableData data = instantiated.GetComponent<InteractableData>();
+
+        PlayableDirector playableDirector= instantiated.GetComponent<PlayableDirector>();
+
+        if (playableDirector != null)
+        {
+            playableDirector.playOnAwake = false;
+            playableDirector.enabled = false;
+        }
+
          if (data != null)
             numOfDataChanged = data.triggerCount;
 
-        objectsToInstantiate.Add(gameObject.name, numOfDataChanged);
-        return Instantiate(gameObject);
+        RemoveAditionalCameras(instantiated);
 
+        objectsToInstantiate.Add(gameObject.name, new Tuple<Vector3, Quaternion>(instantiated.transform.position,new Quaternion(instantiated.transform.rotation.x, instantiated.transform.rotation.y,instantiated.transform.rotation.z, instantiated.transform.rotation.w)));
+        return instantiated;
+
+    }
+    private GameObject AddLoadedGameObject(GameObject gameObject, Vector3 position, Quaternion rotation)
+    {
+        GameObject instantiated= Instantiate(gameObject, position, rotation);
+        int numOfDataChanged = 0;
+        InteractableData data = instantiated.GetComponent<InteractableData>();
+
+        PlayableDirector playableDirector = instantiated.GetComponent<PlayableDirector>();
+
+        if (playableDirector != null)
+        {
+            playableDirector.playOnAwake = false;
+            playableDirector.enabled = false;
+        }
+
+        if (data != null)
+            numOfDataChanged = data.triggerCount;
+
+        objectsToInstantiate.Add(gameObject.name, new Tuple<Vector3, Quaternion>(position, new Quaternion(rotation.x, rotation.y, rotation.z, rotation.w)));
+
+        RemoveAditionalCameras(instantiated);
+
+        return instantiated;
+
+    }
+
+    public GameObject AddGameObject(GameObject gameObject,Vector3 position, Quaternion rotation)
+    {
+        GameObject instantiated = Instantiate(gameObject, position, rotation);
+
+        objectsToInstantiate.Add(gameObject.name, new Tuple<Vector3, Quaternion>(position, rotation));
+
+        return instantiated;
+    }
+
+    private void RemoveAditionalCameras(GameObject gameObject)
+    {
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            RemoveAditionalCameras(gameObject.transform.GetChild(i).gameObject);
+        }
+        Camera camera= gameObject.GetComponent<Camera>();
+        if(camera != null)
+            camera.enabled = false;
     }
 
     public bool CheckSave()

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class TrasPuzzleController : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class TrasPuzzleController : MonoBehaviour
 
     public void onCompletePuzzle()
     {
-        Instantiate(trasPrefab, trasSpawnLocation.position, trasSpawnLocation.rotation);
+        WorldSaveSystem.instance.AddGameObject(trasPrefab, trasSpawnLocation.position, trasSpawnLocation.rotation);
+        trasPrefab.GetComponent<PlayableDirector>().Play();
         _traceManager.TrasguPuzzleCompleted(gameObject.name);
     }
 }
