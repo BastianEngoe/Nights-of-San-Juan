@@ -6,7 +6,7 @@ public class ForwardTrace : MonoBehaviour
 {
     
     private TraceManager _traceManager;
-    private LocationText _locationText; 
+    private LocationText _locationText;
     [SerializeField] private UnityEvent EnterLocation;
 
     private void Awake()

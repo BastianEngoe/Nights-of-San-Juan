@@ -34482,6 +34482,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
       propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: LaXanaQuestController, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -76257,7 +76262,7 @@ PrefabInstance:
     - target: {fileID: 8580477101491396692, guid: e34c44f2d384c9b4cba4a6c655e61dde,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 452984831
+      value: 16777215
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
