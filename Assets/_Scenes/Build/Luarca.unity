@@ -34552,7 +34552,7 @@ PrefabInstance:
         type: 3}
       propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1569678405}
     - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
       propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -34561,21 +34561,41 @@ PrefabInstance:
     - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
       propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CheckInventory
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
       propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
       propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LaXanaQuestController, Assembly-CSharp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1569678403}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckInventory
       objectReference: {fileID: 0}
     - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
       propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LaXanaQuestController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8071004998084990741, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
@@ -34650,6 +34670,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1569678401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1569678403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6250127264892913274, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1569678401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86726d40ffaf3e14885d90f2926d962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1569678405 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
