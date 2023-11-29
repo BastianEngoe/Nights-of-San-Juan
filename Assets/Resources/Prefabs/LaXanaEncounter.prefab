@@ -10244,8 +10244,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6538502, y: 1.0683378, z: 1.1727712}
-  m_Center: {x: -0.101157285, y: -0.15478137, z: 0.53638315}
+  m_Size: {x: 2.0938613, y: 1.0683378, z: 1.6783936}
+  m_Center: {x: -0.20257421, y: -0.15478134, z: 0.7891778}
 --- !u!114 &2998622303556956043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10297,8 +10297,6 @@ GameObject:
   - component: {fileID: 8865063687261598300}
   - component: {fileID: 1762767418617712407}
   - component: {fileID: 8309341153777195557}
-  - component: {fileID: 66339665603360622}
-  - component: {fileID: 8954903506195789140}
   m_Layer: 6
   m_Name: LaXana
   m_TagString: Interactable
@@ -10394,49 +10392,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &66339665603360622
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6979484482783567398}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8954903506195789140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6979484482783567398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bebfe89760891f47857620a7cb7f897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JSONConversation: {fileID: 4900000, guid: cf8f03b5a7538eb4e886a09dccbb364d, type: 3}
-  actors:
-  - {fileID: 6979484482783567398}
-  events: []
-  eventToTrigger:
-    m_PersistentCalls:
-      m_Calls: []
-  cameraOffset: {x: 0, y: 1, z: 0}
-  triggerEventWhenFinished: 0
-  journalManager: {fileID: 0}
 --- !u!1 &7004212176485341357
 GameObject:
   m_ObjectHideFlags: 0
@@ -10451,6 +10406,7 @@ GameObject:
   - component: {fileID: 4548502881341388026}
   - component: {fileID: 8071004998084990741}
   - component: {fileID: 6927813412390528781}
+  - component: {fileID: 6619276372477608672}
   m_Layer: 0
   m_Name: LaXanaSingingCutscene
   m_TagString: Untagged
@@ -10583,8 +10539,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 21.072353, y: 6.560465, z: 22.56932}
-  m_Center: {x: -2.7504292, y: 2.7802324, z: -10.78466}
+  m_Size: {x: 38.63424, y: 6.560465, z: 32.142334}
+  m_Center: {x: -11.531337, y: 2.7802324, z: -15.571128}
 --- !u!114 &6927813412390528781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10600,6 +10556,18 @@ MonoBehaviour:
   EventToTrigger:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 6619276372477608672}
+        m_TargetAssemblyTypeName: EncounterTrace, Assembly-CSharp
+        m_MethodName: StartEncounterTrace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1093160274745286499}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -10648,6 +10616,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6619276372477608672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7004212176485341357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be83b2d3fb9ca804b8073a0b8d3f7117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encounter: LaXana
 --- !u!1 &7313613643578293873
 GameObject:
   m_ObjectHideFlags: 0
@@ -10926,6 +10907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3851070693220480671}
   - component: {fileID: 4989901399155366147}
+  - component: {fileID: 4240339160963220290}
   m_Layer: 0
   m_Name: LaXanaPivot
   m_TagString: Untagged
@@ -10970,6 +10952,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4240339160963220290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506803349809676836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105a87d4e32ef1f41bac3797abed7e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookDistance: 5
+  transformToLook: {fileID: 8950540819040883477}
 --- !u!1001 &282256366667555378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12856,6 +12852,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 811365594639270285}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb6816ae32b6d49439fef62f5f400f62,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4607436778109644533}
   m_SourcePrefab: {fileID: 100100000, guid: cb6816ae32b6d49439fef62f5f400f62, type: 3}
 --- !u!4 &3750968973027754002 stripped
 Transform:
@@ -12943,13 +12943,26 @@ MonoBehaviour:
     journalEntryToUnlock: 
     nextCustomEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 4607436778109644533}
+          m_TargetAssemblyTypeName: EncounterTrace, Assembly-CSharp
+          m_MethodName: CompleteEncounterTrace
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     triggerNextEventWhenFinished: 0
   eventToTrigger:
     m_PersistentCalls:
       m_Calls: []
   cameraOffset: {x: 0, y: 1, z: 0}
   triggerEventWhenFinished: 1
+  triggerCount: 0
   journalManager: {fileID: 0}
 --- !u!114 &6250127264892913274
 MonoBehaviour:
@@ -12963,21 +12976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86726d40ffaf3e14885d90f2926d962b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7589857342379208615}
-        m_TargetAssemblyTypeName: InteractableData, Assembly-CSharp
-        m_MethodName: TriggerEventFromElse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  laXanaDialogue: {fileID: 7589857342379208615}
 --- !u!65 &811365594639270285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12999,6 +12998,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6895317, y: 2.5980473, z: 1}
   m_Center: {x: 0.15523422, y: 0.7990172, z: 0.0000000025449243}
+--- !u!114 &4607436778109644533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559277542386997928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be83b2d3fb9ca804b8073a0b8d3f7117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encounter: LaXana
+--- !u!4 &8950540819040883477 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3480699329000672020, guid: cb6816ae32b6d49439fef62f5f400f62,
+    type: 3}
+  m_PrefabInstance: {fileID: 3712275702274959353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5704333874740133148
 PrefabInstance:
   m_ObjectHideFlags: 0
