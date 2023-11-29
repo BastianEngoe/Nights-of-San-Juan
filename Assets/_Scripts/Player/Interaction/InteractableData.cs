@@ -43,7 +43,7 @@ public class InteractableData : MonoBehaviour
     public void TriggerEventFromElse()
     {
 
-        if (eventToTrigger != null)
+        if (eventToTrigger != null&&events.Count==0)
         {
             eventToTrigger.Invoke();
         }
