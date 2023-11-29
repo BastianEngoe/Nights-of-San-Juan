@@ -90,7 +90,9 @@ public class GameManager : MonoBehaviour
     {
         if (interactionComponent.currentTarget != null&&!onConversation)
         {
+            if(interactionComponent.currentTarget.GetComponent<InnanimateFlag>() == null)
             PlayGreetings();
+
             interactableData = interactionComponent.currentTarget.GetComponent<InteractableData>();
             traceManager.NPCInteracted(interactableData.actors[0].name);
             if (interactableData.triggerEventWhenFinished)
