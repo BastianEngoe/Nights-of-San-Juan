@@ -45405,6 +45405,11 @@ PrefabInstance:
       propertyPath: m_Faces.Array.data[55].m_SmoothingGroup
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 452959946636769181, guid: 2e67e08fdf9dd664796308586691e1bd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 858475683321746427, guid: 2e67e08fdf9dd664796308586691e1bd,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

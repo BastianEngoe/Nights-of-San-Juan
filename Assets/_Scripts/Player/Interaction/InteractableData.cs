@@ -17,7 +17,7 @@ public class InteractableData : MonoBehaviour
 
     [HideInInspector] public JournalManager journalManager;
 
-    private void OnEnable()
+    private void Awake()
     {
         GameManager.instance.DialogueSetup();
     }
