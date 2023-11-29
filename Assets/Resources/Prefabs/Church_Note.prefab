@@ -10,38 +10,53 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 32.93847
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 23.102001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 23.102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 110.30699
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3798275
+      value: 41.17967
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 212.95993
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.49999994
+      value: -0.227111
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.50000006
+      value: 0.66964215
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.50000006
+      value: 0.66964215
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.49999997
+      value: -0.227111
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
@@ -51,12 +66,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -142.531
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9cb58a154a4a94342a27689048bb2ee2,
         type: 3}
@@ -85,6 +100,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3228066215006392519}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9cb58a154a4a94342a27689048bb2ee2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1638980763355271394}
   m_SourcePrefab: {fileID: 100100000, guid: 9cb58a154a4a94342a27689048bb2ee2, type: 3}
 --- !u!1 &8076666437623278589 stripped
 GameObject:
@@ -107,9 +126,20 @@ MonoBehaviour:
   JSONConversation: {fileID: 4900000, guid: 5655c2c6e7c169543af7e707921a5b53, type: 3}
   actors:
   - {fileID: 8076666437623278589}
-  events: []
+  events:
+  - nextActors: []
+    nextConversation: {fileID: 0}
+    journalEntryToUnlock: The Devil in the Woods
+    nextCustomEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    triggerNextEventWhenFinished: 0
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   cameraOffset: {x: 0, y: 1, z: 0}
-  triggerEventWhenFinished: 0
+  triggerEventWhenFinished: 1
+  triggerCount: 0
   journalManager: {fileID: 0}
 --- !u!64 &3228066215006392519
 MeshCollider:
@@ -133,3 +163,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: 9cb58a154a4a94342a27689048bb2ee2, type: 3}
+--- !u!114 &1638980763355271394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8076666437623278589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa192e8886019b47a0da110cb90ba5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -91,6 +91,21 @@ public class TraceManager : MonoBehaviour
     {
         await CompletableTracker.Instance.Completed(puzzle, CompletableTracker.CompletableType.Completable);
     }
+
+    public async void EncounterStarted(string encounter)
+    {
+        await CompletableTracker.Instance.Progressed(encounter, CompletableTracker.CompletableType.Quest, 0.5f);
+    }
+    
+    public async void EncounterCompleted(string encounter)
+    {
+        await CompletableTracker.Instance.Completed(encounter, CompletableTracker.CompletableType.Completable);
+    }
+
+    public async void PickedUpItem(string item)
+    {
+        await AlternativeTracker.Instance.Unlocked("MyGame", item, AlternativeTracker.AlternativeType.Alternative);
+    }
     
     public async void Progressed()
     {
