@@ -229,6 +229,9 @@ public class GameManager : MonoBehaviour
             pauseMenu.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            if (journalManager.IsActive)
+                camManager.UpdateCameraState(CameraState.JournalState);
+            else
             camManager.UpdateCameraState(CameraState.MoveState);
             inputManager.onPause = false;
         }
