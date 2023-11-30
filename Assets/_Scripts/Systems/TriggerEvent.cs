@@ -4,14 +4,23 @@ using UnityEngine.Events;
 
 public class TriggerEvent : MonoBehaviour
 {
-    
-    [SerializeField] private UnityEvent EventToTrigger;
+    public String tagToTrigger = "Player";
+    [SerializeField] private UnityEvent EnterTrigger;
+    [SerializeField] private UnityEvent ExitTrigger;
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(tagToTrigger))
         {
-            EventToTrigger.Invoke();
+            EnterTrigger.Invoke();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(tagToTrigger))
+        {
+            ExitTrigger.Invoke();
         }
     }
 

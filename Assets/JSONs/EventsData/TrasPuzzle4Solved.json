@@ -1,0 +1,31 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Very clever traveler you bested my tricks, but to be as clever as me you need to be as knowledgeable as me."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: The night of San Juan is an ancient summer solstice celebration that takes place in the evening of the 23d of June."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: One of the traditions include lighting bonfires to honor the sun and to protect against the evil spirits who could roam freely for the night when the sun turned southward again."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: When the region was christianised the celebration became linked to the birth of Saint John the Baptist, the 24th of June, but the celebrations pagan roots still remain."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: That's all for now, bye!"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
