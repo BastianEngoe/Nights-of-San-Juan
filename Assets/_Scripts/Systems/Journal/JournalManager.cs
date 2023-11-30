@@ -28,6 +28,8 @@ public class JournalManager : MonoBehaviour
     private string saveFile;
     private int currentDisplayedQuest = 0;
 
+    public static JournalManager instance;
+
     public bool IsActive{
         get{
             return isActive;
@@ -41,6 +43,10 @@ public class JournalManager : MonoBehaviour
         saveFile = Application.persistentDataPath + "/QuestsData.json";
         //Debug.Log(saveFile);
         animator = journalObject.GetComponent<Animator>();
+        if(instance==null)
+        {
+            instance = this;
+        }
     }
     // Start is called before the first frame update
     void Start()
