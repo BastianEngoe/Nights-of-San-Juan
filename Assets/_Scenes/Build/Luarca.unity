@@ -4875,7 +4875,8 @@ MonoBehaviour:
   events:
   - nextActors: []
     nextConversation: {fileID: 0}
-    journalEntriesToUnlock: []
+    journalEntriesToUnlock:
+    - The San Juan Festival & Luarca
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -9249,12 +9250,23 @@ MonoBehaviour:
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntriesToUnlock:
-    - The San Juan Festival & Luarca
-    - The Lady of the Lake
+    - The San Juan Festival & Luarca 2
     nextCustomEvent:
       m_PersistentCalls:
-        m_Calls: []
-    triggerNextEventWhenFinished: 1
+        m_Calls:
+        - m_Target: {fileID: 1044351799}
+          m_TargetAssemblyTypeName: UnlockCustomEntry, Assembly-CSharp
+          m_MethodName: UnlockEntryAt
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    triggerNextEventWhenFinished: 0
   - nextActors: []
     nextConversation: {fileID: 0}
     journalEntriesToUnlock: []
@@ -11871,6 +11883,41 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 839960019}
+    - target: {fileID: 4561875787904404613, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561875787904404613, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561875787904404613, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1010801476}
+    - target: {fileID: 4561875787904404613, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561875787904404613, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UnlockEntryAt
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561875787904404613, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnlockCustomEntry, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561875787904404613, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4568692274507216178, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
         type: 3}
       propertyPath: m_Mesh
@@ -12096,10 +12143,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1520861359}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4566220165848736639, guid: 2c534eafaadfbe24dac6fcccfcedfa9f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7952796385910440917, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+        type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1010801476}
   m_SourcePrefab: {fileID: 100100000, guid: 2c534eafaadfbe24dac6fcccfcedfa9f, type: 3}
 --- !u!4 &1010801474 stripped
 Transform:
@@ -12107,6 +12159,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1010801473}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1010801475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7952796385910440917, guid: 2c534eafaadfbe24dac6fcccfcedfa9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1010801473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1010801476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010801475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d41e7eeded55db40a33e3191511cbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Mischief in Luarca
+  questIndex: 1
 --- !u!1001 &1044351797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12197,6 +12269,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 625932204}
+    - targetCorrespondingSourceObject: {fileID: 3010471997119524849, guid: 73a091f5e6fff8345a54b9da9e16ac36,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1044351799}
   m_SourcePrefab: {fileID: 100100000, guid: 73a091f5e6fff8345a54b9da9e16ac36, type: 3}
 --- !u!4 &1044351798 stripped
 Transform:
@@ -12204,6 +12280,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1044351797}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1044351799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625932200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d41e7eeded55db40a33e3191511cbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: The Lady of the Lake
+  questIndex: 0
 --- !u!1 &1066387392
 GameObject:
   m_ObjectHideFlags: 0
@@ -17426,6 +17516,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaXanaEncounter
       objectReference: {fileID: 0}
+    - target: {fileID: 985682466471994249, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2999554331040428025, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17476,10 +17571,88 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[2].nextCustomEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[2].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1569678405}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[2].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1569678404}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[2].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UnlockEntryAt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[2].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UnlockEntryAt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnlockCustomEntry, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[2].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnlockCustomEntry, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[0].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857342379208615, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      propertyPath: events.Array.data[2].nextCustomEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4559277542386997928, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1569678405}
+    - targetCorrespondingSourceObject: {fileID: 4559277542386997928, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+        type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1569678404}
   m_SourcePrefab: {fileID: 100100000, guid: 9c2fa7a9bc009554d91324dcbd9906c4, type: 3}
 --- !u!4 &1569678402 stripped
 Transform:
@@ -17487,6 +17660,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1569678401}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1569678403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4559277542386997928, guid: 9c2fa7a9bc009554d91324dcbd9906c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1569678401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1569678404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569678403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d41e7eeded55db40a33e3191511cbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: The Lady of the Lake
+  questIndex: 2
+--- !u!114 &1569678405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569678403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d41e7eeded55db40a33e3191511cbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: The Lady of the Lake
+  questIndex: 1
 --- !u!43 &1578232853
 Mesh:
   m_ObjectHideFlags: 0
@@ -23270,6 +23477,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Church_Note
       objectReference: {fileID: 0}
+    - target: {fileID: 8132422422379918457, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132422422379918457, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132422422379918457, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2069598139}
+    - target: {fileID: 8132422422379918457, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132422422379918457, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnlockEntryAt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132422422379918457, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnlockCustomEntry, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132422422379918457, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+        type: 3}
+      propertyPath: eventToTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8889478915511988551, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23323,8 +23565,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8076666437623278589, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+        type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 2069598139}
   m_SourcePrefab: {fileID: 100100000, guid: 07610a7be0bc8cd4087516e4d3d06ae9, type: 3}
+--- !u!1 &2069598138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8076666437623278589, guid: 07610a7be0bc8cd4087516e4d3d06ae9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2069598137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2069598139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069598138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d41e7eeded55db40a33e3191511cbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: The Devil in the Woods
+  questIndex: 0
 --- !u!1001 &2087560673
 PrefabInstance:
   m_ObjectHideFlags: 0
