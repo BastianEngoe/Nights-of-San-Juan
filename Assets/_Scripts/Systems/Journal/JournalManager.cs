@@ -232,15 +232,41 @@ public class JournalManager : MonoBehaviour
         journalQuestsData.quests[questIndex].unlocked = true;
         if (journalQuestsData.quests[questIndex].entries.Length > 0)
         {
-            int i = 0;
-            while (i < journalQuestsData.quests[questIndex].entries.Length)
-            {
-                journalQuestsData.quests[questIndex].entries[i].unlocked = true;
-                i++;
-            }
+            journalQuestsData.quests[questIndex].entries[0].unlocked = true;
         }
 
         currentDisplayedQuest = questIndex - (questIndex % 2);
+    }
+
+    public void UnlockEntryAt(string questName, int index) {
+        int questIndex = SearchForQuest(questName);
+        if (journalQuestsData.quests[questIndex].unlocked) {
+            journalQuestsData.quests[questIndex].entries[index].unlocked = true;
+        }
+        else
+        {
+            Debug.Log("Journal Entry not unlocked");
+        }
+    }
+
+    public void UnlockNextEntry(string questName)
+    {
+        int questIndex = SearchForQuest(questName);
+        int entryNum= journalQuestsData.quests[questIndex].entries.Length;
+        int currEnt = 0;
+        bool foundNext = false;
+        if (currEnt<entryNum&&!foundNext&&journalQuestsData.quests[questIndex].unlocked)
+        {
+            if (!journalQuestsData.quests[questIndex].entries[currEnt].unlocked)
+            {
+                journalQuestsData.quests[questIndex].entries[currEnt].unlocked = true;
+                foundNext = true;
+            }
+            else
+            {
+                currEnt++;
+            }
+        }
     }
 
     //Tries to find the quest with a certain name and returns the index of its location
