@@ -16,6 +16,7 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private Slider soundSlider, musicSlider;
     [HideInInspector] public bool onMenu = true;
     [SerializeField] private GameObject continueButton;
+    private Vector3 initialPlayerPos;
     private void Start()
     {
         continueButton.SetActive(WorldSaveSystem.instance.CheckSave());
@@ -24,6 +25,7 @@ public class MenusManager : MonoBehaviour
         GameManager.instance.DeactivatePlayer();
         Cursor.lockState = CursorLockMode.Confined;
         SetSettingsFromPlayerPrefs();
+        initialPlayerPos = GameManager.instance.playerObject.transform.position;
     }
 
     private void SetSettingsFromPlayerPrefs()
@@ -51,6 +53,7 @@ public class MenusManager : MonoBehaviour
         MultiSceneLoader.loadCollection("Luarca", collectionLoadMode.Difference);
         mainMenu.SetActive(false);
         GameManager.instance.ActivatePlayer();
+        GameManager.instance.playerObject.transform.position= initialPlayerPos;
         Cursor.visible = false;
         onMenu = false;
     }
