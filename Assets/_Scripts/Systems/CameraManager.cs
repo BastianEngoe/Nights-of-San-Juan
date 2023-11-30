@@ -75,6 +75,7 @@ public class CameraManager : MonoBehaviour
             case CameraState.JournalState:
                 StopCursorTrack();
                 journalCameraControl.enabled = true;
+                journalCameraControl.ResetOffsetFactor();
                 break;
             
         }

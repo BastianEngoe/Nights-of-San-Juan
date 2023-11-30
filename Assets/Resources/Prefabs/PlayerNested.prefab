@@ -3369,7 +3369,8 @@ MonoBehaviour:
   camPivotTransform: {fileID: 6045026624164315031}
   journalTransform: {fileID: 4459983877135726587}
   journal: {fileID: 3961067226063459941}
-  adjustSpeed: 3
+  animDuration: 2
+  offset: 0.2
 --- !u!1001 &6160077235467653000
 PrefabInstance:
   m_ObjectHideFlags: 0
