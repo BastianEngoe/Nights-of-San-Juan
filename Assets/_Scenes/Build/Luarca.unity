@@ -4796,7 +4796,7 @@ MonoBehaviour:
   events:
   - nextActors: []
     nextConversation: {fileID: 0}
-    journalEntryToUnlock: The San Juan Festival & Luarca
+    journalEntriesToUnlock: []
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -9109,7 +9109,7 @@ MonoBehaviour:
     - actor: {fileID: 623149412}
       setActive: 1
     nextConversation: {fileID: 4900000, guid: 6761446d87c561842b1f47f6caa9dd0c, type: 3}
-    journalEntryToUnlock: 
+    journalEntriesToUnlock: []
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -9169,14 +9169,16 @@ MonoBehaviour:
   events:
   - nextActors: []
     nextConversation: {fileID: 0}
-    journalEntryToUnlock: The San Juan Festival & Luarca 2
+    journalEntriesToUnlock:
+    - The San Juan Festival & Luarca
+    - The Lady of the Lake
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
     triggerNextEventWhenFinished: 1
   - nextActors: []
     nextConversation: {fileID: 0}
-    journalEntryToUnlock: The Lady of the Lake
+    journalEntriesToUnlock: []
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -10080,7 +10082,7 @@ MonoBehaviour:
     - actor: {fileID: 775529259}
       setActive: 1
     nextConversation: {fileID: 4900000, guid: db2456c4172256042a2b6808f93b6ab1, type: 3}
-    journalEntryToUnlock: 
+    journalEntriesToUnlock: []
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -10089,7 +10091,7 @@ MonoBehaviour:
     - actor: {fileID: 775529259}
       setActive: 1
     nextConversation: {fileID: 4900000, guid: 0b1aed109b5c3e9409296e0168e8d61d, type: 3}
-    journalEntryToUnlock: 
+    journalEntriesToUnlock: []
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls:
@@ -10110,7 +10112,7 @@ MonoBehaviour:
     - actor: {fileID: 775529259}
       setActive: 1
     nextConversation: {fileID: 4900000, guid: bdccabd3a5e49484596361f13823dcab, type: 3}
-    journalEntryToUnlock: 
+    journalEntriesToUnlock: []
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []

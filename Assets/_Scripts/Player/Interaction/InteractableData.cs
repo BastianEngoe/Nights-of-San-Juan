@@ -55,7 +55,13 @@ public class InteractableData : MonoBehaviour
 
     private void AdvanceData()
     {
-        if (events[0].journalEntryToUnlock != "") journalManager.UnlockQuest(events[0].journalEntryToUnlock);
+        if (events[0].journalEntriesToUnlock.Count != 0)
+        {
+            foreach (string quest in events[0].journalEntriesToUnlock)
+            {
+                journalManager.UnlockQuest(quest);
+            }
+        }
         if (events[0].nextConversation != null) ChangeConversation(events[0].nextConversation);
             if (events[0].nextActors != null && events[0].nextActors.Count > 0)
             {

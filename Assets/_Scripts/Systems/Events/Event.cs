@@ -9,7 +9,7 @@ public class Event
 {
     public List<Actors> nextActors;
     public TextAsset nextConversation;
-    public string journalEntryToUnlock;
+    public List<string> journalEntriesToUnlock;
     public UnityEvent nextCustomEvent;
     public List<NextEvent> nextEvents;
     public bool triggerNextEventWhenFinished;
