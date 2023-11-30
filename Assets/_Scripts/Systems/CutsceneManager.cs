@@ -8,10 +8,12 @@ public class CutsceneManager : MonoBehaviour
     public void HidePlayer()
     {
         GameManager.instance.DeactivatePlayer();
+        CameraManager.instance.UpdateCameraState(CameraState.CinematicState);
     }
 
     public void ShowPlayer()
     {
         GameManager.instance.ActivatePlayer();
+        CameraManager.instance.UpdateCameraState(CameraState.MoveState);
     }
 }

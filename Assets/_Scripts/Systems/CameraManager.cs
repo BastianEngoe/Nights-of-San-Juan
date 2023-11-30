@@ -37,6 +37,12 @@ public class CameraManager : MonoBehaviour
     private Vector3 direction, directionOffset;
     [SerializeField] private DialogueSystem dialogueSystem;
     private Dialogue currDialogue;
+    public static CameraManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     //Changes the state of the camera on this manager and in the camera controller
     public void UpdateCameraState(CameraState newCameraState)
@@ -64,6 +70,7 @@ public class CameraManager : MonoBehaviour
                 journalCameraControl.enabled = false;
                 break;
             case CameraState.CinematicState:
+                StopCursorTrack();
                 break;
             case CameraState.JournalState:
                 StopCursorTrack();
