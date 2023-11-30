@@ -9173,6 +9173,13 @@ MonoBehaviour:
     nextCustomEvent:
       m_PersistentCalls:
         m_Calls: []
+    triggerNextEventWhenFinished: 1
+  - nextActors: []
+    nextConversation: {fileID: 0}
+    journalEntryToUnlock: The Lady of the Lake
+    nextCustomEvent:
+      m_PersistentCalls:
+        m_Calls: []
     triggerNextEventWhenFinished: 0
   eventToTrigger:
     m_PersistentCalls:
