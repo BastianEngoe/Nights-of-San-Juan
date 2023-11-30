@@ -81,4 +81,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if (!context.performed && context.action.WasReleasedThisFrame())
             OnPauseEvent?.Invoke();
     }
+
+    public void ClearMovementValue()
+    {
+        movementValue = Vector2.zero;
+    }
 }

@@ -84,4 +84,8 @@ public class InputManager : MonoBehaviour
         inputReader.OnCutsceneStartEvent -= StartIntroScene;
     }
 
+    public void Clear()
+    {
+        inputReader.ClearMovementValue();
+    }
 }

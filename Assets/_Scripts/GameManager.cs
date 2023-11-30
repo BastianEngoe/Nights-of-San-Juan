@@ -241,4 +241,9 @@ public class GameManager : MonoBehaviour
         beatrizAudioSource.clip = clipToPlay;
         beatrizAudioSource.Play();
     }
+
+    public void ClearInput()
+    {
+        playerObject.GetComponent<ThirdPersonController>().ClearInput();
+    }
 }

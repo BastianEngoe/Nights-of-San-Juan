@@ -406,5 +406,10 @@ namespace StarterAssets
         {
             
         }
+
+        public void ClearInput()
+        {
+            _input.move= Vector2.zero;
+        }
     }
 }
