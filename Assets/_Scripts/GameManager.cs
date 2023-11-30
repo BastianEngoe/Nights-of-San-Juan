@@ -246,4 +246,9 @@ public class GameManager : MonoBehaviour
     {
         playerObject.GetComponent<ThirdPersonController>().ClearInput();
     }
+
+    public void ShowQuill()
+    {
+        quillController.QuillAppear();
+    }
 }

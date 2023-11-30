@@ -247,8 +247,9 @@ public class JournalManager : MonoBehaviour
     public void UnlockEntryAt(string questName, int index) {
         int questIndex = SearchForQuest(questName);
         journalQuestsData.quests[questIndex].unlocked = true;
-            journalQuestsData.quests[questIndex].entries[index].unlocked = true;
-        
+        journalQuestsData.quests[questIndex].entries[index].unlocked = true;
+        GameManager.instance.ShowQuill();
+
     }
 
     public void UnlockNextEntry(string questName)
@@ -264,6 +265,7 @@ public class JournalManager : MonoBehaviour
             {
                 journalQuestsData.quests[questIndex].entries[currEnt].unlocked = true;
                 foundNext = true;
+                GameManager.instance.ShowQuill();
             }
             else
             {
