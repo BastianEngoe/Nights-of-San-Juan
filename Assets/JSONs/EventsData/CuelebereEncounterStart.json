@@ -1,0 +1,31 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "El Cuelebere: A meal willingly enters Cuélebres cave? Who might you be?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Beatriz: My name is Beatriz and I have traveled far and wide to meet the magnificent Cuélebre himself."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "El Cuelebere: I’m flattered, but if you have nothing more to offer than pretty words I’m afraid your journey ends here."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Beatriz: Hold on! I also wish to offer you my services. I’m a notorious thief from Sevilla and I can steal any treasure you want for your already very impressive hoard."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "El Cuelebere: A tempting offer, maybe dinner can wait. If you can steal from La Xana’s treasure hoard from the bottom of Xibu lake I might let you live another day. Should be an easy task for a master thief such as yourself."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
