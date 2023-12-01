@@ -15,6 +15,10 @@ public class SoundManager : MonoBehaviour
     private AudioSource[] musicSources = new AudioSource[4];
 
     private float musicVolume, soundVolume;
+    [SerializeField] private float minIntervTime=50, maxIntervTime=120;
+    private float timer=0;
+
+    private bool playingMusic =false;
 
     int currentMusic=0;
 
@@ -39,14 +43,28 @@ public class SoundManager : MonoBehaviour
         currentMusic = 0;
     }
 
-    public void PlayMusic()
+    private void Update()
     {
-        musicSources[currentMusic].Play();
+        if (playingMusic && timer <= 0&& !musicSources[currentMusic].isPlaying)
+        {
+            musicSources[currentMusic].Play();
+            timer= Random.Range(minIntervTime, maxIntervTime);
+        }
+        else if(playingMusic && timer>0 && !musicSources[currentMusic].isPlaying) {
+         timer-=Time.deltaTime;
+        }
+    }
+
+    public void PlayMusicOnRandomInterv()
+    {
+        playingMusic = true;
     }
     
     public void StopMusic()
     {
         musicSources[currentMusic].Stop();
+        playingMusic=false;
+        timer=0;
     }
 
     public void PlaySound(AudioClips sound, float volume = -1)

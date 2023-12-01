@@ -41,6 +41,7 @@ public class MenusManager : MonoBehaviour
     public void ContinueGame()
     {
         MultiSceneLoader.loadCollection("Luarca", collectionLoadMode.Difference);
+        SoundManager.instance.PlayMusicOnRandomInterv();
         mainMenu.SetActive(false);
         Cursor.visible = false;
         GameManager.instance.ActivatePlayer();  
@@ -61,7 +62,10 @@ public class MenusManager : MonoBehaviour
     public void ToOriginMenu()
     {
         if (!inputManager.onPause)
+        {
             mainMenu.SetActive(true);
+            SoundManager.instance.StopMusic();
+        }
         else
             pauseMenu.SetActive(true);
         settingsMenu.SetActive(false);

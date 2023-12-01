@@ -49,7 +49,7 @@ public class OpeningController : MonoBehaviour
     void StartCutscene()
     {
         cutController.Play();
-        SoundManager.instance.PlayMusic();
+        SoundManager.instance.PlayMusicOnRandomInterv();
         beaAnim.enabled = true;
         Invoke("BeaLook", 55f);
     }
