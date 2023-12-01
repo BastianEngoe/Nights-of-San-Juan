@@ -22,6 +22,7 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private GameObject imagePrefab;
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private GameObject titlePrefab;
+    [SerializeField] private GameObject indexItemPrefab;
     [SerializeField] private JournalQuestsData journalQuestsData;
     [SerializeField] private Animator animator;
     private bool isActive;
@@ -162,11 +163,45 @@ public class JournalManager : MonoBehaviour
         foreach (Transform child in rightPage.transform)
             Destroy(child.gameObject);
         
-        //Update left page with currentDisplayedQuest
-        PopulatePage(journalQuestsData.quests[currentDisplayedQuest], leftPage);
+        //Update left page with currentDisplayedQuest. If on first page, populate with the Index
+        if(currentDisplayedQuest == 0){
+            Debug.Log("index!");
+            PopulateIndexPage();
+        } else{
+            Debug.Log("not index!");
+            PopulatePage(journalQuestsData.quests[currentDisplayedQuest-1], leftPage);
+        }
         //Update right page
         if(currentDisplayedQuest + 1 < journalQuestsData.quests.Length)
-            PopulatePage(journalQuestsData.quests[currentDisplayedQuest + 1], rightPage);
+            PopulatePage(journalQuestsData.quests[currentDisplayedQuest], rightPage);
+    }
+
+    private void PopulateIndexPage()
+    {
+        GameObject newTextSlot = Instantiate(titlePrefab, leftPage.transform);
+        newTextSlot.GetComponent<TMP_Text>().text = "Index";
+        //Always populates the left page with the same object, so no need to have them passed to the function
+        for (int i = 0; i < journalQuestsData.quests.Length; i++)
+        {
+            var indexItem = Instantiate(indexItemPrefab, leftPage.transform);
+            //if the quest is unlocked, show the title text
+            var indexText = indexItem.transform.GetChild(1).GetComponent<TMP_Text>();
+            var indexCheckmark = indexItem.transform.GetChild(0).GetComponent<Toggle>();
+
+            if(journalQuestsData.quests[i].unlocked){
+                indexCheckmark.enabled = true;
+                indexText.text = journalQuestsData.quests[i].name;
+            }
+            else{
+                indexCheckmark.enabled = false;
+                for (int j = 0; j < journalQuestsData.quests[i].name.Length; j++)
+                {
+                    indexText.text += "?";
+                }
+            }
+
+
+        }
     }
 
     //Adds the text and images to page
