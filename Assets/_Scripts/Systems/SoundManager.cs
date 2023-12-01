@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
 
     private float musicVolume, soundVolume;
 
-    int currentMusic;
+    int currentMusic=0;
 
     private void Awake()
     {
@@ -37,9 +37,17 @@ public class SoundManager : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
         musicSources = musicSource.GetComponents<AudioSource>();
         currentMusic = 0;
+    }
+
+    public void PlayMusic()
+    {
         musicSources[currentMusic].Play();
     }
     
+    public void StopMusic()
+    {
+        musicSources[currentMusic].Stop();
+    }
 
     public void PlaySound(AudioClips sound, float volume = -1)
     {
