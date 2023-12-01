@@ -15,6 +15,7 @@ public class LaXanaQuestController : MonoBehaviour
             Debug.Log("Has wort");
             
             laXanaDialogue.TriggerEventFromElse();
+            GameManager.instance.XanaArtifact += 1;
             //GameManager.instance.RemoveFromInventory("StJohnsWort", false);
             //result.Invoke();
         }

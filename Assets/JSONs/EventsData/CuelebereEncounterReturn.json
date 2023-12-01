@@ -1,0 +1,73 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "1",
+          "text": "El Cuelebere: The master thief returns, but do you bring treasure?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Beatriz: I have the artifact, easily acquired from the depths of Xibu lake."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "El Cuelebere: You’re a useful little thief, it’s a shame I’m hungry."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "*The artifact La Xana gave you begins to glow, enthralling Cuelebere*"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "El Cuelebere: Or perhaps dinner can wait, no need to rush wasting such a skilled thief."
+        }
+      ],
+      "responses": [
+        {
+          "nextConvIndex": 1,
+          "responseText": "Make a deal"
+        },
+        {
+          "nextConvIndex": 2,
+          "responseText": "Trick Cuelebere"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Beatriz: You know what’s an even bigger waste?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "That the great Cuelebre is wasting his time living in a small insignificant cave, scaring a bunch of pesky little villagers not worthy of his presence."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "You need a cave worthy of the most magnificent dragon that ever lived and with this wealth you could even become the king of all dragons."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "You make a good point, little thief. I should find bigger prey worthy of Cuelebre, these villagers have nothing more of value to offer anyway."
+        }
+      ],
+      "responses": [
+      ]
+    },
+    {
+      "id": "2",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Beatriz: I would need the help of the Trasgu to accomplish this..."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

@@ -10834,6 +10834,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2101167985878079060, guid: 2ebe28f2125d64f4fa8fa10ac051719b,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 808911072}
+    - targetCorrespondingSourceObject: {fileID: 2101167985878079060, guid: 2ebe28f2125d64f4fa8fa10ac051719b,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 808911071}
   m_SourcePrefab: {fileID: 100100000, guid: 2ebe28f2125d64f4fa8fa10ac051719b, type: 3}
 --- !u!1 &808911068 stripped
@@ -10857,10 +10861,30 @@ MonoBehaviour:
   JSONConversation: {fileID: 4900000, guid: fe2ad0397f5406c45b904bcffdc3e49d, type: 3}
   actors:
   - {fileID: 808911068}
-  events: []
+  events:
+  - nextActors: []
+    nextConversation: {fileID: 4900000, guid: 9dd3ab8551e05dd468ec48956d833403, type: 3}
+    journalEntriesToUnlock:
+    - The Danger of Luarca
+    nextCustomEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    triggerNextEventWhenFinished: 0
   eventToTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 808911072}
+        m_TargetAssemblyTypeName: CuelebereQuestController, Assembly-CSharp
+        m_MethodName: CheckInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   cameraOffset: {x: 0, y: 1, z: 0}
   triggerEventWhenFinished: 0
   triggerCount: 0
@@ -10892,6 +10916,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 16.48, y: 4.97, z: 7.8}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &808911072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808911068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd4943cda113af4692139fa298ef74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 808911069}
+        m_TargetAssemblyTypeName: InteractableData, Assembly-CSharp
+        m_MethodName: TriggerEventFromElse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &816594469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25903,6 +25954,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5173629715640132798, guid: fd75934dd7dc64c46b8f9b7098c6927c,
+        type: 3}
+      propertyPath: EnterTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173629715640132798, guid: fd75934dd7dc64c46b8f9b7098c6927c,
+        type: 3}
+      propertyPath: EnterTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173629715640132798, guid: fd75934dd7dc64c46b8f9b7098c6927c,
+        type: 3}
+      propertyPath: EnterTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1174691338403787024}
+    - target: {fileID: 5173629715640132798, guid: fd75934dd7dc64c46b8f9b7098c6927c,
+        type: 3}
+      propertyPath: EnterTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173629715640132798, guid: fd75934dd7dc64c46b8f9b7098c6927c,
+        type: 3}
+      propertyPath: EnterTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173629715640132798, guid: fd75934dd7dc64c46b8f9b7098c6927c,
+        type: 3}
+      propertyPath: EnterTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Collider, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173629715640132798, guid: fd75934dd7dc64c46b8f9b7098c6927c,
+        type: 3}
+      propertyPath: EnterTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5186798120434220190, guid: fd75934dd7dc64c46b8f9b7098c6927c,
         type: 3}
       propertyPath: m_Mesh
@@ -25938,6 +26024,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd75934dd7dc64c46b8f9b7098c6927c, type: 3}
+--- !u!65 &1174691338403787024 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 2400451942222909399, guid: fd75934dd7dc64c46b8f9b7098c6927c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1174691338403787023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3953704754617145917
 PrefabInstance:
   m_ObjectHideFlags: 0
