@@ -31,7 +31,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2850
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -62,7 +62,7 @@ Material:
     - _FoamCutoff: 0.9
     - _FoamScale: 500
     - _FoamSpeed: 0.5
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _RefractionScale: 100
     - _RefractionSpeed: 100
