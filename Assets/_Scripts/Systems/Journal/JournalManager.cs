@@ -175,7 +175,7 @@ public class JournalManager : MonoBehaviour
             PopulatePage(journalQuestsData.quests[currentDisplayedQuest-1], leftPage);
         }
         //Update right page
-        if(currentDisplayedQuest + 1 < journalQuestsData.quests.Length)
+        if(currentDisplayedQuest + 1 <= journalQuestsData.quests.Length)
             PopulatePage(journalQuestsData.quests[currentDisplayedQuest], rightPage);
     }
 
