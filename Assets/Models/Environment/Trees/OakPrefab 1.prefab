@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b70df97913090e34d9a192cc98787fbd,
         type: 3}
       propertyPath: m_Name
-      value: OakPrefab
+      value: OakPrefab 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3451118302482216456, guid: b70df97913090e34d9a192cc98787fbd, type: 3}
@@ -72,6 +72,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4589999370862610420}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b70df97913090e34d9a192cc98787fbd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2866487100480120358}
   m_SourcePrefab: {fileID: 100100000, guid: b70df97913090e34d9a192cc98787fbd, type: 3}
 --- !u!1 &4728941193462114315 stripped
 GameObject:
@@ -102,3 +106,36 @@ CapsuleCollider:
   m_Height: 6.1038356
   m_Direction: 1
   m_Center: {x: 0.1337451, y: 2.9017093, z: 0.2882554}
+--- !u!205 &2866487100480120358
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728941193462114315}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 1.0616295, y: 3.2981493, z: 0.2523775}
+  m_Size: 6.5946574
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6530340980798441950}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6530340980798441950}
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6530340980798441950}
+  m_Enabled: 1
+--- !u!23 &6530340980798441950 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: b70df97913090e34d9a192cc98787fbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5576013945766434138}
+  m_PrefabAsset: {fileID: 0}

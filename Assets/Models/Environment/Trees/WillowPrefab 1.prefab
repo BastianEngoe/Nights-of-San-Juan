@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a32bdd9d69ff1fb4baacd6da09ee0128,
         type: 3}
       propertyPath: m_Name
-      value: WillowPrefab
+      value: WillowPrefab 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71,6 +71,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1467328053692496919}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a32bdd9d69ff1fb4baacd6da09ee0128,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1159272482393360286}
   m_SourcePrefab: {fileID: 100100000, guid: a32bdd9d69ff1fb4baacd6da09ee0128, type: 3}
 --- !u!1 &7762355971861747793 stripped
 GameObject:
@@ -101,3 +105,36 @@ CapsuleCollider:
   m_Height: 5.53
   m_Direction: 1
   m_Center: {x: -0.14984086, y: 2.5162115, z: -0.07324828}
+--- !u!205 &1159272482393360286
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762355971861747793}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 1.0616295, y: 3.2981493, z: 0.2523775}
+  m_Size: 6.5946574
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8122683729846745476}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8122683729846745476}
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8122683729846745476}
+  m_Enabled: 1
+--- !u!23 &8122683729846745476 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: a32bdd9d69ff1fb4baacd6da09ee0128,
+    type: 3}
+  m_PrefabInstance: {fileID: 7455714065801716992}
+  m_PrefabAsset: {fileID: 0}
