@@ -31,6 +31,7 @@ public class TrasguPuzzle2Controller : MonoBehaviour
         {
             _traceManager.TrasguPuzzleCompleted("Puzzle2");
             Instantiate(trasguPrefab, trasguLocation.position, trasguLocation.transform.rotation);
+            GameManager.instance.TrasguPuzzlesCompleted += 1;
             completed = true;
         }
         

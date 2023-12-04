@@ -1,0 +1,39 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Busgosu: Who disturbs the forest?"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: My name is Beatriz. I mean no harm, I only wish to pass the forest. Who am I speaking to?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Busgosu: The villagers know me as the horned devil, but my true name is Busgosu and I am the guardian of Pontigon forest."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Busgosu: I protect all that grows here and while the monster hiding in the mountain cave remains a threat to my forest, I will not allow anyone to pass."
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: My quest leads past the forest. Is there anything I can offer you in exchange for granting me safe passage?"
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Busgosu: A small creature have seen fit to disturb the forest with their mischief. If you fix what they broke, I will allow you to pass."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "You need to have completed at least 3 trasgu puzzles to continue forward."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

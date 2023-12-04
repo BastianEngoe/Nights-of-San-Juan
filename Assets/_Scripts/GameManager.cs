@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public int Wort;
     [HideInInspector] public int XanaArtifact;
+    [HideInInspector] public int TrasguPuzzlesCompleted;
 
     [SerializeField] private AudioSource beatrizAudioSource;
     [SerializeField] private AudioClip[] greetingsAudioClips;

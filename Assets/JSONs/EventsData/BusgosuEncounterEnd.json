@@ -1,0 +1,23 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Busgosu: Have you completed what I asked?"
+        },
+        {
+          "speakerIndex": "1",
+          "text": "Beatriz: I fixed the little creatures' mischief."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Busgosu: You have proven yourself no threat to the forest. You are free to continue on your quest, but be weary of the monster lurking inside the mountain cave."
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}

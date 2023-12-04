@@ -24,6 +24,7 @@ public class TrasPuzzleController : MonoBehaviour
     {
         WorldSaveSystem.instance.AddGameObject(trasPrefab, trasSpawnLocation.position, trasSpawnLocation.rotation);
         trasPrefab.GetComponent<PlayableDirector>().Play();
+        GameManager.instance.TrasguPuzzlesCompleted += 1;
         _traceManager.TrasguPuzzleCompleted(gameObject.name);
     }
 }
