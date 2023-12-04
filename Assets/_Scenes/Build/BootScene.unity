@@ -167,6 +167,7 @@ MonoBehaviour:
   onPause: 0
   Wort: 0
   XanaArtifact: 0
+  TrasguPuzzlesCompleted: 0
   beatrizAudioSource: {fileID: 751845909}
   greetingsAudioClips:
   - {fileID: 8300000, guid: b5ea576863f700e47b6c3c393d3c49c6, type: 3}
@@ -434,6 +435,7 @@ MonoBehaviour:
   leftPage: {fileID: 774849450}
   rightPage: {fileID: 223152795}
   journalObject: {fileID: 221452290}
+  journalTutText: {fileID: 1298304572}
   journalData: {fileID: 4900000, guid: b2aae11005e7e3a44952d8482c6d7f82, type: 3}
   imagePrefab: {fileID: 8412021781208830012, guid: 19341872e31077f48bcda2479152bb8f,
     type: 3}
@@ -1044,6 +1046,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 469084805409289706, guid: 919640cfc8f915a40ba8a70ab4c27dc9,
     type: 3}
   m_PrefabInstance: {fileID: 1230609984}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1298304572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3427493545465045677, guid: 8e6369b20ac5a514499cf6c047131e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074095696}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1474062316
 GameObject:

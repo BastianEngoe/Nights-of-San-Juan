@@ -17,6 +17,7 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private GameObject leftPage;
     [SerializeField] private GameObject rightPage;
     [SerializeField] private GameObject journalObject;
+    [SerializeField] private GameObject journalTutText;
     [SerializeField] private UnityEngine.TextAsset journalData;
 
     [SerializeField] private GameObject imagePrefab;
@@ -77,6 +78,7 @@ public class JournalManager : MonoBehaviour
     {
         leftPage.SetActive(true);
         rightPage.SetActive(true);
+        journalTutText.SetActive(true);
     }
 
     //Disables the gameobject of both pages
@@ -84,6 +86,7 @@ public class JournalManager : MonoBehaviour
     {
         leftPage.SetActive(false);
         rightPage.SetActive(false);
+        journalTutText.SetActive(false);
     }
 
     //Closes the journal
