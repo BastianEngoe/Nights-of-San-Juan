@@ -536,6 +536,7 @@ Transform:
   - {fileID: 1592059921}
   - {fileID: 536578692}
   - {fileID: 91564799}
+  - {fileID: 1462696941}
   m_Father: {fileID: 1141031094}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &73085563
@@ -22808,6 +22809,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45.252, y: 81, z: -1.44}
+--- !u!1001 &1462696940
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 21589859}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1169.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 40.957153
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 416.41
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8729614
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.48778933
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -58.391
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+        type: 3}
+      propertyPath: m_Name
+      value: House_Ruins
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0990b8b72bfceb54c944a0b1de8669c9, type: 3}
+--- !u!4 &1462696941 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0990b8b72bfceb54c944a0b1de8669c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1462696940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1487581912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33974,74 +34049,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: The Devil in the Woods
   questIndex: 0
---- !u!1001 &2087560673
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1248
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 95.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 435.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99950236
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.031544536
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.615
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: fac3eac1831a45c4285a5401b9b93704,
-        type: 3}
-      propertyPath: m_Name
-      value: AsturianHouse
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fac3eac1831a45c4285a5401b9b93704, type: 3}
 --- !u!1001 &2096613568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35492,6 +35499,5 @@ SceneRoots:
   - {fileID: 87516936}
   - {fileID: 312545982}
   - {fileID: 1592059920}
-  - {fileID: 2087560673}
   - {fileID: 576272408}
   - {fileID: 1998389958}
