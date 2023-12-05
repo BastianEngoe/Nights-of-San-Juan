@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - Interactable
   - PuzzleBall
+  - Menu
   layers:
   - Default
   - TransparentFX
