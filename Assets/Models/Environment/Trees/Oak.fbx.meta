@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: OakBranch
-    second: {fileID: 2100000, guid: 47d8db0dc5fe6d94fa2fe0bbc79a5016, type: 2}
+    second: {fileID: 2100000, guid: 48e3a303144e7214188a12b6cb14b4a3, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
