@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 2767091688825416747}
   - component: {fileID: 7244284691880540428}
   - component: {fileID: 890176311298757047}
-  - component: {fileID: 2607860675124848740}
   - component: {fileID: 6111776967173092417}
   - component: {fileID: 75602615927477664}
+  - component: {fileID: 6325263975067211346}
   m_Layer: 9
   m_Name: PuzzleBall
   m_TagString: PuzzleBall
@@ -8635,28 +8635,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935760193677766000}
   m_Mesh: {fileID: 0}
---- !u!64 &2607860675124848740
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935760193677766000}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!54 &6111776967173092417
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8696,6 +8674,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456a93657db9afc4c801182afcb28fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &6325263975067211346
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935760193677766000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.50000006
+  m_Center: {x: 0, y: 0.5000039, z: 0}
 --- !u!1 &2424168315754830044
 GameObject:
   m_ObjectHideFlags: 0
@@ -13684,7 +13683,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 150
+  m_VersionIndex: 153
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
