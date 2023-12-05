@@ -1,0 +1,31 @@
+{
+  "conversations": [
+    {
+      "id": "0",
+      "lines": [
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Very clever traveler you bested my tricks, but to be as clever as me you need to be as knowledgeable as me."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: The Lord of the forest, who’s appearance as a half man half goat is reminiscent of the Greek god Pan."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: His job is to protect the interest of the forest and all that lives in it. The myths represent him as alternatively malevolent and benevolent. At times he helps shepherds who are lost in the woods and offers to repair their huts in bad weather."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: Other times he is more of a boogeyman and kills whomever harms the forest."
+        },
+        {
+          "speakerIndex": "0",
+          "text": "Trasgu: That's all for now, bye!"
+        }
+      ],
+      "responses": [
+      ]
+    }
+  ]
+}
