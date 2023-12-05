@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Boot
   m_EditorClassIdentifier: 
   Title: Boot
-  ActiveSceneIndex: 0
+  ActiveSceneIndex: 1
   SceneNames:
   - BootScene
+  - MainMenuScene
   Scenes:
   - TargetScene: {fileID: 102900000, guid: df3411b7a0366994eb4df20440fffc66, type: 3}
+    IsActive: 0
+  - TargetScene: {fileID: 102900000, guid: a8efc5b8a5c61b041afdacadad621467, type: 3}
     IsActive: 1
   hierarchyColor: {r: 0, g: 0, b: 0, a: 0}
