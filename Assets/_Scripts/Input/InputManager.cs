@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -22,6 +23,7 @@ public class InputManager : MonoBehaviour
         inputReader.OnToggleJournal += ToggleJournal;
         inputReader.InteractEvent += OnInteract;
         inputReader.OnCutsceneStartEvent += StartIntroScene;
+        inputReader.OnMoveMenuEvent += (() => MenusManager.instance.MenuMove(inputReader.movementValue));
     }
 
     private void TogglePause()
@@ -82,6 +84,14 @@ public class InputManager : MonoBehaviour
     public void StartIntroScene()
     {
         inputReader.OnCutsceneStartEvent -= StartIntroScene;
+    }
+
+    public void SetMenuControls(bool active)
+    {
+        if (active)
+            inputReader.OnMoveMenuEvent += (() => MenusManager.instance.MenuMove(inputReader.movementValue));
+        else
+            inputReader.OnMoveMenuEvent -= (() => MenusManager.instance.MenuMove(inputReader.movementValue));
     }
 
     public void Clear()

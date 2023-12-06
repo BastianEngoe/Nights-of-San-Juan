@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,8 +16,20 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Slider soundSlider, musicSlider;
     [HideInInspector] public bool onMenu = true;
+    private bool onMenuChanged = true;
     [SerializeField] private GameObject continueButton;
     private Vector3 initialPlayerPos;
+
+    private List<GameObject> currentMenuObjects = new List<GameObject>();
+    private int currentMenuIndex=0;
+
+    public static MenusManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         continueButton.SetActive(WorldSaveSystem.instance.CheckSave());
@@ -26,6 +39,17 @@ public class MenusManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         SetSettingsFromPlayerPrefs();
         initialPlayerPos = GameManager.instance.playerObject.transform.position;
+    }
+
+    private void Update()
+    {
+       if(onMenuChanged)
+        {
+            GameManager.instance.inputManager.SetMenuControls(onMenu);
+            if (onMenu)
+                GetObjectsOfMenu();
+            onMenuChanged= false;
+        }
     }
 
     private void SetSettingsFromPlayerPrefs()
@@ -38,13 +62,34 @@ public class MenusManager : MonoBehaviour
         toggleScreen.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen", 0));
     }
 
+    public void GetObjectsOfMenu()
+    {
+        currentMenuObjects.Clear();
+        currentMenuIndex = 0;
+        for(int i=0; i<gameObject.transform.childCount; i++)
+        {
+            Transform currentObject = gameObject.transform.GetChild(i);
+            if (currentObject.tag == "Menu" && currentObject.gameObject.activeSelf)
+            {
+                for(int j=0; j<currentObject.childCount; j++)
+                {
+                    if(currentObject.GetChild(j).GetComponent<Button>()||currentObject.GetChild(j).GetComponent<Slider>())
+                    currentMenuObjects.Add(currentObject.GetChild(j).gameObject);
+                }
+            }
+        }
+        EventSystem.current.SetSelectedGameObject(currentMenuObjects[currentMenuIndex]);
+
+    }
+
     public void ContinueGame()
     {
         MultiSceneLoader.loadCollection("Luarca", collectionLoadMode.Difference);
         SoundManager.instance.PlayMusicOnRandomInterv();
         mainMenu.SetActive(false);
         Cursor.visible = false;
-        GameManager.instance.ActivatePlayer();  
+        GameManager.instance.ActivatePlayer();
+        onMenuChanged = true;
         onMenu = false;
         WorldSaveSystem.instance.LoadAll();
     }
@@ -56,6 +101,7 @@ public class MenusManager : MonoBehaviour
         GameManager.instance.ActivatePlayer();
         GameManager.instance.playerObject.transform.position= initialPlayerPos;
         Cursor.visible = false;
+        onMenuChanged = true;
         onMenu = false;
     }
 
@@ -69,7 +115,9 @@ public class MenusManager : MonoBehaviour
         else
             pauseMenu.SetActive(true);
         settingsMenu.SetActive(false);
+        GetObjectsOfMenu();
     }
+    
 
     public void ToSettings()
     {
@@ -78,6 +126,7 @@ public class MenusManager : MonoBehaviour
         else
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(true);
+        GetObjectsOfMenu();
     }
 
     public void ToMainMenu()
@@ -89,8 +138,10 @@ public class MenusManager : MonoBehaviour
         pauseMenu.SetActive(false);
         mainMenu.SetActive(true);
         GameManager.instance.DeactivatePlayer();
+        onMenuChanged=true;
         GameManager.instance.onPause = false;
         onMenu = true;
+        GetObjectsOfMenu();
     }
 
     public void ToggleFullScreen(bool toggleFullScreen)
@@ -119,5 +170,13 @@ public class MenusManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void MenuMove(Vector2 moveValue)
+    {
+        if(!EventSystem.current.currentSelectedGameObject)
+        {
+            EventSystem.current.SetSelectedGameObject(currentMenuObjects[currentMenuIndex]);
+        }
     }
 }
