@@ -174,7 +174,7 @@ public class MenusManager : MonoBehaviour
 
     public void MenuMove(Vector2 moveValue)
     {
-        if(!EventSystem.current.alreadySelecting)
+        if(!EventSystem.current.currentSelectedGameObject)
         {
             EventSystem.current.SetSelectedGameObject(currentMenuObjects[currentMenuIndex]);
         }
