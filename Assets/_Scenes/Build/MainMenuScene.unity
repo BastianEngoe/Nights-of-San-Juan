@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 645245307}
-  m_IndirectSpecularColor: {r: 0.07798179, g: 0.091792084, b: 0.11759668, a: 1}
+  m_IndirectSpecularColor: {r: 0.07798466, g: 0.091794446, b: 0.11759776, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1e086404123f59943988372182ea5fdb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.12
+      value: -0.38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1e086404123f59943988372182ea5fdb,
         type: 3}
@@ -823,7 +823,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1836349553}
   - component: {fileID: 1836349552}
-  - component: {fileID: 1836349551}
   - component: {fileID: 1836349550}
   m_Layer: 0
   m_Name: MainCamera
@@ -876,14 +875,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1836349551
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836349549}
-  m_Enabled: 1
 --- !u!20 &1836349552
 Camera:
   m_ObjectHideFlags: 0
