@@ -368,7 +368,7 @@ Animator:
   m_GameObject: {fileID: 252154028}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d92bd9dbda904df47ac10264e29419eb, type: 2}
+  m_Controller: {fileID: 9100000, guid: baebdee7ffbc50e41874760e144e3ae0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -668,7 +668,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\nMarija Padovan | Teamlead, 3D character artist, Rigger\r\n\r\n\n\n\n\n\nBastian
-    Fredhjem Eng\xF8 | Producer, Game designer, Front-end Programmer\r\n\r\n\n\n\n\n\nHenrik
+    Eng\xF8 | Producer, Game designer, Front-end Programmer\r\n\r\n\n\n\n\n\nHenrik
     Bergersen Bakke | 3D environment & character artist\r\n\n\n\n\n\n\r\nDaniel Alonso
     Herranz | Back-end Programmer, 2D/3D artist, Game designer\r\n\n\n\r\n\n\n\nYen
     Pham | Concept/Texture artist\r\n\n\n\r\n\n\n\nDiego L\xF3pez Balboa | Back-end
@@ -1379,7 +1379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &546112528
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1585,16 +1585,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798992987}
-  m_LocalRotation: {x: -0, y: -0, z: 0.018896207, w: 0.9998214}
+  m_LocalRotation: {x: -0, y: -0, z: -0.052424543, w: 0.99862486}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.6164, y: 3.6164, z: 3.6164}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 252154029}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.165}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.01}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 615, y: -3170}
+  m_AnchoredPosition: {x: 30, y: -3341}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &798992989
@@ -4577,16 +4577,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909841099}
-  m_LocalRotation: {x: -0, y: -0, z: -0.017457692, w: 0.99984765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.2259, y: 4.2259, z: 4.2259}
+  m_LocalScale: {x: 19.021606, y: 19.021606, z: 19.021606}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 252154029}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -598, y: -3217}
+  m_AnchoredPosition: {x: 0, y: -4181}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909841101
