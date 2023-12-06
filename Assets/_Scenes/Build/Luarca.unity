@@ -29333,7 +29333,7 @@ Transform:
   m_GameObject: {fileID: 703586443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.923878, z: -0, w: 0.38268724}
-  m_LocalPosition: {x: 0.6764221, y: 0.783328, z: 0.13784027}
+  m_LocalPosition: {x: -3.7, y: 1.559, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29718,7 +29718,19 @@ MonoBehaviour:
     - The Danger of Luarca
     nextCustomEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 808911072}
+          m_TargetAssemblyTypeName: CuelebereQuestController, Assembly-CSharp
+          m_MethodName: PlayCredits
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     triggerNextEventWhenFinished: 0
   eventToTrigger:
     m_PersistentCalls:
@@ -72579,6 +72591,27 @@ PrefabInstance:
       propertyPath: WhatToInvoke.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1765673534}
+    - target: {fileID: 5484123425755743812, guid: 26ceae4bf864c574ca1d77d1abf50ece,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484123425755743812, guid: 26ceae4bf864c574ca1d77d1abf50ece,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484123425755743812, guid: 26ceae4bf864c574ca1d77d1abf50ece,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[22].key
+      value: 
+      objectReference: {fileID: 8688719016923514437, guid: 34b8a5b611529b24a848d550e989d190,
+        type: 2}
+    - target: {fileID: 5484123425755743812, guid: 26ceae4bf864c574ca1d77d1abf50ece,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[22].value
+      value: 
+      objectReference: {fileID: 1980316085}
     - target: {fileID: 6225166899883613666, guid: 26ceae4bf864c574ca1d77d1abf50ece,
         type: 3}
       propertyPath: m_Name
@@ -72646,7 +72679,15 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 233563373}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6225166899883613666, guid: 26ceae4bf864c574ca1d77d1abf50ece,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1980316085}
+    - targetCorrespondingSourceObject: {fileID: 6225166899883613666, guid: 26ceae4bf864c574ca1d77d1abf50ece,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1980316084}
   m_SourcePrefab: {fileID: 100100000, guid: 26ceae4bf864c574ca1d77d1abf50ece, type: 3}
 --- !u!4 &1980316081 stripped
 Transform:
@@ -72660,6 +72701,69 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1980316080}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1980316083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6225166899883613666, guid: 26ceae4bf864c574ca1d77d1abf50ece,
+    type: 3}
+  m_PrefabInstance: {fileID: 1980316080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1980316084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980316083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb94d687a66cd242a3c1d757b23e7d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1980316085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980316083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 672dc57d18f333347a633de9862aaf40, type: 2}
+    - {fileID: 11400000, guid: 87a718162dc2fbc488caaeb8aae81e45, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1980316084}
+          m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+          m_MethodName: HidePlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1980316084}
+          m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+          m_MethodName: ShowPlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1981057667
 GameObject:
   m_ObjectHideFlags: 0

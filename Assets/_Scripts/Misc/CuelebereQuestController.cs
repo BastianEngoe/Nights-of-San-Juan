@@ -11,4 +11,9 @@ public class CuelebereQuestController : MonoBehaviour
             eventToTrigger.Invoke();
         }
     }
+
+    public void PlayCredits()
+    {
+        MenusManager.instance.transform.GetChild(MenusManager.instance.transform.childCount-1).gameObject.SetActive(true);
+    }
 }
