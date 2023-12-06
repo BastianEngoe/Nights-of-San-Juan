@@ -223,6 +223,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             camManager.UpdateCameraState(CameraState.MenuState);
             inputManager.onPause = true;
+            MenusManager.instance.GetObjectsOfMenu();
         }
         else
         {

@@ -14,7 +14,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action OnPageLeftEvent; 
     public event Action OnPageRightEvent; 
     public event Action OnCutsceneStartEvent; 
-    public event Action OnPauseEvent; 
+    public event Action OnPauseEvent;
+    public event Action OnMoveMenuEvent;
 
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -39,6 +40,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         movementValue = context.ReadValue<Vector2>();
+        if (!context.performed && context.action.WasReleasedThisFrame())
+        {
+            OnMoveMenuEvent?.Invoke();
+        }
     }
 
     public void OnNextLine(InputAction.CallbackContext context)
