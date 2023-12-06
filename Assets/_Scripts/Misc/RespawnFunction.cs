@@ -15,8 +15,10 @@ public class RespawnFunction : MonoBehaviour
         transform.position = startPosition;
     }
 
-    public void Respawn(Vector3 position)
+    public void Respawn(Transform transLocation)
     {
-        transform.position = position;
+        GameManager.instance.playerObject.GetComponent<CharacterController>().enabled = false;
+        GameManager.instance.playerObject.transform.position = transLocation.position;
+        GameManager.instance.playerObject.GetComponent<CharacterController>().enabled = true;
     }
 }
