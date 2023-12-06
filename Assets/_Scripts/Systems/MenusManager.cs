@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class MenusManager : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenu, settingsMenu,pauseMenu;
+    [SerializeField] public GameObject mainMenu, settingsMenu,pauseMenu;
     [SerializeField] private Toggle toggleScreen;
     [SerializeField] private JournalManager journalManager;
     [SerializeField] private CameraManager camManager;
@@ -121,7 +121,7 @@ public class MenusManager : MonoBehaviour
 
     public void ToSettings()
     {
-        if(!inputManager.onPause)
+        if(!GameManager.instance.onPause)
         mainMenu.SetActive(false);
         else
         pauseMenu.SetActive(false);

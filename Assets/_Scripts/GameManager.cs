@@ -235,6 +235,7 @@ public class GameManager : MonoBehaviour
                 camManager.UpdateCameraState(CameraState.JournalState);
             else
             camManager.UpdateCameraState(CameraState.MoveState);
+            MenusManager.instance.settingsMenu.SetActive(false);
             inputManager.onPause = false;
         }
     }
