@@ -13,7 +13,7 @@ public class InteractableData : MonoBehaviour
     public UnityEvent eventToTrigger;
     public Vector3 cameraOffset = new Vector3(0, 1, 0);
     public bool triggerEventWhenFinished;
-    public int triggerCount = 0;
+    [HideInInspector] public int triggerCount = 0;
 
     [HideInInspector] public JournalManager journalManager;
 
@@ -40,6 +40,7 @@ public class InteractableData : MonoBehaviour
         }
     }
 
+    //Safely advances data from any other method
     public void TriggerEventFromElse()
     {
 
@@ -53,6 +54,7 @@ public class InteractableData : MonoBehaviour
         }
     }
 
+    //Moves to the next event
     private void AdvanceData()
     {
         if (events[0].journalEntriesToUnlock.Count != 0)
@@ -76,6 +78,7 @@ public class InteractableData : MonoBehaviour
         triggerCount++;
     }
 
+    //Advances events n times
     public void AdvanceEventNum(int n)
     {
         for(int i = 0; i<n; i++)

@@ -20,6 +20,7 @@ public class WorldSaveSystem : MonoBehaviour
         instance = this;
     }
 
+    //Saves relevant data from all scenes except for bootscene using playerprefs
     public void SaveAll()
     {
         PlayerPrefs.SetFloat("PlayerPosX",GameManager.instance.playerObject.transform.position.x);
@@ -60,6 +61,7 @@ public class WorldSaveSystem : MonoBehaviour
         PlayerPrefs.SetString("SavedData", saveData);
     }
 
+    //Adds the game object and its children to be saved recursively
     private void SaveGameObjectAndChildren(GameObject obj)
     {
         for(int i=0; i<obj.transform.childCount; i++)
